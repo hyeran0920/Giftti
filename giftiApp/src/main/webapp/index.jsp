@@ -24,6 +24,9 @@
         th, td{
             font-size: 1rem;
         }
+        a{
+        	text-decoration: none;
+        }
     </style>
 </head>
 
