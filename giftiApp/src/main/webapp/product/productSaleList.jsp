@@ -57,7 +57,7 @@
                             <tbody>
 								<c:forEach var="saleItem" items="saleItems">
 								<tr>
-                                    <td><a href="/trans/sellInfo.do?registerId=${saleItem.registerId}">${saleItem.registerId}</a></td>
+                                    <td><a href="sellInfo.trans?registerId=${saleItem.registerId}">${saleItem.registerId}</a></td>
                                     <td>${saleItem.sellId}</td>
                                     <td>${saleItem.salePrice}</td>
                                     <td>${saleItem.discount}</td>

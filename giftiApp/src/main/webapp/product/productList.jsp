@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,20 +66,20 @@
                                 <c:forEach var="product" items="${products}">
                                 	<tr>
                                 		<td>${product.itemId}</td>
-                                		<td><a href="/product/giftUpdateView.do?itemId=${product.itemId}">${product.itemName }</a></td>
-                                		<td>${product.price }</td>
+                                		<td><a href="giftUpdateView.product?itemId=${product.itemId}">${product.itemName }</a></td>
+                                		<td><fmt:formatNumber value="${product.price}" pattern="\#,###"/></td>
                                 		<td>${product.brand }</td>
                                 		<td>${product.category }</td>
                                 		<td>
                                         <div class="box-footer">
                                             <!-- {% if session_user_name == orm_obj.writer %} -->
                                             <button type="submit" class="btn btn-primary btn-sm"
-                                                id="btn_update" onclick="location.href='/product/giftUpdateView.do?itemId=${product.itemId}'">수정</button>
+                                                id="btn_update" onclick="location.href='giftUpdateView.product?itemId=${product.itemId}'">수정</button>
                                             <button type="submit" class="btn btn-danger btn-sm"
-                                                id="btn_delete" onclick="location.href='/product/gitftDelete.do?itemId=${product.itemId}'">삭제</button>
+                                                id="btn_delete" onclick="location.href='gitftDelete.product?itemId=${product.itemId}'">삭제</button>
                                         </div>
                                     	</td>
-                                		<td><a href="/trans/sellList.do?itemId=${product.itemId}&itemName=${product.itemName}">${product.count }</a></td>
+                                		<td><a href="sellList.trans?itemId=${product.itemId}&itemName=${product.itemName}">${product.count }</a></td>
                                 	</tr>
                                 </c:forEach>
                             </tbody>

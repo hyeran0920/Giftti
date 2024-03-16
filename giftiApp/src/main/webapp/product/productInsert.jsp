@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -27,8 +24,8 @@
                 <!-- START -->
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">새로운 상품 등록</h1>
-                    <!-- 나중에 ${name}으로 가져오면될듯 -->
-                    <ol class="breadcrumb mb-10">
+                 <!-- 나중에 ${name}으로 가져오면될듯 -->
+                       <ol class="breadcrumb mb-10">
                         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                         <li class="breadcrumb-item active"><a href="#"></a>상품 등록</li>
                     </ol>
@@ -36,7 +33,7 @@
                     <!-- TABLE START -->
                     <div class="card-body">
                         <h3> 관리자 상품 등록 </h3>
-                        <form action="/product/giftInsert.do" method="post">
+                        <form action="giftInsert.product" method="post">
                         	<table id="datatablesSimple" class="table table-bordered justify-content-center">
                             <thead>
                             </thead>
@@ -58,7 +55,7 @@
                                     <td>
                                      
                                         <select  class="form-control" name="category" id="category">
-                                        	<c:forEach var="category" items="categories">
+                                        	<c:forEach var="category" items="${ categories}">
 		                                        <option value="${category }">${category }</option>
                                         	</c:forEach>
                                         </select> 
@@ -68,11 +65,8 @@
                                 </tr>
                                 <tr>
                                     <th>브랜드</th>
-                                    <td><select  class="form-control" name="brand" id="brand">
-                                        	<c:forEach var="brand" items="brands">
-		                                        <option value="${brand }">${brand }</option>
-                                        	</c:forEach>
-                                        </select> 
+                                    <td>
+                                        <input type="text"  class="form-control" name="brand" required>
                                     </td>
                                 </tr>
                                 

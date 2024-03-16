@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -36,23 +33,23 @@
                     <!-- TABLE START -->
                     <div class="card-body">
                         <h3> 관리자 상품 등록 </h3>
-                        <form action="/product/giftUpdate.do" method="post">
+                        <form action="giftUpdate.product" method="post">
                         	<table id="datatablesSimple" class="table table-bordered justify-content-center">
                             <thead>
                             </thead>
                             <tbody>
                            		 <tr>
                                     <th>등록번호</th>
-                                    <td><input type="text" class="form-control" name="item_id" value=${product.itemId } readonly > </td>
+                                    <td><input type="text" class="form-control" name="item_id" value="${product.itemId }" readonly > </td>
                                 </tr>
                                 <tr>
                                     <th>상품명</th>
-                                    <td><input type="text"  class="form-control" name="item_name" value=${product.itemName }> </td>
+                                    <td><input type="text"  class="form-control" name="item_name" value="${product.itemName }"> </td>
                                 </tr>
 
                                 <tr>
                                     <th>정가</th>
-                                    <td><input type="text"  class="form-control" name="price" required value=${product.price }> </td>
+                                    <td><input type="text"  class="form-control" name="price" required value="${product.price }"> </td>
                                 </tr>
                                 <th>카테고리</th>
                                     <td>
@@ -72,14 +69,7 @@
                                 <tr>
                                     <th>브랜드</th>
                                     <td>
-                                    	<select  class="form-control" name="brand" id="brand">
-                                    		<option value="${product.brand }" selected="selected">${product.brand }</option>
-                                        	<c:forEach var="brand" items="brands">
-                                        		<c:if test="${brand } ne ${product.brand}">
-		                                       		<option value="${brand }">${brand }</option>
-		                                        </c:if>
-                                        	</c:forEach>
-                                        </select> 
+                                    	<input type="text"  class="form-control" name="brand" value="${product.brand }" required>
                                     </td>
                                 </tr>
                                 
