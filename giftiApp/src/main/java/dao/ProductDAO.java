@@ -15,12 +15,13 @@ public class ProductDAO {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	private final String SELECT_PRODUCTS = "select item_id, item_name, price, brand, category, (select count(*) from sale_tbl as S where S.item_id = G.item_id and insale ='Available') as count from gifticon_tbl as G;";
+	private final String SELECT_PRODUCTS = "select item_id, item_name, price, brand, category, (select count(*) from sale_tbl as S where S.item_id = G.item_id and insale ='Available') as count from gifticon_tbl as G order by item_id;";
 	private final String INSERT_PRODUCT = "insert into gifticon_tbl(item_name, price,brand,category,image) values(?,?,?,?,?);";
-	private final String SELECT_PRODUCT = "select item_id, item_name, price, category, brand, image from product_tbl where item_id = ?;";
+	private final String SELECT_PRODUCT = "select item_id, item_name, price, category, brand, image from gifticon_tbl where item_id = ?;";
 	private final String UPDATE_PRODUCT = "update gifticon_tbl set item_name=?, price =?, brand=?, category=?, image=? where item_id=?;";
-	private final String GET_BRAND = "selecte distinct brand from gifticon_tbl";
-	private final String GET_CATEGORY = "selecte distinct category from gifticon_tbl";
+	private final String GET_CATEGORY = "select distinct category from gifticon_tbl";
+	private final String DELETE_PRODUCT = "delete from gifticon_tbl where item_id=?;";
+	private final String GET_CURRENT_ITEMID = "select max(item_id)+1 as current_itemId from gifticon_tbl;";
 	
 	
 	public void insert(ProductDTO product) {
@@ -92,7 +93,8 @@ public class ProductDAO {
 		}
 		return product;
 	}
-	public void Update(ProductDTO product) {
+	public String Update(ProductDTO product) {
+		String message = "업데이트를 실패하였습니다.";
 		try {
 			con = DBConnection.getConnection();
 			pstmt = con.prepareStatement(UPDATE_PRODUCT);
@@ -102,23 +104,11 @@ public class ProductDAO {
 			pstmt.setString(4, product.getCategory());
 			pstmt.setString(5, product.getImage());
 			pstmt.setInt(6, product.getItemId());
-			pstmt.executeUpdate();
+			int success = pstmt.executeUpdate();
 			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			DBConnection.close(rs, pstmt, con);
-		}
-	}
-	public List<String> getBrand(){
-		List<String> brands = new ArrayList<>();
-		try {
-			con = DBConnection.getConnection();
-			pstmt = con.prepareStatement(GET_BRAND);
-			rs = pstmt.executeQuery();
 			
-			while(rs.next()) {
-				brands.add(rs.getString("brand"));
+			if(success > 0) {
+				message = "업데이트를 성공하였습니다!";
 			}
 			
 		} catch (SQLException e) {
@@ -126,8 +116,9 @@ public class ProductDAO {
 		} finally {
 			DBConnection.close(rs, pstmt, con);
 		}
-		return brands;
+		return message;
 	}
+	
 	public List<String> getCategory(){
 		List<String> categories = new ArrayList<>();
 		try {
@@ -145,5 +136,46 @@ public class ProductDAO {
 			DBConnection.close(rs, pstmt, con);
 		}
 		return categories;
+	}
+	
+	public String delete(int itemId) {
+		String message = "삭제를 실패하였습니다.";
+		try {
+			con = DBConnection.getConnection();
+			pstmt = con.prepareStatement(DELETE_PRODUCT);
+			pstmt.setInt(1, itemId);
+			
+			int success = pstmt.executeUpdate();
+			
+			if(success > 0) {
+				message = "삭제를 성공하였습니다!";
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(rs, pstmt, con);
+		}
+		
+		return message;
+		
+	}
+	
+	public int getCurrentItemId() {
+		int currentItemId = 1;
+		try {
+			con = DBConnection.getConnection();
+			pstmt = con.prepareStatement(GET_CURRENT_ITEMID);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				currentItemId = rs.getInt("current_itemId");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(rs, pstmt, con);
+		}
+		return currentItemId;
 	}
 }

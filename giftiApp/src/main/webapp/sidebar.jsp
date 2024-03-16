@@ -70,8 +70,8 @@
                         <div class="collapse" id="collapseLayouts-product" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="productList.html"><span class="text-color-giffty-h">상품 관리</span></a>
-                                <a class="nav-link" href="productInsert.html"><span class="text-color-giffty-h">상품 등록</span></a>
+                                <a class="nav-link" href="giftList.product"><span class="text-color-giffty-h">상품 조회</span></a>
+                                <a class="nav-link" href="giftInsertView.product"><span class="text-color-giffty-h">상품 등록</span></a>
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading"><span class="text-color-giffty">거래</span></div>
