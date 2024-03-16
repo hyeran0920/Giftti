@@ -59,6 +59,7 @@ public class TransDAO {
 		return transactions;
 	}
 	
+	//전체에서 판매중 내역
 	public List<TransDTO> findForSale(){
 		List<TransDTO> transactions = new ArrayList<>();
 		
@@ -93,6 +94,7 @@ public class TransDAO {
 		
 		return transactions;
 	}
+	//거래 완료 내역
 	public List<TransDTO> findSoldOut(){
 		List<TransDTO> transactions = new ArrayList<>();
 		
@@ -124,6 +126,8 @@ public class TransDAO {
 		
 		return transactions;
 	}
+	
+	//특정 상품 판매중 내역
 	public List<TransDTO> findSaleItem(int itemId){
 		List<TransDTO> transactions = new ArrayList<>();
 		
@@ -185,5 +189,6 @@ public class TransDAO {
 			DBConnection.close(rs, pstmt, con);
 		}
 	}
+
 	
 }
