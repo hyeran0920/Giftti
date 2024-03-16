@@ -75,10 +75,10 @@
                                             <button type="submit" class="btn btn-primary btn-sm"
                                                 id="btn_update" onclick="location.href='/product/giftUpdateView.do?itemId=${product.itemId}'">수정</button>
                                             <button type="submit" class="btn btn-danger btn-sm"
-                                                id="btn_delete" onclick="location.href='/product/gitftDelete.do?itemId=${item.id}'">삭제</button>
+                                                id="btn_delete" onclick="location.href='/product/gitftDelete.do?itemId=${product.itemId}'">삭제</button>
                                         </div>
                                     	</td>
-                                		<td><a href="/trans/sellList.do?itemId=${product.itemId}">${product.count }</a></td>
+                                		<td><a href="/trans/sellList.do?itemId=${product.itemId}&itemName=${product.itemName}">${product.count }</a></td>
                                 	</tr>
                                 </c:forEach>
                             </tbody>

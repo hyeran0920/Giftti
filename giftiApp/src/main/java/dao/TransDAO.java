@@ -23,6 +23,7 @@ public class TransDAO {
 			+ "from trans_tbl as T inner join sale_tbl as S on T.register_id = S.register_id "
 			+ "inner join gifticon_tbl G inner join on S.item_id = G.item_id where isSale = true;";
 	private final String SELECT_SALE_ITEM = "select register_id, user_id, price, sale_price, avail_date, inDate from gifticon_tbl as G inner join Sale_tbl as S on G.item_id = S.item_id where isSale = false and item_id = ?";
+	private final String SELECT_SALE_INFO = "select register_id, user_id, price, sale_price, avail_date, inDate from gifticon_tbl as G inner join Sale_tbl as S on G.item_id = S.item_id where register_id = ?";
 	private final String DELETE_TRANSACTIONS = "delete from trans_tbl where register_id = ?";
 	private final String DELETE_SALE = "delete from sale_tbl where register_id = ?";
 	
@@ -143,7 +144,6 @@ public class TransDAO {
 				dto.setSellId(rs.getString("user_id"));
 				int price = rs.getInt("price");
 				int salePrice = rs.getInt("sale_price");
-				dto.setPrice(price);
 				dto.setSalePrice(salePrice);
 				dto.setAvailDate(rs.getDate("avail_date"));
 				dto.setInDate(rs.getDate("inDate"));
@@ -160,6 +160,35 @@ public class TransDAO {
 		
 		return transactions;
 	}
+	//특정 상품 판매중 상세 내역
+		public TransDTO findSaleInfo(int registerId){
+			TransDTO saleProduct = new TransDTO();
+			
+			try {
+				con = DBConnection.getConnection();
+				pstmt = con.prepareStatement(SELECT_SALE_INFO);
+				pstmt.setInt(1, registerId);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					saleProduct.setRegisterId(rs.getInt("register_id"));
+					saleProduct.setSellId(rs.getString("user_id"));
+					int price = rs.getInt("price");
+					int salePrice = rs.getInt("sale_price");
+					saleProduct.setSalePrice(salePrice);
+					saleProduct.setAvailDate(rs.getDate("avail_date"));
+					saleProduct.setInDate(rs.getDate("inDate"));
+					double discount = Math.round((double)salePrice/price * 10000) / 100.0;
+					saleProduct.setDiscount(discount);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBConnection.close(rs, pstmt, con);
+			}
+			
+			return saleProduct;
+		}
 	
 	//거래내역부터 지우고 판매내역 지워야 함
 	public void deleteSale(int registerId) {

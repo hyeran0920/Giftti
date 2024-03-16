@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Tables - SB Admin</title>
+    <title>판매중 내역</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="../css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -24,7 +24,7 @@
             <main>
                 <!-- START -->
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">상품명${item_name}</h1>
+                    <h1 class="mt-4">{itemName} 판매중 내역</h1>
                     <!-- 나중에 ${name}으로 가져오면될듯 -->
                     <ol class="breadcrumb mb-10">
                         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
@@ -55,38 +55,17 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-
-                                <tr>
-                                    <td><a href="productInfo.html">${register_id}</a></td>
-                                    <td>${user_id}</td>
-                                    <td>${sale_price}</td>
-                                    <td>${discount}</td>
-                                    <td>${avail_date} </td>
-                                    <td>${inDate} </td>
+								<c:forEach var="saleItem" items="saleItems">
+								<tr>
+                                    <td><a href="/trans/sellInfo.do?registerId=${saleItem.registerId}">${saleItem.registerId}</a></td>
+                                    <td>${saleItem.sellId}</td>
+                                    <td>${saleItem.salePrice}</td>
+                                    <td>${saleItem.discount}</td>
+                                    <td>${saleItem.availDate} </td>
+                                    <td>${saleItem.inDate} </td>
                                 </tr>
-
-                                <tr>
-                                    <td><a href="productInfo.html">1</a></td>
-                                    <td>user1</td>
-                                    <td>21,000</td>
-                                    <td>14%</td>
-                                    <td>20일남음 </td>
-                                    <td>2024-03-09 </td>
-                                </tr>
-
-                                <tr>
-                                    <td><a href="productInfo.html">2</a></td>
-                                    <td>user2</td>
-                                    <td>21,700</td>
-                                    <td>11%</td>
-                                    <td>45일남음 </td>
-                                    <td>2024-03-01 </td>
-                                </tr>
-
-
-
-
-
+								
+								</c:forEach>
 
                             </tbody>
                         </table>

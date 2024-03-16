@@ -24,7 +24,7 @@
       <main>
         <!-- START -->
         <div class="container-fluid px-4">
-          <h1 class="mt-4">상품명${item_name}</h1>
+          <h1 class="mt-4">판매 상세 내역</h1>
           <!-- 나중에 ${name}으로 가져오면될듯 -->
           <ol class="breadcrumb mb-10">
             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
@@ -41,27 +41,27 @@
 
                 <tr>
                   <th>등록번호</th>
-                  <td>1 ${register_id}</td>
+                  <td>${saleItem.registerId}</td>
                 </tr>
                 <tr>
                   <th>등록회원</th>
-                  <td>user1 ${user_id}</td>
+                  <td>${saleItem.sellId}</td>
                 </tr>
                 <tr>
                   <th>판매가</th>
-                  <td>21,000 ${sale_price}</td>
+                  <td>${saleItem.salePrice}</td>
                 </tr>
                 <tr>
                   <th>할인율</th>
-                  <td>14% ${discount}</td>
+                  <td>${saleItem.discount}</td>
                 </tr>
                 <tr>
                   <th>유효 기간</th>
-                  <td>20일 남음 ${avail_date}</td>
+                  <td>${saleItem.availDate}</td>
                 </tr>
                 <tr>
                   <th>등록 일자</th>
-                  <td>2024-03-09 ${inDate}</td>
+                  <td>${saleItem.inDate}</td>
                 </tr>
 
 
