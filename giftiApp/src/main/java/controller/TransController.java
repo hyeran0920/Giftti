@@ -31,13 +31,13 @@ public class TransController extends HttpServlet {
 		String URI = request.getRequestURI();
 		String PATH = URI.substring(URI.lastIndexOf("/"));
 		String view = "";
-		
-		if(PATH.equals("sellList.trans")) {
+		System.out.println(PATH);
+		if(PATH.equals("/sellList.trans")) {
 			int itemId = Integer.parseInt(request.getParameter("itemId"));
 			request.setAttribute("saleItems", dao.findSaleItem(itemId));
 			request.setAttribute("itemName", request.getAttribute("itemName"));
 			view = "/product/productSaleList.jsp";
-		} else if(PATH.equals("sellInfo.trans")) {
+		} else if(PATH.equals("/sellInfo.trans")) {
 			int registerId = Integer.parseInt(request.getParameter("registerId"));
 			request.setAttribute("saleItem", dao.findSaleInfo(registerId));
 			view = "/product/saleProductInfo.jsp";

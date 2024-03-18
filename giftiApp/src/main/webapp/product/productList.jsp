@@ -13,7 +13,7 @@
     <meta name="author" content="" />
     <title>상품 리스트</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="/giftiApp/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 	<style type="text/css">
 		button {
@@ -66,7 +66,7 @@
                                 <c:forEach var="product" items="${products}">
                                 	<tr>
                                 		<td>${product.itemId}</td>
-                                		<td><a href="giftUpdateView.product?itemId=${product.itemId}">${product.itemName }</a></td>
+                                		<td><a href="giftInfo.product?itemId=${product.itemId}">${product.itemName }</a></td>
                                 		<td><fmt:formatNumber value="${product.price}" pattern="\#,###"/></td>
                                 		<td>${product.brand }</td>
                                 		<td>${product.category }</td>
@@ -79,7 +79,11 @@
                                                 id="btn_delete" onclick="location.href='gitftDelete.product?itemId=${product.itemId}'">삭제</button>
                                         </div>
                                     	</td>
-                                		<td><a href="sellList.trans?itemId=${product.itemId}&itemName=${product.itemName}">${product.count }</a></td>
+                                    	<c:url value="sellList.trans" var="sellList">
+                                    		<c:param name="itemId" value="${product.itemId }"/>
+                                    		<c:param name="itemName" value="${product.itemName }"/>
+                                    	</c:url>
+                                		<td><a href="${sellList }">${product.count }</a></td>
                                 	</tr>
                                 </c:forEach>
                             </tbody>
@@ -93,10 +97,10 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
-    <script src="../js/scripts.js"></script>
+    <script src="/giftiApp/js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
-    <script src="../js/datatables-simple-demo.js"></script>
+    <script src="/giftiApp/js/datatables-simple-demo.js"></script>
 </body>
 
 </html>
