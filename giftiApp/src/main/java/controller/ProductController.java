@@ -35,7 +35,6 @@ public class ProductController extends HttpServlet {
 		System.out.println(PATH);
 		
 		if(PATH.equals("/giftList.product")) {
-			
 			request.setAttribute("products",dao.findAll());
 			view = "/product/productList.jsp";
 			
@@ -84,7 +83,7 @@ public class ProductController extends HttpServlet {
 			int itemId = Integer.parseInt(request.getParameter("itemId"));
 			dao.delete(itemId);
 			
-			view = "giftList..product";
+			view = "giftList.product";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);

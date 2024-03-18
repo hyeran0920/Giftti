@@ -32,12 +32,14 @@ public class TransController extends HttpServlet {
 		String PATH = URI.substring(URI.lastIndexOf("/"));
 		String view = "";
 		
-		if(PATH.equals("sellList.trans")) {
-			int itemId = Integer.parseInt(request.getParameter("itemId"));
-			request.setAttribute("saleItems", dao.findSaleItem(itemId));
-			request.setAttribute("itemName", request.getAttribute("itemName"));
-			view = "/product/productSaleList.jsp";
-		} else if(PATH.equals("sellInfo.trans")) {
+		if(PATH.equals("/sellList.trans")) {
+			System.out.println("거래 리스트");
+		
+			request.setAttribute("saleItems", dao.findAll());
+			view = "trans/transList.jsp";
+				
+		}
+		else if(PATH.equals("sellInfo.trans")) {
 			int registerId = Integer.parseInt(request.getParameter("registerId"));
 			request.setAttribute("saleItem", dao.findSaleInfo(registerId));
 			view = "/product/saleProductInfo.jsp";

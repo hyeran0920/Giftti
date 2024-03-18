@@ -15,9 +15,7 @@ public class TransDAO {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	private final String SELECT_TRANSACTIONS = "select S.register_id as register_id, category, item_name, user_id, buy_id, price, sale_price, inDate, trans_date, isSale "
-												+ "from trans_tbl as T inner join sale_tbl as S on T.register_id = S.register_id "
-												+ "inner join gifticon_tbl G inner join on S.item_id = G.item_id;";
+	private final String SELECT_TRANSACTIONS = "SELECT * FROM sale_tbl AS S INNER JOIN gifticon_tbl AS G ON G.item_id = S.item_id WHERE S.insale = 'Available'";
 	private final String SELECT_SALES = "select register_id, user_id, item_name, brand, category, price, sale_price, avail_date, inDate from sale_tbl as S inner join gifticon_tbl as G on S.item_id = G.item_id;";
 	private final String SELECT_SOLDOUT = "select S.register_id as register_id, category, item_name, user_id, buy_id, price, sale_price, inDate, trans_date, isSale "
 			+ "from trans_tbl as T inner join sale_tbl as S on T.register_id = S.register_id "
@@ -39,14 +37,14 @@ public class TransDAO {
 			while(rs.next()) {
 				TransDTO dto = new TransDTO();
 				dto.setRegisterId(rs.getInt("register_id"));
-				dto.setCategory(rs.getString("category"));
+//				dto.setCategory(rs.getString("category"));
 				dto.setItemName(rs.getString("item_name"));
 				dto.setSellId(rs.getString("user_id"));
-				dto.setBuyId(rs.getString("buy_id"));
+//				dto.setBuyId(rs.getString("buy_id"));
 				dto.setPrice(rs.getInt("price"));
 				dto.setSalePrice(rs.getInt("sale_price"));
 				dto.setInDate(rs.getDate("inDate"));
-				dto.setTransDate(rs.getDate("trans_date"));
+//				dto.setTransDate(rs.getDate("trans_date"));
 				dto.setSale(rs.getBoolean("isSale"));
 				
 				transactions.add(dto);

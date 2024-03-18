@@ -54,8 +54,8 @@
                         <div class="collapse" id="collapseLayouts-user" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="userList.html"><span class="text-color-giffty-h">유저 조회</span></a>
-                                <a class="nav-link" href="userInfo.html"><span class="text-color-giffty-h">유저 수정</span></a>
+                                <a class="nav-link" href="userList.user"><span class="text-color-giffty-h">유저 조회</span></a>
+                                <a class="nav-link" href="userInfo.user"><span class="text-color-giffty-h">유저 수정</span></a>
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading"><span class="text-color-giffty">상품</span>
@@ -89,7 +89,7 @@
                         <div class="collapse" id="collapseLayouts-tran" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link text-color-giffty" href="./TransList.html"><span class="text-color-giffty-h">거래 내역</span></a><!--거래 조회페이지-->
+                                <a class="nav-link text-color-giffty" href="sellList.trans"><span class="text-color-giffty-h">거래 내역</span></a><!--거래 조회페이지-->
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading"><span class="text-color-giffty">고객지원</span></div>
