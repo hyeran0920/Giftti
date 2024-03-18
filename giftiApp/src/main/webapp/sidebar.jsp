@@ -55,7 +55,6 @@
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="userList.user"><span class="text-color-giffty-h">유저 조회</span></a>
-                                <a class="nav-link" href="userInfo.user"><span class="text-color-giffty-h">유저 수정</span></a>
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading"><span class="text-color-giffty">상품</span>
