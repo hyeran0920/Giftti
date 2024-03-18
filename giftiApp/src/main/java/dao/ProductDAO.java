@@ -15,7 +15,7 @@ public class ProductDAO {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	private final String SELECT_PRODUCTS = "select item_id, item_name, price, brand, category, (select count(*) from sale_tbl as S where S.item_id = G.item_id and insale ='Available') as count from gifticon_tbl as G order by item_id;";
+	private final String SELECT_PRODUCTS = "select item_id, item_name, price, brand, category, (select count(*) from sale_tbl as S where S.item_id = G.item_id and isSale ='Available') as count from gifticon_tbl as G order by item_id;";
 	private final String INSERT_PRODUCT = "insert into gifticon_tbl(item_name, price,brand,category,image) values(?,?,?,?,?);";
 	private final String SELECT_PRODUCT = "select item_id, item_name, price, category, brand, image from gifticon_tbl where item_id = ?;";
 	private final String UPDATE_PRODUCT = "update gifticon_tbl set item_name=?, price =?, brand=?, category=?, image=? where item_id=?;";

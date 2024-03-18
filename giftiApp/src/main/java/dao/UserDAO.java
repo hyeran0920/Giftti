@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DBConnection.DBConnection;
-import dto.ProductDTO;
 import dto.UserDTO;
 
 
@@ -23,7 +22,7 @@ public class UserDAO {
 	//userlist에서 먼저 회원 조회를 해야한다
 //	private final String SELECT_PRODUCTS = "select item_id, item_name, price, brand, category, (select count(*) from sale_tbl as S where S.item_id = G.item_id and insale ='Available') as count from gifticon_tbl as G order by item_id;";
 
-	private final String SELECT_USER = "SELECT *, (SELECT COUNT(*) FROM sale_tbl AS S WHERE S.user_id = U.user_id AND insale = 'Available') AS sale_count FROM user_tbl AS U;";
+	private final String SELECT_USER = "SELECT *, (SELECT COUNT(*) FROM sale_tbl AS S WHERE S.user_id = U.user_id AND isSale = 'Available') AS sale_count FROM user_tbl AS U;";
 //	private final String SELECT_USER = "select * from user_tbl;";
 	
 	public List<UserDTO> findAll(){

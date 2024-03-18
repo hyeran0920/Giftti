@@ -38,9 +38,7 @@ public class TransController extends HttpServlet {
 			request.setAttribute("saleItems", dao.findAll());
 			view = "trans/transList.jsp";
 				
-		}
-		else if(PATH.equals("sellInfo.trans")) {
-		System.out.println(PATH);
+		}else if(PATH.equals("sellInfo.trans")) {
 			int registerId = Integer.parseInt(request.getParameter("registerId"));
 			request.setAttribute("saleItem", dao.findSaleInfo(registerId));
 			view = "/product/saleProductInfo.jsp";
