@@ -13,6 +13,12 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="/giftiApp/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+	<style type="text/css">
+		img.giftImage{
+			width: 300px;
+			height:300px;
+		}
+	</style>
 </head>
 <body>
 	<class class="sb-nav-fixed">
@@ -64,7 +70,7 @@
                                 <tr>
                                     <th>이미지</th>
                                     <td>
-										<img src="/giftiApp/productImages/${product.image }" alt="$Product.image"> 
+										<img class="giftImage" src="/giftiApp/productImages/${product.image }" alt="$Product.image"> 
                                     </td>
                                 </tr>
                             </tbody>
