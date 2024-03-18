@@ -15,7 +15,7 @@ public class TransDAO {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	private final String SELECT_TRANSACTIONS = "SELECT * FROM sale_tbl AS S INNER JOIN gifticon_tbl AS G ON G.item_id = S.item_id WHERE S.insale = 'Available'";
+	private final String SELECT_TRANSACTIONS = "SELECT * FROM sale_tbl AS S INNER JOIN gifticon_tbl AS G ON G.item_id = S.item_id";
 	private final String SELECT_SALES = "select register_id, user_id, item_name, brand, category, price, sale_price, avail_date, inDate from sale_tbl as S inner join gifticon_tbl as G on S.item_id = G.item_id;";
 	private final String SELECT_SOLDOUT = "select S.register_id as register_id, category, item_name, user_id, buy_id, price, sale_price, inDate, trans_date, isSale "
 			+ "from trans_tbl as T inner join sale_tbl as S on T.register_id = S.register_id "
@@ -45,7 +45,12 @@ public class TransDAO {
 				dto.setSalePrice(rs.getInt("sale_price"));
 				dto.setInDate(rs.getDate("inDate"));
 //				dto.setTransDate(rs.getDate("trans_date"));
-				dto.setSale(rs.getBoolean("isSale"));
+				String sale = rs.getString("isSale");
+				if(sale.equals("Available")) {
+					dto.setSale(false);
+				} else {
+					dto.setSale(true);
+				}
 				
 				transactions.add(dto);
 			}
@@ -113,7 +118,12 @@ public class TransDAO {
 				dto.setSalePrice(rs.getInt("sale_price"));
 				dto.setInDate(rs.getDate("inDate"));
 				dto.setTransDate(rs.getDate("trans_date"));
-				dto.setSale(rs.getBoolean("isSale"));
+				String sale = rs.getString("isSale");
+				if(sale.equals("Available")) {
+					dto.setSale(false);
+				} else {
+					dto.setSale(true);
+				}
 				
 				transactions.add(dto);
 			}
