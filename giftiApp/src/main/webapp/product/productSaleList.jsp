@@ -24,7 +24,7 @@
             <main>
                 <!-- START -->
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">{itemName} 판매중 내역</h1>
+                    <h1 class="mt-4">${itemName} 판매중 내역</h1>
                     <!-- 나중에 ${name}으로 가져오면될듯 -->
                     <ol class="breadcrumb mb-10">
                         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>

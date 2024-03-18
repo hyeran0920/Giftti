@@ -84,7 +84,7 @@ public class ProductController extends HttpServlet {
 			int itemId = Integer.parseInt(request.getParameter("itemId"));
 			dao.delete(itemId);
 			
-			view = "giftList..product";
+			view = "giftList.product";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
