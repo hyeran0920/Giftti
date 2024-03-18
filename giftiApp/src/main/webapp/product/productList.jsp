@@ -19,7 +19,17 @@
 		button {
 			cursor: pointer;
 		}
+		@font-face {
+    	font-family: 'NEXON Lv1 Gothic OTF';
+    	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    	font-weight: normal;
+    		font-style: normal;
+		}	
+		.sb-nav-fixed{
+			font-family: 'NEXON Lv1 Gothic OTF';
+		}
 	</style>
+	
 </head>
 
 <body class="sb-nav-fixed">
@@ -30,14 +40,20 @@
             <main>
                 <!-- START -->
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">상품조회</h1>
-                    <ol class="breadcrumb mb-10">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="#"></a>상품 관리</li>
-                        밑에있는걸 지우고싶은데 script url로 연결됨
-                    </ol>
+                    <h3 class="mt-4">
+						<span class="text-primary">상품관리 </span>> 상품조회
+					</h3>
+					<ol class="breadcrumb mb-4">
+						<li class="breadcrumb-item active">상품 관리 화면</li>
+					</ol>
+                    
+                    <hr class="mb-40">
+					<div class="card mb-4">
 
                     <!-- TABLE START -->
+                    <div class="card-header">
+						<i class="fas fa-table me-1"></i> 상품 전체 조회
+					</div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
@@ -67,7 +83,7 @@
                                 	<tr>
                                 		<td>${product.itemId}</td>
                                 		<td><a href="giftInfo.product?itemId=${product.itemId}">${product.itemName }</a></td>
-                                		<td><fmt:formatNumber value="${product.price}" pattern="\#,###"/></td>
+                                		<td><fmt:formatNumber value="${product.price}" pattern="#,###원"/></td>
                                 		<td>${product.brand }</td>
                                 		<td>${product.category }</td>
                                 		<td>
@@ -88,6 +104,7 @@
                                 </c:forEach>
                             </tbody>
                         </table>
+                    </div>
                     </div>
                 </div>
             </main>

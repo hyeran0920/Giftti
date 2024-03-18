@@ -18,6 +18,16 @@
 			width: 300px;
 			height:300px;
 		}
+		@font-face {
+    	font-family: 'NEXON Lv1 Gothic OTF';
+    	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    	font-weight: normal;
+    		font-style: normal;
+		}	
+		
+.sb-nav-fixed{
+		font-family: 'NEXON Lv1 Gothic OTF';
+		}
 	</style>
 </head>
 <body>
@@ -29,13 +39,16 @@
             <main>
                 <!-- START -->
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">${product.itemName }</h1>
-                    <!-- 나중에 ${name}으로 가져오면될듯 -->
-                    <ol class="breadcrumb mb-10">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="#"></a>상품 등록</li>
-                    </ol>
+                    <h3 class="mt-4">
+						<span class="text-primary">상품관리 </span>> ${product.itemName } 조회
+					</h3>
+					<ol class="breadcrumb mb-4">
+						<li class="breadcrumb-item active">상품 관리 화면</li>
+					</ol>
+                    
 
+                    
+                    <hr class="mb-40">
                     <!-- TABLE START -->
                     <div class="card-body">
                         <h3> 관리자 상품 정보 </h3>

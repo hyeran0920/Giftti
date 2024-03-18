@@ -13,6 +13,8 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="/giftiApp/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+	<style>
+	</style>
 </head>
 <body>
 	<class class="sb-nav-fixed">
@@ -23,13 +25,14 @@
             <main>
                 <!-- START -->
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">새로운 상품 등록</h1>
-                 <!-- 나중에 ${name}으로 가져오면될듯 -->
-                       <ol class="breadcrumb mb-10">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="#"></a>상품 등록</li>
-                    </ol>
-
+                    <h3 class="mt-4">
+						<span class="text-primary">상품관리 </span>> 상품등록
+					</h3>
+					<ol class="breadcrumb mb-4">
+						<li class="breadcrumb-item active">상품 등록 화면</li>
+					</ol>
+                    
+                    <hr class="mb-40">
                     <!-- TABLE START -->
                     <div class="card-body">
                         <h3> 관리자 상품 등록 </h3>

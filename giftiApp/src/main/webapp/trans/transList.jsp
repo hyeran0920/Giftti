@@ -46,7 +46,7 @@ a {
 			<main>
 				<div class="container-fluid px-4">
 					<h3 class="mt-4">
-						<span class="text-primary">거래관리</span>>거래내역
+						<span class="text-primary">거래관리 </span>> 거래내역
 					</h3>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item active">거래 내역 화면</li>
