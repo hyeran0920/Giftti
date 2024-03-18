@@ -46,7 +46,7 @@ a {
 			<main>
 				<div class="container-fluid px-4">
 					<h3 class="mt-4">
-						<span class="text-primary">회원관리</span>>유저조회
+						<span class="text-primary">회원관리 </span>> 유저조회
 					</h3>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item active">유저 관리 화면</li>
