@@ -66,7 +66,7 @@
                                 <c:forEach var="product" items="${products}">
                                 	<tr>
                                 		<td>${product.itemId}</td>
-                                		<td><a href="giftUpdateView.product?itemId=${product.itemId}">${product.itemName }</a></td>
+                                		<td><a href="giftInfo.product?itemId=${product.itemId}">${product.itemName }</a></td>
                                 		<td><fmt:formatNumber value="${product.price}" pattern="\#,###"/></td>
                                 		<td>${product.brand }</td>
                                 		<td>${product.category }</td>
@@ -97,10 +97,10 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
-    <script src="../js/scripts.js"></script>
+    <script src="/giftiApp/js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
-    <script src="../js/datatables-simple-demo.js"></script>
+    <script src="/giftiApp/js/datatables-simple-demo.js"></script>
 </body>
 
 </html>
