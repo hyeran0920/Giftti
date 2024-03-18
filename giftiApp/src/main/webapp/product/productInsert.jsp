@@ -11,7 +11,7 @@
     <meta name="author" content="" />
     <title>상품 등록</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="/giftiApp/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -33,7 +33,7 @@
                     <!-- TABLE START -->
                     <div class="card-body">
                         <h3> 관리자 상품 등록 </h3>
-                        <form action="giftInsert.product" method="post">
+                        <form action="giftInsert.product" method="post" enctype="multipart/form-data">
                         	<table id="datatablesSimple" class="table table-bordered justify-content-center">
                             <thead>
                             </thead>
@@ -73,7 +73,7 @@
                                 <tr>
                                     <th>이미지</th>
                                     <td>
-                                    	<input type="text"  class="form-control" name="image">
+                                    	<input type="file"  class="form-control" name="image">
  
                                     </td>
                                 </tr>
@@ -96,10 +96,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
-    <script src="../js/scripts.js"></script>
+    <script src="/giftiApp/js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
-    <script src="../js/datatables-simple-demo.js"></script>
+    <script src="/giftiApp/js/datatables-simple-demo.js"></script>
 </body>
 
 </html>
