@@ -14,7 +14,7 @@ public class TransDTO {
 	private Date inDate;
 	private Date transDate;
 	private Date availDate;
-	private boolean isSale;
+	private String isSale;
 	private double discount;
 	
 	public Date getAvailDate() {
@@ -90,10 +90,10 @@ public class TransDTO {
 	public void setTransDate(Date transDate) {
 		this.transDate = transDate;
 	}
-	public boolean isSale() {
+	public String getIsSale() {
 		return isSale;
 	}
-	public void setSale(boolean isSale) {
+	public void setSale(String isSale) {
 		this.isSale = isSale;
 	}
 	

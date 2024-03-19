@@ -22,7 +22,9 @@ public class ProductDAO {
 	private final String GET_CATEGORY = "select distinct category from gifticon_tbl";
 	private final String DELETE_PRODUCT = "delete from gifticon_tbl where item_id=?;";
 	private final String GET_CURRENT_ITEMID = "select max(item_id)+1 as current_itemId from gifticon_tbl;";
-	
+	private final String SELECT_PRODUCT_TRANS = "select item_id, item_name, price,brand , category, image from gifticon_tbl where item_name = ?;";
+	private final String SELECT_PRODUCTS_CATEGORY = "select item_id, item_name, price, brand, category, (select count(*) from sale_tbl as S where S.item_id = G.item_id and isSale ='Available') as count from gifticon_tbl as G where category= ? order by item_id;";
+
 	
 	public void insert(ProductDTO product) {
 		try {
@@ -178,4 +180,55 @@ public class ProductDAO {
 		}
 		return currentItemId;
 	}
+	public ProductDTO transfind(String itemName) {
+	      ProductDTO product = null;
+	      try {
+	         con = DBConnection.getConnection();
+	         pstmt = con.prepareStatement(SELECT_PRODUCT_TRANS);
+	         pstmt.setString(1, itemName);
+	         rs = pstmt.executeQuery();
+	         
+	         if(rs.next()) {
+	            product = new ProductDTO();
+	            product.setItemId(rs.getInt("item_id"));
+	            product.setItemName(rs.getString("item_name"));
+	            product.setPrice(rs.getInt("price"));
+	            product.setBrand(rs.getString("brand"));
+	            product.setCategory(rs.getString("category"));
+	            product.setCount(rs.getInt("count"));
+	         }
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         DBConnection.close(rs, pstmt, con);
+	      }
+	      return product;
+	   }
+	   // 카테고리로 목록 불러오기
+	   public List<ProductDTO> findCategoryAll(String category) {
+	      List<ProductDTO> products = new ArrayList<>();
+	      
+	      try {
+	         con = DBConnection.getConnection();
+	         pstmt = con.prepareStatement(SELECT_PRODUCTS_CATEGORY);
+	         pstmt.setString(1,category);
+	         rs = pstmt.executeQuery();
+	         
+	         while(rs.next()) {
+	            ProductDTO product = new ProductDTO();
+	            product.setItemId(rs.getInt("item_id"));
+	            product.setItemName(rs.getString("item_name"));
+	            product.setPrice(rs.getInt("price"));
+	            product.setBrand(rs.getString("brand"));
+	            product.setCategory(rs.getString("category"));
+	            product.setCount(rs.getInt("count"));
+	            products.add(product);
+	;         }
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         DBConnection.close(rs, pstmt, con);
+	      }
+	      return products;
+	   }
 }
