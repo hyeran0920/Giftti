@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +13,7 @@
   <meta name="author" content="" />
   <title>제품 판매중 내역</title>
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+  <link rel="icon" type="images/png" href="/giftiApp/images/pavicon.png">
   <link href="/giftiApp/css/styles.css" rel="stylesheet" />
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -53,11 +55,11 @@
                 </tr>
                 <tr>
                   <th>판매가</th>
-                  <td>${saleItem.salePrice}</td>
+                  <td><fmt:formatNumber value="${saleItem.salePrice}" pattern="#,###원"/></td>
                 </tr>
                 <tr>
                   <th>할인율</th>
-                  <td>${saleItem.discount}</td>
+                  <td><fmt:formatNumber value="${saleItem.discount}" pattern="0.#%"/></td>
                 </tr>
                 <tr>
                   <th>유효 기간</th>
@@ -76,7 +78,8 @@
             <div class="box-footer text-center">
               <!-- {% if session_user_name == orm_obj.writer %} -->
               <button type="submit" class="btn btn-primary btn-sm" onclick="history.back()">뒤로가기 </button>
-
+			  &nbsp; &nbsp; <button class="btn btn-danger btn-sm" onclick="location.href='saleDelete.trans?registerId=${saleItem.registerId}'">삭제</button>
+				
               <!-- {% endif %} -->
             </div>
           </div>
