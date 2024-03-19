@@ -36,12 +36,26 @@ public class TransController extends HttpServlet {
 			System.out.println("거래 리스트");
 		
 			request.setAttribute("saleItems", dao.findAll());
-			view = "trans/transList.jsp";
+			view = "/trans/transList.jsp";
 				
-		}else if(PATH.equals("sellInfo.trans")) {
+		}else if(PATH.equals("/sellInfo.trans")) {
+			
 			int registerId = Integer.parseInt(request.getParameter("registerId"));
 			request.setAttribute("saleItem", dao.findSaleInfo(registerId));
 			view = "/product/saleProductInfo.jsp";
+			
+		}else if(PATH.equals("/productSaleList.trans")) {
+			
+			int itemId = Integer.parseInt(request.getParameter("itemId"));
+			request.setAttribute("saleItems", dao.findSaleItem(itemId));
+			view = "/product/productSaleList.jsp";
+			
+		}else if(PATH.equals("/saleDelete.trans")){
+			
+			int registerId = Integer.parseInt(request.getParameter("registerId"));
+			int itemId = dao.getItemId(registerId);
+			dao.deleteSale(registerId);
+			view = "productSaleList.trans?itemId=" + itemId;
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);

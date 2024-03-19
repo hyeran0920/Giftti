@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -12,7 +13,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>유저 조회</title>
-<link rel="icon" type="images/png" href="./images/pavicon.png">
+<link rel="icon" type="images/png" href="/giftiApp/images/pavicon.png">
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
 	rel="stylesheet" />
@@ -100,15 +101,15 @@ a {
 								</tr>
 							</tfoot>
 							<tbody>
-								<c:forEach var="saleItems" items="${saleItems}">
+								<c:forEach var="saleItem" items="${saleItems}">
 				
 									<tr>
-										<td>${saleItems.registerId}</td>
-										<td>${saleItems.itemName}</td>
-										<td>${saleItems.sellId}</td>
-										<td>${saleItems.price}</td>
-										<td>${saleItems.salePrice}</td>
-										<td>${saleItems.inDate}</td>
+										<td>${saleItem.registerId}</td>
+										<td>${saleItem.itemName}</td>
+										<td>${saleItem.sellId}</td>
+										<td><fmt:formatNumber value="${saleItem.price}" pattern="#,###원"/></td>
+										<td><fmt:formatNumber value="${saleItem.salePrice}" pattern="#,###원"/></td>
+										<td>${saleItem.inDate}</td>
 										
 									</tr>
 								</c:forEach>

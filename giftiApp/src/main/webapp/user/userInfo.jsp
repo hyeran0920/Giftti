@@ -11,8 +11,8 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>유저 조회</title>
-    <link rel="icon" type="images/png" href="./images/pavicon.png">
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link rel="icon" type="images/png" href="/giftiApp/images/pavicon.png">
+	<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- 폰트 -->

@@ -13,6 +13,7 @@
     <meta name="author" content="" />
     <title>상품 리스트</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link rel="icon" type="images/png" href="/giftiApp/images/pavicon.png">
     <link href="/giftiApp/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 	<style type="text/css">
@@ -99,7 +100,7 @@
                                     		<c:param name="itemId" value="${product.itemId }"/>
                                     		<c:param name="itemName" value="${product.itemName }"/>
                                     	</c:url>
-                                		<td><a href="${sellList }">${product.count }</a></td>
+                                		<td><a href="productSaleList.trans?itemId=${product.itemId }">${product.count }</a></td>
                                 	</tr>
                                 </c:forEach>
                             </tbody>

@@ -12,6 +12,7 @@
     <title>상품 등록</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="/giftiApp/css/styles.css" rel="stylesheet" />
+    <link rel="icon" type="images/png" href="/giftiApp/images/pavicon.png">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 	<style>
 	</style>
