@@ -99,7 +99,7 @@ a {
                         
                               <td>${trans.registerId}</td>
                               <td><a href="findCategory.product?category=${trans.category}">${trans.category}</a></td>
-                              <td><a href="findItemName.product?itemName=${trans.itemName}">${trans.itemName}</a></td>
+                              <td><a href="giftInfo.product?itemId=${trans.itemId}">${trans.itemName}</a></td>
                               <td><a href="userInfo.user?userId=${trans.sellId}">${trans.sellId}</a></td>
                               <td><a href="userInfo.user?userId=${trans.buyId}">${trans.buyId}</a></td>
                               <td><fmt:formatNumber value="${trans.price}" pattern="#,###원"/></td>

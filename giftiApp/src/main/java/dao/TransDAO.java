@@ -15,11 +15,11 @@ public class TransDAO {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	private final String SELECT_ALL = "select S.register_id, category, item_name, user_id, buy_id, price, sale_price, indate, trans_date,issale "
+	private final String SELECT_ALL = "select S.register_id, category, item_name, user_id, buy_id, price, sale_price, indate, trans_date,issale,S.item_id as item_id "
 	         + " from trans_tbl as T join sale_tbl as S on S.register_id = T.register_id"
 	         + " inner join gifticon_tbl as G on G.item_id =S.item_id ";
 	private final String SELECT_SALES = "select register_id, user_id, item_name, brand, category, price, sale_price, avail_date, inDate from sale_tbl as S inner join gifticon_tbl as G on S.item_id = G.item_id;";
-	private final String SELECT_SOLDOUT = "select S.register_id, category, item_name, user_id, buy_id, price, sale_price, indate, trans_date, issale "
+	private final String SELECT_SOLDOUT = "select S.register_id, category, item_name, user_id, buy_id, price, sale_price, indate, trans_date, issale, s.item_id as item_id "
 	         + "   from trans_tbl as T join sale_tbl as S on S.register_id = T.register_id"
 	         + " join gifticon_tbl as G on G.item_id =S.item_id  where S.isSale = ?";
 	private final String SELECT_SALE_ITEM = "select register_id, user_id, price, sale_price, avail_date, inDate from gifticon_tbl as G inner join Sale_tbl as S on G.item_id = S.item_id where isSale = 'Available' and S.item_id = ?";
@@ -47,6 +47,7 @@ public class TransDAO {
 	            dto.setSalePrice(rs.getInt("sale_price"));
 	            dto.setInDate(rs.getDate("inDate"));
 	            dto.setTransDate(rs.getDate("trans_date"));
+	            dto.setItemId(rs.getInt("item_id"));
 	            
 	            //dto.setIsSale(rs.getString("issale"));
 	            String sale = rs.getString("isSale");
@@ -119,9 +120,8 @@ public class TransDAO {
 		            dto.setInDate(rs.getDate("inDate"));
 		            dto.setTransDate(rs.getDate("trans_date"));
 		            String sale = rs.getString("isSale");
-		            System.out.println("1");
 		            dto.setSale(sale);
-		            System.out.println("1");
+		            dto.setItemId(rs.getInt("item_id"));	
 		            
 		            transactions.add(dto);
 		         }

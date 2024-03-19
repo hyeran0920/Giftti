@@ -108,6 +108,7 @@
                         <div class="collapse" id="collapseLayouts-customer" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
+                            	<a class="nav-link text-color-giffty" href="FAQ.customerservice" ><span class="text-color-giffty-h">FAQ</span></a><!--신고 게시판페이지-->
                                 <a class="nav-link text-color-giffty" href="#" ><span class="text-color-giffty-h">신고 신청 게시판</span></a><!--신고 게시판페이지-->
                                 <a class="nav-link text-color-giffty" href="#"><span class="text-color-giffty-h">신고 내역 조회</span></a><!--상품 조회페이지-->
                             </nav>

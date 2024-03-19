@@ -195,7 +195,6 @@ public class ProductDAO {
 	            product.setPrice(rs.getInt("price"));
 	            product.setBrand(rs.getString("brand"));
 	            product.setCategory(rs.getString("category"));
-	            product.setCount(rs.getInt("count"));
 	         }
 	      } catch (SQLException e) {
 	         e.printStackTrace();

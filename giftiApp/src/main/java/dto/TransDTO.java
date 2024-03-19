@@ -16,7 +16,14 @@ public class TransDTO {
 	private Date availDate;
 	private String isSale;
 	private double discount;
+	private int itemId;
 	
+	public int getItemId() {
+		return itemId;
+	}
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
 	public Date getAvailDate() {
 		return availDate;
 	}

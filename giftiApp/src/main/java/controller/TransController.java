@@ -36,7 +36,7 @@ public class TransController extends HttpServlet {
 	         System.out.println("거래 리스트");
 	      
 	         request.setAttribute("transactions", dao.findAll());
-	         view = "trans/transList.jsp";
+	         view = "/trans/transList.jsp";
 	            
 	      } else if(PATH.equals("/sellInfo.trans")) {
 			
@@ -61,12 +61,12 @@ public class TransController extends HttpServlet {
 	         String isSale = "Sold";
 	         
 	         request.setAttribute("transactions", dao.findSoldOut(isSale));
-	         view = "trans/transList.jsp";
+	         view = "/trans/transList.jsp";
 	   }else if(PATH.equals("/transList.trans")) {
 	         //미 거래 내역
 	         String isSale = "Available"   ;
 	         request.setAttribute("transactions", dao.findSoldOut(isSale));
-	         view = "trans/transList.jsp";
+	         view = "/trans/transList.jsp";
 	      }
 
 		
