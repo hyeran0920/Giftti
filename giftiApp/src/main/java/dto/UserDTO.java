@@ -1,5 +1,7 @@
 package dto;
 
+import java.util.Date;
+
 public class UserDTO {
 	private String user_id;
 	private String name;
@@ -13,8 +15,64 @@ public class UserDTO {
 	private String status;
 	private int count;
 
+	//거래테이블 불러오기용
+	private int registerId;
+	private String itemName;
+	private int salePrice;
+	private boolean isSale;
+	private Date inDate;
+
+
 	
 
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public int getRegisterId() {
+		return registerId;
+	}
+
+	public void setRegisterId(int registerId) {
+		this.registerId = registerId;
+	}
+
+	public String getItemName() {
+		return itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+	public int getSalePrice() {
+		return salePrice;
+	}
+
+	public void setSalePrice(int salePrice) {
+		this.salePrice = salePrice;
+	}
+
+	public boolean getisSale() {
+		return isSale;
+	}
+
+	public void setSale(boolean isSale) {
+		this.isSale = isSale;
+	}
+
+	public Date getInDate() {
+		return inDate;
+	}
+
+	public void setInDate(Date inDate) {
+		this.inDate = inDate;
+	}
 
 	public int getCount() {
 		return count;

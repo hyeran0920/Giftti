@@ -124,7 +124,7 @@
                             <tr>
                               <th colspan="2" style="background-color: whitesmoke;">
 							    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-							        <input type="submit" value="수정" class="">
+							        <input type="submit" value="수정" class=""onclick="location.href='userUpdateView.user?userId=${user.id}'">
 							    </div>
 							</th>
 
@@ -134,21 +134,25 @@
                     </form>
                     <hr class="mb-40px">
 
-                    <%-- <table class="table-bordered center-table" id="saleList">
+                    <table class="table-bordered center-table" id="saleList">
+
+
                         <tr>
                             <th>거래 번호</th>
-                            <th>판매상품명</th>
+                            <th>판매상품</th>
                             <th>판매가</th>
-                            <th>거래 일자</th>
+                            <th>등록 일자</th>
+                            <th>판매 상태</th>
                         </tr>
                        <tr>
-                       		<td>${S.register_id}</td>
-                       		<td>${S.item_id}</td>
-                       		<td>${S.sale_price}</td>
-                       		<td>${S.isSale}</td>
+                       		<td>${user.registerId}</td>
+                       		<td>${user.itemName}</td>
+                       		<td>${user.salePrice}</td>
+                       		<td>${user.inDate}</td>
+                       		<td>${user.isSale}</td>
                        
                        </tr>
-                    </table> --%>
+                    </table> 
 
                 </div>
 

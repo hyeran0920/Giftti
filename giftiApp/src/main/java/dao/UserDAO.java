@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import DBConnection.DBConnection;
@@ -20,9 +21,9 @@ public class UserDAO {
 	
 	
 	//userlist에서 먼저 회원 조회를 해야한다
-//	private final String SELECT_PRODUCTS = "select item_id, item_name, price, brand, category, (select count(*) from sale_tbl as S where S.item_id = G.item_id and insale ='Available') as count from gifticon_tbl as G order by item_id;";
 
-	private final String SELECT_USER = "SELECT *, (SELECT COUNT(*) FROM sale_tbl AS S WHERE S.user_id = U.user_id AND isSale = 'Available') AS sale_count FROM user_tbl AS U;";
+	private final String SELECT_USER = 
+			"SELECT *, (SELECT COUNT(*) FROM sale_tbl AS S WHERE S.user_id = U.user_id AND isSale = 'Available') AS sale_count FROM user_tbl AS U ORDER BY user_id;";
 //	private final String SELECT_USER = "select * from user_tbl;";
 	
 	public List<UserDTO> findAll(){
@@ -46,6 +47,8 @@ public class UserDAO {
 				users.setAge(rs.getInt("age"));
 				users.setAddress(rs.getString("address"));
 				users.setStatus(rs.getString("status"));
+				users.setCount(rs.getInt("sale_count"));
+
 				user.add(users);//userList안에 users다 넣기
 				
 			}
@@ -61,9 +64,18 @@ public class UserDAO {
 	}
 	
 	//상세 조회
+//	private final String SELECT_TRANSACTIONS = "(SELECT * FROM sale_tbl AS S INNER JOIN gifticon_tbl AS G ON G.item_id = S.item_id)";
 
-//	private String SELECT_GET = "SELECT * , (SELECT COUNT(*) FROM sale_tbl AS S WHERE S.user_id = U.user_id AND insale = 'Available') AS sale_count FROM user_tbl WHERE user_id =?";
-	private String SELECT_GET = "SELECT * FROM user_tbl WHERE user_id =?";
+	private final String SELECT_GET = 
+		    "SELECT U.*, S.*, G.* " +
+		    "FROM user_tbl AS U " +
+		    "INNER JOIN sale_tbl AS S ON U.user_id = S.user_id " +
+		    "INNER JOIN gifticon_tbl AS G ON G.item_id = S.item_id " +
+		    "WHERE U.user_id = ?";
+
+
+
+//	private String SELECT_GET = "SELECT * FROM user_tbl WHERE user_id =?";
 	
 	public UserDTO find(String userid) {
 		UserDTO user = null;
@@ -86,6 +98,19 @@ public class UserDAO {
 				user.setAge(rs.getInt("age"));
 				user.setAddress(rs.getString("address"));
 				user.setStatus(rs.getString("status"));
+
+
+				user.setRegisterId(rs.getInt("register_id"));
+				user.setItemName(rs.getString("item_name"));
+				user.setSalePrice(rs.getInt("sale_price"));
+				String sale = rs.getString("isSale");
+				if(sale.equals("Available")) {
+					user.setSale(false);
+				} else {
+					user.setSale(true);
+				}
+				user.setInDate(rs.getDate("indate"));
+				
 			}
 			
 			
