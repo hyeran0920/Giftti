@@ -94,6 +94,7 @@ public class ProductController extends HttpServlet {
 			dao.delete(itemId);
 			
 			view = "giftList.product";
+			
 		} else if(PATH.equals("/giftInfo.product")) {
 			
 			int itemId = Integer.parseInt(request.getParameter("itemId"));
