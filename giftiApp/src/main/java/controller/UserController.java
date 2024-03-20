@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDAO;
+import dto.ProductDTO;
+import dto.UserDTO;
 
 @WebServlet("*.user")
 public class UserController extends HttpServlet{
@@ -42,6 +44,13 @@ public class UserController extends HttpServlet{
 			request.setAttribute("user",dao.findAll());
 			view = "/user/userList.jsp";
 			
+		}else if(PATH.equals("/userTrans.user")) {
+			System.out.println("회원 판매 상품");
+			
+			String userId = request.getParameter("userId");
+			request.setAttribute("user",dao.find2(userId));
+			view = "/user/userTrans.jsp";
+			
 		}else if(PATH.equals("/userInfo.user")) {
 			System.out.println("회원 정보");
 			
@@ -49,10 +58,18 @@ public class UserController extends HttpServlet{
 			request.setAttribute("user",dao.find(userId));
 			request.setAttribute("userTrans",dao.find2(userId));
 			view = "/user/userInfo.jsp";
+						
+		}else if(PATH.equals("/userUpdate.user")) {
+			System.out.println("회원 수정");
 			
-		
+			UserDTO dto = new UserDTO();
+			String userId = request.getParameter("userId");
+			dto.setStatus(request.getParameter("status"));
 			
-		}
+			dao.Update(dto);
+		    view = "/user/userUpdate.jsp";
+
+		} 
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);

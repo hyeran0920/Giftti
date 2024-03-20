@@ -112,12 +112,12 @@
                                 <th>활동상태</th>
                                 <td>
                                 <c:if test="${user.status eq 'ing'}">
-							        <input type="radio" name="state" value="active" checked onclick="return(false);"> 활동 &nbsp;&nbsp;
-							        <input type="radio" name="state" value="stop" onclick="return(false);"> 정지 &nbsp;&nbsp;
+							        <input type="radio" name="state" value="active" checked > 활동 &nbsp;&nbsp;
+							        <input type="radio" name="state" value="stop"> 정지 &nbsp;&nbsp;
 							    </c:if>
 							    <c:if test="${user.status ne 'ing'}">
-							        <input type="radio" name="state" value="active" onclick="return(false);"> 활동 &nbsp;&nbsp;
-							        <input type="radio" name="state" value="stop" checked onclick="return(false);"> 정지 &nbsp;&nbsp;
+							        <input type="radio" name="state" value="active"> 활동 &nbsp;&nbsp;
+							        <input type="radio" name="state" value="stop" checked> 정지 &nbsp;&nbsp;
 							    </c:if>
                                 </td>
                                 
@@ -125,7 +125,7 @@
                             <tr>
                               <th colspan="2" style="background-color: whitesmoke;">
 							    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-								<button type="button" onclick="location.href='userUpdate.user?userId=${user.id}'">수정</button>
+							        <input type="submit" value="수정" class=""onclick="location.href='userUpdateView.user?userId=${user.id}'">
 							    </div>
 							</th>
 
@@ -134,30 +134,7 @@
 
                     </form>
                     <br>
-                    <br>
-                    <hr style="width:50%; margin:auto;'">
-                    <br>
-					<h4 class="text-center">판매 상품</h4>
-					<br>
-                    <table class="table-bordered center-table" id="saleList">
-							<tr>
-							<th>거래번호</th>
-							<th>상품명</th>
-							<th>판매가격</th>
-							<th>등록일</th>
-							<th>판매상태</th>
-							</tr>
-					<c:forEach var="transaction" items="${userTrans}">
-					    <tr>
-					        <td>${transaction.registerId}</td>
-					        <td>${transaction.itemName}</td>
-					        <td>${transaction.salePrice}</td>
-					        <td>${transaction.inDate}</td>
-					        <td>${transaction.isSale}</td>
-					    </tr>
-					</c:forEach>
-
-                    </table> 
+                    
 
                 </div>
 

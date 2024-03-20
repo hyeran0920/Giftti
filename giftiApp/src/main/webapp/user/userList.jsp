@@ -112,7 +112,7 @@ a {
 										<td>${user.age}</td>
 										<td>${user.address}</td>
 										<td>${user.status}</td>
-							      		<td><a href="sellList.trans?userId=${user.id}">${user.count}</a></td>
+							      		<td><a href="userTrans.user?userId=${user.id}">${user.count}</a></td>
 										
 									</tr>
 								</c:forEach>

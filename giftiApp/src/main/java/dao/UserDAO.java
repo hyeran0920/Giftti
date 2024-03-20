@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import DBConnection.DBConnection;
+import dto.ProductDTO;
 import dto.TransDTO;
 import dto.UserDTO;
 
@@ -136,7 +137,14 @@ public class UserDAO {
 	        rs = pstmt.executeQuery();
 	        while(rs.next()) {
 	            TransDTO users = new TransDTO();
+	            users.setCategory(rs.getString("category"));
+	            users.setSellId(rs.getString("user_id"));
+	            users.setPrice(rs.getInt("price"));
+	            users.setInDate(rs.getDate("inDate"));
+	            users.setItemId(rs.getInt("item_id"));
 	            
+	            
+				users.setUser_id(rs.getString("user_id"));
 	            users.setRegisterId(rs.getInt("register_id"));
 	            users.setItemName(rs.getString("item_name"));
 	            users.setSalePrice(rs.getInt("sale_price"));
@@ -159,6 +167,29 @@ public class UserDAO {
 	    return user;
 
 	
+	}
+	
+	String USER_UPDATE ="update user_tbl set status=? where user_id=?;";
+	public String Update(UserDTO user) {
+		String message = "업데이트 실패";
+		try {
+		con = DBConnection.getConnection();
+		pstmt = con.prepareStatement(USER_UPDATE);
+		pstmt.setString(1, user.getStatus());
+		int success = pstmt.executeUpdate();
+		
+		
+		if(success > 0) {
+			message = "업데이트를 성공하였습니다!";
+		}
+		
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(rs, pstmt, con);
+		}
+		return message;
 	}
 	
 	
