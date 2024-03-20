@@ -6,9 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<link rel="icon" type="images/png" href="./images/pavicon.png">
+	<link rel="icon" type="/giftiApp/images/png" href="./images/pavicon.png">
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="/giftiApp/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- 폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-light">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3 topLogo bg-light" href="index.jsp">
-            <img class="logo" src="./images/Logo.png">
+            <img class="logo" src="/giftiApp/images/Logo.png">
             <style>
                 .logo {
                     width: 30px;
