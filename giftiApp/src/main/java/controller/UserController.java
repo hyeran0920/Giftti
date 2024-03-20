@@ -47,6 +47,7 @@ public class UserController extends HttpServlet{
 			
 			String userId = request.getParameter("userId");
 			request.setAttribute("user",dao.find(userId));
+			request.setAttribute("userTrans",dao.find2(userId));
 			view = "/user/userInfo.jsp";
 			
 		

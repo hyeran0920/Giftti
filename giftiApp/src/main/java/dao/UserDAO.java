@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import DBConnection.DBConnection;
+import dto.TransDTO;
 import dto.UserDTO;
 
 
@@ -64,18 +65,10 @@ public class UserDAO {
 	}
 	
 	//상세 조회
-//	private final String SELECT_TRANSACTIONS = "(SELECT * FROM sale_tbl AS S INNER JOIN gifticon_tbl AS G ON G.item_id = S.item_id)";
-
-	private final String SELECT_GET = 
-		    "SELECT U.*, S.*, G.* " +
-		    "FROM user_tbl AS U " +
-		    "INNER JOIN sale_tbl AS S ON U.user_id = S.user_id " +
-		    "INNER JOIN gifticon_tbl AS G ON G.item_id = S.item_id " +
-		    "WHERE U.user_id = ?";
 
 
 
-//	private String SELECT_GET = "SELECT * FROM user_tbl WHERE user_id =?";
+	private String SELECT_GET = "SELECT * FROM user_tbl WHERE user_id =?";
 	
 	public UserDTO find(String userid) {
 		UserDTO user = null;
@@ -100,20 +93,18 @@ public class UserDAO {
 				user.setStatus(rs.getString("status"));
 
 
-				user.setRegisterId(rs.getInt("register_id"));
-				user.setItemName(rs.getString("item_name"));
-				user.setSalePrice(rs.getInt("sale_price"));
-				String sale = rs.getString("isSale");
-				if(sale.equals("Available")) {
-					user.setSale(false);
-				} else {
-					user.setSale(true);
-				}
-				user.setInDate(rs.getDate("indate"));
+//				user.setRegisterId(rs.getInt("register_id"));
+//				user.setItemName(rs.getString("item_name"));
+//				user.setSalePrice(rs.getInt("sale_price"));
+//				String sale = rs.getString("isSale");
+//				if(sale.equals("Available")) {
+//					user.setSale(false);
+//				} else {
+//					user.setSale(true);
+//				}
+//				user.setInDate(rs.getDate("indate"));
 				
 			}
-			
-			
 			
 		}catch (SQLException e) { //예외 발생
 			e.printStackTrace();
@@ -125,11 +116,50 @@ public class UserDAO {
 		return user;
 		
 	}
+	
+	
+	private final String SELECT_GET_TRANS = 
+    "SELECT U.*, S.*, G.* " +
+    "FROM user_tbl AS U " +
+    "INNER JOIN sale_tbl AS S ON U.user_id = S.user_id " +
+    "INNER JOIN gifticon_tbl AS G ON G.item_id = S.item_id " +
+    "WHERE U.user_id = ?";
 
 
+	public List<TransDTO> find2(String userid){
+	    List<TransDTO> user = new ArrayList<>();
 
+	    try {
+	        con = DBConnection.getConnection();
+	        pstmt = con.prepareStatement(SELECT_GET_TRANS);
+	        pstmt.setString(1, userid);
+	        rs = pstmt.executeQuery();
+	        while(rs.next()) {
+	            TransDTO users = new TransDTO();
+	            
+	            users.setRegisterId(rs.getInt("register_id"));
+	            users.setItemName(rs.getString("item_name"));
+	            users.setSalePrice(rs.getInt("sale_price"));
+	            String sale = rs.getString("isSale");
+	            if(sale.equals("Available")) {
+	                users.setIsSale("false");
+	            } else {
+	                users.setIsSale("true");
+	            }
+	            users.setInDate(rs.getDate("indate"));
+
+	            user.add(users);
+	        }
+	    } catch (SQLException e) { //예외 발생
+	        e.printStackTrace();
+	    } finally {
+	        DBConnection.close(rs, pstmt, con);
+	    }   
+
+	    return user;
 
 	
+	}
 	
 	
 	

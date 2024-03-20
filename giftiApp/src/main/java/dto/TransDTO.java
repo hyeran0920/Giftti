@@ -3,6 +3,8 @@ package dto;
 import java.util.Date;
 
 public class TransDTO {
+
+	private String user_id;
 	private int registerId;
 	private String itemName;
 	private int price;
@@ -18,6 +20,15 @@ public class TransDTO {
 	private double discount;
 	private int itemId;
 	
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	public void setIsSale(String isSale) {
+		this.isSale = isSale;
+	}
 	public int getItemId() {
 		return itemId;
 	}

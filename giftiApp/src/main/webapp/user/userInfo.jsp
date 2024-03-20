@@ -26,7 +26,7 @@
     	}
         th, td{
             font-size: 1rem;
-            padding: 5px;
+            padding: 5px 10px;
         }
         a{
         	text-decoration: none;
@@ -53,9 +53,9 @@
                     <form action="userUpdate.do" method="post">
                         <table class="table-bordered center-table">
                             <tr>
-                                <td  class ="col-1" colspan="2" rowspan="4"><img src="./images/user.png" alt="유저 이미지"
-                                        style="width: 200px; height: 200px; margin-left: 30px;"></td>
-
+								<td class="col-1" colspan="2" rowspan="4" style="text-align: center;">
+								    <i class="fa-solid fa-user" style="width: 200px; height: 200px; margin: auto;"></i>
+								</td>
                                 <th class="col-2">이름</th>
                                 <td class="col-4"><input class="col-10" type="text" name="name" value="${user.name}">
                                 </td>
@@ -136,22 +136,16 @@
 
                     <table class="table-bordered center-table" id="saleList">
 
+					<c:forEach var="transaction" items="${userTrans}">
+					    <tr>
+					        <td>${transaction.registerId}</td>
+					        <td>${transaction.itemName}</td>
+					        <td>${transaction.salePrice}</td>
+					        <td>${transaction.inDate}</td>
+					        <td>${transaction.isSale}</td>
+					    </tr>
+					</c:forEach>
 
-                        <tr>
-                            <th>거래 번호</th>
-                            <th>판매상품</th>
-                            <th>판매가</th>
-                            <th>등록 일자</th>
-                            <th>판매 상태</th>
-                        </tr>
-                       <tr>
-                       		<td>${user.registerId}</td>
-                       		<td>${user.itemName}</td>
-                       		<td>${user.salePrice}</td>
-                       		<td>${user.inDate}</td>
-                       		<td>${user.isSale}</td>
-                       
-                       </tr>
                     </table> 
 
                 </div>
