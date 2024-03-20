@@ -31,17 +31,44 @@ public class TransController extends HttpServlet {
 		String URI = request.getRequestURI();
 		String PATH = URI.substring(URI.lastIndexOf("/"));
 		String view = "";
-		System.out.println(PATH);
-		if(PATH.equals("/sellList.trans")) {
-			int itemId = Integer.parseInt(request.getParameter("itemId"));
-			request.setAttribute("saleItems", dao.findSaleItem(itemId));
-			request.setAttribute("itemName", request.getAttribute("itemName"));
-			view = "/product/productSaleList.jsp";
-		} else if(PATH.equals("/sellInfo.trans")) {
+		
+		if(PATH.equals("/allList.trans")) {
+	         System.out.println("거래 리스트");
+	      
+	         request.setAttribute("transactions", dao.findAll());
+	         view = "/trans/transList.jsp";
+	            
+	      } else if(PATH.equals("/sellInfo.trans")) {
+			
 			int registerId = Integer.parseInt(request.getParameter("registerId"));
 			request.setAttribute("saleItem", dao.findSaleInfo(registerId));
 			view = "/product/saleProductInfo.jsp";
-		}
+			
+		} else if(PATH.equals("/productSaleList.trans")) {
+			
+			int itemId = Integer.parseInt(request.getParameter("itemId"));
+			request.setAttribute("saleItems", dao.findSaleItem(itemId));
+			view = "/product/productSaleList.jsp";
+			
+		} else if(PATH.equals("/saleDelete.trans")){
+			
+			int registerId = Integer.parseInt(request.getParameter("registerId"));
+			int itemId = dao.getItemId(registerId);
+			dao.deleteSale(registerId);
+			view = "productSaleList.trans?itemId=" + itemId;
+		} else if(PATH.equals("/selltransList.trans")) {
+	         //완료 거래
+	         String isSale = "Sold";
+	         
+	         request.setAttribute("transactions", dao.findSoldOut(isSale));
+	         view = "/trans/transList.jsp";
+	   }else if(PATH.equals("/transList.trans")) {
+	         //미 거래 내역
+	         String isSale = "Available"   ;
+	         request.setAttribute("transactions", dao.findSoldOut(isSale));
+	         view = "/trans/transList.jsp";
+	      }
+
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);

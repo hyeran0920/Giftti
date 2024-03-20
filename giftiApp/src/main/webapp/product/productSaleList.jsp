@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="utf-8" />
@@ -12,6 +13,7 @@
     <meta name="author" content="" />
     <title>판매중 내역</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link rel="icon" type="images/png" href="/giftiApp/images/pavicon.png">
     <link href="/giftiApp/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -24,13 +26,15 @@
             <main>
                 <!-- START -->
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">${itemName} 판매중 내역</h1>
-                    <!-- 나중에 ${name}으로 가져오면될듯 -->
-                    <ol class="breadcrumb mb-10">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="#"></a>상품 관리</li>
-                    </ol>
+                    <<h3 class="mt-4">
+						<span class="text-primary">상품관리 </span>> 판매중 내역
+					</h3>
+					<ol class="breadcrumb mb-4">
+						<li class="breadcrumb-item active">판매중인 상품 내역</li>
+					</ol>
 
+                    
+                    <hr class="mb-40">
                     <!-- TABLE START -->
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -55,18 +59,17 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-								<c:forEach var="saleItem" items="saleItems">
+								<c:forEach var="saleItem" items="${saleItems}">
 								<tr>
                                     <td><a href="sellInfo.trans?registerId=${saleItem.registerId}">${saleItem.registerId}</a></td>
                                     <td>${saleItem.sellId}</td>
-                                    <td>${saleItem.salePrice}</td>
-                                    <td>${saleItem.discount}</td>
-                                    <td>${saleItem.availDate} </td>
+                                    <td><fmt:formatNumber value="${saleItem.salePrice}" pattern="#,###원"/></td>
+                                    <td><fmt:formatNumber value="${saleItem.discount}" pattern="0.#%"/></td>
+                                    <td>${saleItem.availDate }</td>
                                     <td>${saleItem.inDate} </td>
                                 </tr>
 								
 								</c:forEach>
-
                             </tbody>
                         </table>
                     </div>

@@ -1,7 +1,9 @@
 package dto;
 
+import java.util.Date;
+
 public class UserDTO {
-	private String userId;
+	private String user_id;
 	private String name;
 	private String password;
 	private String nickname;
@@ -10,14 +12,36 @@ public class UserDTO {
 	private int age;
 	private String gender;
 	private String address;
-	private boolean state;
-	private int totalSale;
-	private int totalTrans;
-	public String getUserId() {
-		return userId;
+	private String status;
+	private int count;
+
+
+
+	
+
+
+	public String getUser_id() {
+		return user_id;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public String getId() {
+	    return user_id;
+	}
+
+	public void setId(String id) {
+	    this.user_id = id;
 	}
 	public String getName() {
 		return name;
@@ -67,22 +91,12 @@ public class UserDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public boolean isState() {
-		return state;
+	public String getStatus() {
+		return status;
 	}
-	public void setState(boolean state) {
-		this.state = state;
+	public void setStatus(String status) {
+		this.status = status;
 	}
-	public int getTotalSale() {
-		return totalSale;
-	}
-	public void setTotalSale(int totalSale) {
-		this.totalSale = totalSale;
-	}
-	public int getTotalTrans() {
-		return totalTrans;
-	}
-	public void setTotalTrans(int totalTrans) {
-		this.totalTrans = totalTrans;
-	}
+	
+	
 }
