@@ -53,7 +53,7 @@
 							  <div class="container-fluid">
 							    <style>
 							    	li.category{
-							    		padding-left : 3px;
+							    		margin : 0 5px;
 							    	}
 							    	li.category:hover{
 							    		background-color: beige;
@@ -111,31 +111,20 @@
                                     <th>아이템ID</th>
                                     <th>상품명</th>
                                     <th>정가</th>
-                                    <th>브랜드</th>
                                     <th>카테고리</th>
+                                    <th>브랜드</th>
                                     <th>수정 삭제</th>
                                     <th>등록수</th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ItemId</th>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
-                            </tfoot>
                             <tbody>
                                 <c:forEach var="product" items="${products}">
                                 	<tr>
                                 		<td>${product.itemId}</td>
                                 		<td><a href="giftInfo.product?itemId=${product.itemId}">${product.itemName }</a></td>
                                 		<td><fmt:formatNumber value="${product.price}" pattern="#,###원"/></td>
-                                		<td>${product.brand }</td>
                                 		<td>${product.category }</td>
+                                		<td>${product.brand }</td>
                                 		<td>
                                         <div class="box-footer">
                                             <!-- {% if session_user_name == orm_obj.writer %} -->
