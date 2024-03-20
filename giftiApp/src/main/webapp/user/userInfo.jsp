@@ -49,6 +49,7 @@
                     </ol>
                 </div>
                 <hr class="mb-40">
+                <br>
                 <div class="container col-12 ">
                     <form action="userUpdate.do" method="post">
                         <table class="table-bordered center-table">
@@ -132,10 +133,18 @@
                         </table>
 
                     </form>
+                    <br>
                     <hr class="mb-40px">
-
+                    <br>
+					<h4 class="text-center">판매 상품</h4>
                     <table class="table-bordered center-table" id="saleList">
-
+							<tr>
+							<th>거래번호</th>
+							<th>상품명</th>
+							<th>판매가격</th>
+							<th>등록일</th>
+							<th>판매상태</th>
+							</tr>
 					<c:forEach var="transaction" items="${userTrans}">
 					    <tr>
 					        <td>${transaction.registerId}</td>
