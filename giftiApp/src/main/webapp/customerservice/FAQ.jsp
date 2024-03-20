@@ -52,22 +52,21 @@ a {
 				</div>
 				<hr class="mb-40">
 				<div class="accordion" id="accordionExample">
-  					<div class="accordion-item">
-  						<c:forEach var="question" items="${questions }">
-    					<h2 class="accordion-header" id="headingOne">
-      						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${question.questionId }" aria-controls="collapseOne" aria-expanded="false">
-        						<strong>[ ${question.qcategory } ]</strong> &nbsp; ${question.faquestion } 
-      						</button>
-    					</h2>
-    					<div id="collapse${question.questionId  }" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      						<div class="accordion-body">
-        						
-        					 	${question.answer } 
-      						</div>
-    					</div>
-    					</c:forEach>
-  					</div>
-  				</div>
+				    <div class="accordion-item">
+				        <c:forEach var="question" items="${questions}">
+				            <h2 class="accordion-header" id="heading${question.questionId}">
+				                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${question.questionId}" aria-expanded="false" aria-controls="collapse${question.questionId}">
+				                    <strong>[ ${question.qcategory} ]</strong> &nbsp; ${question.faquestion} 
+				                </button>
+				            </h2>
+				            <div id="collapse${question.questionId}" class="accordion-collapse collapse" aria-labelledby="heading${question.questionId}" data-bs-parent="#accordionExample">
+				                <div class="accordion-body">
+				                    ${question.answer} 
+				                </div>
+				            </div>
+				        </c:forEach>
+				    </div>
+				</div>
 			</main>
 			<jsp:include page="../footer.jsp" />
 		</div>
