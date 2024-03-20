@@ -50,17 +50,18 @@ a {
 						<li class="breadcrumb-item active">자주 묻는 질문</li>
 					</ol>
 				</div>
+				<hr class="mb-40">
 				<div class="accordion" id="accordionExample">
   					<div class="accordion-item">
   						<c:forEach var="question" items="${questions }">
     					<h2 class="accordion-header" id="headingOne">
-      						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${question.questionId }" aria-expanded="false" aria-controls="collapseOne">
-        						${question.faquestion } 
+      						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${question.questionId }" aria-controls="collapseOne" aria-expanded="false">
+        						<strong>[ ${question.qcategory } ]</strong> &nbsp; ${question.faquestion } 
       						</button>
     					</h2>
-    					<div id="collapseda${question.questionId  }" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+    					<div id="collapse${question.questionId  }" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       						<div class="accordion-body">
-        						<strong>[ ${question.qcategory } ]</strong>
+        						
         					 	${question.answer } 
       						</div>
     					</div>

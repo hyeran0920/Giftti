@@ -100,13 +100,14 @@ public class ProductController extends HttpServlet {
 			request.setAttribute("product", dao.find(itemId));
 			view = "/product/productInfo.jsp";
 
-		}else if(PATH.equals("/findCategory.product")) {
+		} else if(PATH.equals("/findCategory.product")) {
 	         
 	         String category = request.getParameter("category");
 	         request.setAttribute("products", dao.findCategoryAll(category));
 	         view = "/product/productList.jsp";
 
-	      }
+		  }
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);

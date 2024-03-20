@@ -49,13 +49,62 @@
 					</ol>
                     
                     <hr class="mb-40">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+							  <div class="container-fluid">
+							    <style>
+							    	li.category{
+							    		padding-left : 3px;
+							    	}
+							    	li.category:hover{
+							    		background-color: beige;
+							    	}
+							    </style>
+							      <ul class="navbar-nav">
+							        <li class="nav-item category">
+							          <a class="navbar-brand" href="giftList.product">
+      									전체 보기</a>						
+      								</li>
+							        <li class="nav-item category">
+							          <a class="navbar-brand" href="findCategory.product?category=패스트푸드">
+      									<img src="/giftiApp/images/burger.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      									패스트푸드</a>
+							        </li>
+							        <li class="nav-item category">
+							          <a class="navbar-brand" href="findCategory.product?category=베이커리">
+      									<img src="/giftiApp/images/bread.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      									베이커리</a>
+							        </li>
+							        <li class="nav-item category">
+							          <a class="navbar-brand" href="findCategory.product?category=치킨/피자">
+      									<img src="/giftiApp/images/fast-food.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      									치킨/피자</a>
+							        </li>
+      								<li class="nav-item category">
+							          <a class="navbar-brand" href="findCategory.product?category=커피/음료">
+      									<img src="/giftiApp/images/cafe.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      									커피/음료</a>
+							        </li>
+      								<li class="nav-item category">
+							          <a class="navbar-brand" href="findCategory.product?category=아이스크림">
+      									<img src="/giftiApp/images/ice-cream.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      									아이스크림</a>
+							        </li>
+      								<li class="nav-item category">
+							          <a class="navbar-brand" href="findCategory.product?category=마트/편의점">
+      									<img src="/giftiApp/images/convenience-store.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      									마트/편의점</a>						
+      								</li>
+							      </ul>
+							  </div>
+						</nav>
 					<div class="card mb-4">
-
+					
                     <!-- TABLE START -->
                     <div class="card-header">
 						<i class="fas fa-table me-1"></i> 상품 전체 조회
 					</div>
                     <div class="card-body">
+                    	
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
