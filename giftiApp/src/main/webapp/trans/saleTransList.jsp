@@ -13,7 +13,7 @@
    content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>거래 내역</title>
+<title>유저 조회</title>
 <link rel="icon" type="images/png" href="./images/pavicon.png">
 <link
    href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
@@ -101,7 +101,7 @@ a {
                               <td><a href="findCategory.product?category=${trans.category}">${trans.category}</a></td>
                               <td><a href="giftInfo.product?itemId=${trans.itemId}">${trans.itemName}</a></td>
                               <td><a href="userInfo.user?userId=${trans.sellId}">${trans.sellId}</a></td>
-                              <td><a href="userInfo.user?userId=${trans.buyId}">${trans.buyId}</a></td>
+                              <td><a href="userInfo.user?userId${trans.buyId}">${trans.buyId}</a></td>
                               <td><fmt:formatNumber value="${trans.price}" pattern="#,###원"/></td>
                               <td><fmt:formatNumber value="${trans.salePrice}" pattern="#,###원"/></td>
                               <td>${trans.inDate}</td>

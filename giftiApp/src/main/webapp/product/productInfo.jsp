@@ -92,7 +92,8 @@
                         <div class="box-footer text-center">
                             <!-- {% if session_user_name == orm_obj.writer %} -->
                             <button type="submit" class="btn btn-primary btn-sm" id="btn_update" onclick="location.href='giftUpdateView.product?itemId=${product.itemId}'">수정</button>
-
+							<button type="submit" class="btn btn-danger btn-sm"  id="btn_delete" onclick="location.href='giftDelete.product?itemId=${product.itemId}'">삭제</button>
+                                        
                             <!-- {% endif %} -->
                         </div>
                     </div>

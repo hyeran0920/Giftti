@@ -89,8 +89,9 @@
                         <div class="collapse" id="collapseLayouts-tran" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link text-color-giffty" href="sellList.trans"><span class="text-color-giffty-h">거래 내역</span></a><!--거래 조회페이지-->
-                            </nav>
+                                <a class="nav-link text-color-giffty" href="allList.trans"><span class="text-color-giffty-h">총 거래 내역</span></a><!--거래 조회페이지-->
+                                <a class="nav-link text-color-giffty" href="selltransList.trans"><span class="text-color-giffty-h">완료 거래 내역</span></a><!--거래 조회페이지-->
+                                <a class="nav-link text-color-giffty" href="transList.trans"><span class="text-color-giffty-h">미 거래 내역</span></a><!--거래 조회페이지--></nav>
                         </div>
                         <div class="sb-sidenav-menu-heading"><span class="text-color-giffty">고객지원</span></div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -107,6 +108,7 @@
                         <div class="collapse" id="collapseLayouts-customer" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
+                            	<a class="nav-link text-color-giffty" href="FAQ.customerservice" ><span class="text-color-giffty-h">FAQ</span></a><!--신고 게시판페이지-->
                                 <a class="nav-link text-color-giffty" href="#" ><span class="text-color-giffty-h">신고 신청 게시판</span></a><!--신고 게시판페이지-->
                                 <a class="nav-link text-color-giffty" href="#"><span class="text-color-giffty-h">신고 내역 조회</span></a><!--상품 조회페이지-->
                             </nav>

@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -94,13 +93,21 @@ public class ProductController extends HttpServlet {
 			dao.delete(itemId);
 			
 			view = "giftList.product";
+			
 		} else if(PATH.equals("/giftInfo.product")) {
 			
 			int itemId = Integer.parseInt(request.getParameter("itemId"));
 			request.setAttribute("product", dao.find(itemId));
 			view = "/product/productInfo.jsp";
 
-		}
+		} else if(PATH.equals("/findCategory.product")) {
+	         
+	         String category = request.getParameter("category");
+	         request.setAttribute("products", dao.findCategoryAll(category));
+	         view = "/product/productList.jsp";
+
+		  }
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
