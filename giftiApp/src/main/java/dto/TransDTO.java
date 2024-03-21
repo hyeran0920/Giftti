@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class TransDTO {
 
-	private String user_id;
+	private String userId;
 	private int registerId;
+	private int transNum;
 	private String itemName;
 	private int price;
 	private int salePrice;
-	private String sellId;
 	private String buyId;
 	private String category;
 	private String brand;
@@ -20,11 +20,17 @@ public class TransDTO {
 	private double discount;
 	private int itemId;
 	
-	public String getUser_id() {
-		return user_id;
+	public int getTransNum() {
+		return transNum;
 	}
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setTransNum(int transNum) {
+		this.transNum = transNum;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public void setIsSale(String isSale) {
 		this.isSale = isSale;
@@ -78,12 +84,6 @@ public class TransDTO {
 		this.salePrice = salePrice;
 	}
 	
-	public String getSellId() {
-		return sellId;
-	}
-	public void setSellId(String sellId) {
-		this.sellId = sellId;
-	}
 	public String getBuyId() {
 		return buyId;
 	}
