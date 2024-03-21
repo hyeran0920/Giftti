@@ -51,7 +51,7 @@
                 <hr class="mb-40">
                 <br>
                 <div class="container col-12 ">
-    <form action="userUpdate.user" method="post">
+   				 <form action="userUpdate.user?userId=${user.id}" method="post" id="userUpdate.user">
                         <table class="table-bordered center-table">
                             <tr>
 								<td class="col-1" colspan="2" rowspan="4" style="text-align: center;">
@@ -109,45 +109,38 @@
                             </tr>
                             <tr>
                                 <th>활동상태</th>
-                                <td>
-                                <c:if test="${user.status eq 'ing'}">
-							        <input type="radio" name="state" value="active" checked > 활동 &nbsp;&nbsp;
-							        <input type="radio" name="state" value="stop"> 정지 &nbsp;&nbsp;
-							    </c:if>
-							    <c:if test="${user.status ne 'ing'}">
-							        <input type="radio" name="state" value="active"> 활동 &nbsp;&nbsp;
-							        <input type="radio" name="state" value="stop" checked> 정지 &nbsp;&nbsp;
-							    </c:if>
-                                </td>
+								<td>
+								    <select class="form-control" name="status">
+									    <c:forEach var="status" items="${allStatus}">
+									        <option value="${status}">${status}</option>
+									    </c:forEach>
+									</select>
+
+								</td>
+
                                 
                             </tr>
                             <tr>
                               <th colspan="2" style="background-color: whitesmoke;">
 							    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-								<button id="btn_update" onclick="submitForm()">수정하기</button>
-							    </div>
+								    <button id="btn_update" onclick="submitForm()" style="border: 1px solid #333;">수정하기</button>
+								</div>
+
 							</th>
 
                             </tr>
                         </table>
 </form>
 
-		<script>
-		    function submitForm() {
-		        // 변경된 상태값을 가져옴
-		        var newState = document.querySelector('input[name="state"]:checked').value;
-		        // form 요소 가져옴
-		        var form = document.getElementById('userUpdateForm');
-		        // 상태값을 hidden input에 추가
-		        var stateInput = document.createElement("input");
-		        stateInput.setAttribute("type", "hidden");
-		        stateInput.setAttribute("name", "status");
-		        stateInput.setAttribute("value", newState);
-		        form.appendChild(stateInput);
-		        // form 제출
-		        form.submit();
-		    }
-		</script>
+
+
+
+
+
+
+
+
+
                     
 
                 </div>

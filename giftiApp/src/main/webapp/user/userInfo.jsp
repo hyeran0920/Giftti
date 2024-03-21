@@ -110,12 +110,12 @@
                                 <th>활동상태</th>
                                 <td>
                                 <c:if test="${user.status eq 'ing'}">
-							        <input type="radio" name="state" value="active" checked onclick="return(false);"> 활동 &nbsp;&nbsp;
-							        <input type="radio" name="state" value="stop" onclick="return(false);"> 정지 &nbsp;&nbsp;
+							        <input type="radio" name="status" value="ing" checked onclick="return(false);"> 활동 &nbsp;&nbsp;
+							        <input type="radio" name="status" value="stop" onclick="return(false);"> 정지 &nbsp;&nbsp;
 							    </c:if>
 							    <c:if test="${user.status ne 'ing'}">
-							        <input type="radio" name="state" value="active" onclick="return(false);"> 활동 &nbsp;&nbsp;
-							        <input type="radio" name="state" value="stop" checked onclick="return(false);"> 정지 &nbsp;&nbsp;
+							        <input type="radio" name="status" value="ing" onclick="return(false);"> 활동 &nbsp;&nbsp;
+							        <input type="radio" name="status" value="stop" checked onclick="return(false);"> 정지 &nbsp;&nbsp;
 							    </c:if>
                                 </td>
                                 

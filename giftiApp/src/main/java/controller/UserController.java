@@ -60,24 +60,27 @@ public class UserController extends HttpServlet{
 			view = "/user/userInfo.jsp";
 						
 		}else if(PATH.equals("/userUpdateView.user")) {
-			System.out.println("회원 수정");
-			
-			String userId = request.getParameter("userId");
-			request.setAttribute("user", dao.find(userId));
-			
-			view ="/user/userUpdate.jsp";
-			
-		}else if(PATH.equals("/userUpdate.user")) {
 		    System.out.println("회원 수정");
+		    
+		    String userId = request.getParameter("userId");
+		    request.setAttribute("user", dao.find(userId));
+		    request.setAttribute("allStatus", dao.findAllStatus()); // 사용자 상태 값 전달
+		    
+		    view = "/user/userUpdate.jsp";
+		}else if (PATH.equals("/userUpdate.user")) {
+		    System.out.println("회원 수정");
+		    System.out.println(request.getParameter("status"));
+
+		    String userId = request.getParameter("userId");
+		    String status = request.getParameter("status"); // 사용자가 선택한 상태 값
 
 		    UserDTO dto = new UserDTO();
-		    String userId = request.getParameter("userId");
+		    dto.setId(userId);
+		    dto.setStatus(status);
 
-		    dto.setId(userId); // 사용자 ID 설정
-		    dto.setStatus(request.getParameter("status")); // 상태값 설정
-		    
-		    dao.Update(dto);
-		    view = "userUpdateView.user?userId=" + userId;
+		    dao.updateStatus(dto); // 상태 값 업데이트 메서드 호출
+
+		    view = "userInfo.user?userId=" + userId;
 		}
 
 
