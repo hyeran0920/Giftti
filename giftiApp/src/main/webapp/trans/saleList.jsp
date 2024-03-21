@@ -90,6 +90,7 @@ a {
                                     <th>유효기간</th>
                                     <th>등록일</th>
                                     <th>판매여부</th>
+                                    <th>삭제</th>
                         </tr>
                         
                      </thead>
@@ -108,6 +109,12 @@ a {
                               <td>${sale.availDate}</td>
                               <td>${sale.inDate}</td>
                               <td>${sale.isSale.equals("Available")?"판매중":"판매완료" } </td>
+                           	  <td>
+                           	  	<c:if test="${sale.isSale eq 'Available'}">
+                           	  		<button type="submit" class="btn btn-danger btn-sm"
+                                                id="btn_delete" onclick="location.href='saleDeleteList.trans?registerId=${sale.registerId}'">삭제</button>
+                           	  	</c:if>
+                           	  </td>
                            </tr>
                         </c:forEach>
                         

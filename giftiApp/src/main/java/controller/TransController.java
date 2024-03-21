@@ -58,6 +58,12 @@ public class TransController extends HttpServlet {
 			dao.deleteSale(registerId);
 			view = "productSaleList.trans?itemId=" + itemId;
 			
+		}else if(PATH.equals("/saleDeleteList.trans")){
+			
+			int registerId = Integer.parseInt(request.getParameter("registerId"));
+			dao.deleteSale(registerId);
+			view = "saleList.trans";
+			
 		} else if(PATH.equals("/transList.trans")) {
 			//거래 완료내역
 	         request.setAttribute("transactions", dao.findTrans());
