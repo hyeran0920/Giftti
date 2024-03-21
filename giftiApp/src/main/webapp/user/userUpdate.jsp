@@ -43,7 +43,7 @@
        <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h3 class="mt-4"><span class="text-primary">회원관리 </span>> 유저 상세 조회</h3>
+                    <h3 class="mt-4"><span class="text-primary">회원관리 </span>> 유저 수정</h3>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">유저 상세 화면</li>
                     </ol>
@@ -51,30 +51,29 @@
                 <hr class="mb-40">
                 <br>
                 <div class="container col-12 ">
-                    <form action="userUpdate.do" method="post">
+    <form action="userUpdate.user" method="post">
                         <table class="table-bordered center-table">
                             <tr>
 								<td class="col-1" colspan="2" rowspan="4" style="text-align: center;">
 								    <i class="fa-solid fa-user" style="width: 200px; height: 200px; margin: auto;"></i>
 								</td>
                                 <th class="col-2">이름</th>
-                                <td class="col-4"><input class="col-10" type="text" name="name" value="${user.name}">
-                                </td>
+                                <td class="col-4">${user.name}</td>
                                 <!-- 나중에 value 수정 -->
                             </tr>
                             <tr>
                             
                                 <th>아이디</th>
-                                <td><input class="col-10" type="text" name="user_id" value="${user.id}" readonly></td>
+                                <td>${user.id}</td>
                             </tr>
                             <tr>
                                 <th>비밀번호</th>
-                                <td><input class="col-10" type="password" name="password" value="${user.password}"></td>
+                                <td>${user.password}</td>
 
                             </tr>
                             <tr>
                                 <th>닉네임</th>
-                                <td><input class="col-10" type="text" name="user_id" value="${user.nickname}"></td>
+                                <td>${user.nickname}</td>
 
                             </tr>
                             <tr>
@@ -91,21 +90,21 @@
                                 </td>
 							    
                                 <th>나이</th>
-                                <td><input class="col-10" type="text" name="user_id" value="${user.age}"></td>
+                                <td>${user.age}</td>
                             </tr>
                         </table>
                         <table class="table-bordered center-table" style="margin-top: 10px; width: 600px;">
                             <tr>
                                 <th style="width: 300px;">이메일</th>
-                                <td style="width: 300px;"><input type="text" name="email" value="${user.email}"></td>
+                                <td style="width: 300px;">${user.email}</td>
                             </tr>
                             <tr>
                                 <th>전화번호</th>
-                                <td style="width: 300px;"><input type="text" name="email" value="${user.phone}"></td>
+                                <td style="width: 300px;">${user.phone}</td>
                             </tr>
                             <tr>
                                 <th>지역</th>
-                                <td style="width: 300px;"><input type="text" name="address" value="${user.address}">
+                                <td style="width: 300px;">${user.address}
                                 </td>
                             </tr>
                             <tr>
@@ -125,15 +124,30 @@
                             <tr>
                               <th colspan="2" style="background-color: whitesmoke;">
 							    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-							        <input type="submit" value="수정" class=""onclick="location.href='userUpdateView.user?userId=${user.id}'">
+								<button id="btn_update" onclick="submitForm()">수정하기</button>
 							    </div>
 							</th>
 
                             </tr>
                         </table>
+</form>
 
-                    </form>
-                    <br>
+		<script>
+		    function submitForm() {
+		        // 변경된 상태값을 가져옴
+		        var newState = document.querySelector('input[name="state"]:checked').value;
+		        // form 요소 가져옴
+		        var form = document.getElementById('userUpdateForm');
+		        // 상태값을 hidden input에 추가
+		        var stateInput = document.createElement("input");
+		        stateInput.setAttribute("type", "hidden");
+		        stateInput.setAttribute("name", "status");
+		        stateInput.setAttribute("value", newState);
+		        form.appendChild(stateInput);
+		        // form 제출
+		        form.submit();
+		    }
+		</script>
                     
 
                 </div>

@@ -170,28 +170,30 @@ public class UserDAO {
 	}
 	
 	String USER_UPDATE ="update user_tbl set status=? where user_id=?;";
-	public String Update(UserDTO user) {
-		String message = "업데이트 실패";
-		try {
-		con = DBConnection.getConnection();
-		pstmt = con.prepareStatement(USER_UPDATE);
-		pstmt.setString(1, user.getStatus());
-		int success = pstmt.executeUpdate();
-		
-		
-		if(success > 0) {
-			message = "업데이트를 성공하였습니다!";
-		}
-		
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			DBConnection.close(rs, pstmt, con);
-		}
-		return message;
-	}
 	
+	public String Update(UserDTO user) {
+	    String message = "업데이트 실패";
+	    try {
+	        con = DBConnection.getConnection();
+	        pstmt = con.prepareStatement(USER_UPDATE);
+	        pstmt.setString(1, user.getStatus()); // status 파라미터만 바인딩
+	        pstmt.setString(2, user.getId()); // user_id 파라미터 바인딩
+
+	        int success = pstmt.executeUpdate();
+
+	        if (success > 0) {
+	            message = "업데이트를 성공하였습니다!";
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBConnection.close(rs, pstmt, con);
+	    }
+	    return message;
+	}
+
+
+
 	
 	
 }

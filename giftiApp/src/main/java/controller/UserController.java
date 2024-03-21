@@ -59,17 +59,27 @@ public class UserController extends HttpServlet{
 			request.setAttribute("userTrans",dao.find2(userId));
 			view = "/user/userInfo.jsp";
 						
-		}else if(PATH.equals("/userUpdate.user")) {
+		}else if(PATH.equals("/userUpdateView.user")) {
 			System.out.println("회원 수정");
 			
-			UserDTO dto = new UserDTO();
 			String userId = request.getParameter("userId");
-			dto.setStatus(request.getParameter("status"));
+			request.setAttribute("user", dao.find(userId));
 			
-			dao.Update(dto);
-		    view = "/user/userUpdate.jsp";
+			view ="/user/userUpdate.jsp";
+			
+		}else if(PATH.equals("/userUpdate.user")) {
+		    System.out.println("회원 수정");
 
-		} 
+		    UserDTO dto = new UserDTO();
+		    String userId = request.getParameter("userId");
+
+		    dto.setId(userId); // 사용자 ID 설정
+		    dto.setStatus(request.getParameter("status")); // 상태값 설정
+		    
+		    dao.Update(dto);
+		    view = "userUpdateView.user?userId=" + userId;
+		}
+
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
