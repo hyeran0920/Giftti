@@ -36,9 +36,19 @@ a {
 	text-decoration: none;
 }
 </style>
+
+    <%
+// 세션이 없으면 로그인 페이지로 리다이렉트
+ session = request.getSession(false);
+if (session == null || session.getAttribute("userId") == null) {
+    response.sendRedirect("login.jsp");
+}
+%>
 </head>
 
 <body class="sb-nav-fixed">
+<script>
+
 	<jsp:include page="topNav.jsp" />
 	<div id="layoutSidenav">
 		<jsp:include page="sidebar.jsp" />
