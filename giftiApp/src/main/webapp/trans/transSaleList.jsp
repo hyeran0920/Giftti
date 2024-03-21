@@ -48,16 +48,16 @@ a {
          <main>
             <div class="container-fluid px-4">
                <h3 class="mt-4">
-                  <span class="text-primary">거래관리</span>>전체 거래내역
+                  <span class="text-primary">거래관리 </span>> 전체 거래내역
                </h3>
                <ol class="breadcrumb mb-4">
-                  <li class="breadcrumb-item active">판매중, 거래 완료 화면</li>
+                  <li class="breadcrumb-item active">판매중, 거래 내역 화면</li>
                </ol>
             </div>
             <hr class="mb-40">
             <div class="card mb-4">
                <div class="card-header">
-                  <i class="fas fa-table me-1"></i> <a href="saleAvailList.trans">판매중인 상품 조회</a>
+                  <i class="fas fa-table me-1"></i> <a href="saleAvailList.trans">최근 판매중인 상품 조회</a>
                </div>
                <div class="card-body">
                   <table class="table table-bordered">
@@ -102,7 +102,7 @@ a {
             <hr class="mb-40">
             <div class="card mb-4">
                <div class="card-header">
-                  <i class="fas fa-table me-1"></i> <a href="transList.trans">거래완료 조회</a>
+                  <i class="fas fa-table me-1"></i> <a href="transList.trans">최근 거래완료 조회</a>
                </div>
                <div class="card-body">
                   <table class="table table-bordered">
