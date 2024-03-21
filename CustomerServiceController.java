@@ -1,10 +1,8 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +13,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import dao.CSDAO;
+import dto.CSDTO;
 
 
 
@@ -28,7 +27,7 @@ public class CustomerServiceController extends HttpServlet {
         this.dao = new CSDAO(); // 이 부분에서 dao 객체를 생성
     }
 
-	
+
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
@@ -36,24 +35,66 @@ public class CustomerServiceController extends HttpServlet {
 		String PATH = URI.substring(URI.lastIndexOf("/"));
 		String view = "";
 
-		
-		if(PATH.equals("/FAQ.customerservice")) {
-			System.out.println("FAQ 리스트");
-		try {
-			request.setAttribute("questions", dao.AllQuestion());
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-			view = "/customerservice/FAQ.jsp";
-				
-		}
 
+		if(PATH.equals("/FAQ.customerservice")) {
+
+			request.setAttribute("questions", dao.allQuestion());
+			
+			
+
+			view = "/customerservice/FAQ.jsp";
+
+		}else if(PATH.equals("/findCategoryAll.customerservice")) {
+	         
+	         String qcategory = request.getParameter("qcategory");
+	         request.setAttribute("questions", dao.findByqcategory(qcategory));
+	         
+	         view = "/customerservice/FAQList.jsp";
+	         
+		  }else if(PATH.equals("/FAQList.customerservice")) {
+				
+				CSDTO dto = new CSDTO();
+				String faquestion = request.getParameter("faquestion");
+				
+				dto.setQcategory(request.getParameter("qcategory"));
+				dto.setFaquestion(request.getParameter("faquestion"));
+				dto.setAnswer(request.getParameter("answer"));
+				
+				
+				dao.updateFAQ(dto);
+//				FAQUpdateView.customerservice?faquestion=${question.faquestion}
+				view = "FAQUpdateView.customerservice?faquestion=" + faquestion;
+				
+			} else if(PATH.equals("/FAQInsert.customerservice")) {
+				
+				
+				CSDTO dto = new CSDTO();
+				
+				dto.setQcategory(request.getParameter("qcategory"));
+				dto.setFaquestion(request.getParameter("faquestion"));
+				dto.setAnswer(request.getParameter("answer"));
+				
+				
+				dao.insertFAQ(dto);
+				
+				view = "FAQInsert.customerservice";
+				
+			} else if(PATH.equals("/FAQDelete.customerservice")) {
+				
+				int questionId = Integer.parseInt(request.getParameter("q_id"));
+				dao.deleteFAQ(questionId);
+				
+				view = "FAQList.customerservice";
+				
+			} 
 		
-		
-		
+
+
+
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
-		
+
 	}
 
 }

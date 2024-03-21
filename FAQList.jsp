@@ -76,7 +76,7 @@ a {
 					    <div class="container-fluid">
 					            <ul class="navbar-nav">
 					                <li class="nav-item category">
-					                    <a class="nav-link" href="">전체</a>
+					                    <a class="nav-link" href="FAQ.customerservice">전체</a>
 					                </li>
 					                <li class="nav-item category">
 					                    <a class="nav-link" href="findCategoryAll.customerservice?qcategory=서비스안내">
@@ -109,9 +109,17 @@ a {
 				<div class="accordion" id="accordionExample">
 				    <div class="accordion-item">
 				        <c:forEach var="question" items="${questions}">
+				         <div class="box-footer">
+                                            <button type="submit" class="btn btn-primary btn-sm"
+                                                id="btn_update" onclick="location.href='FAQUpdateView.customerservice?faquestion=${question.faquestion}'">수정</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"
+                                                id="btn_delete" onclick="location.href='FAQDelete.customerservice">삭제</button>
+                                        </div>
 				            <h2 class="accordion-header" id="heading${question.questionId}">
 				                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${question.questionId}" aria-expanded="false" aria-controls="collapse${question.questionId}">
-				                    <strong>[ ${question.qcategory} ]</strong> &nbsp; ${question.faquestion} 
+				                 <%--    <strong>[ ${question.qcategory} ]</strong> &nbsp; 카테고리 내용이 나오지 않길래 그냥 주석처리 했습니다..--%>
+				                     ${question.faquestion} 
+				                     
 				                </button>
 				            </h2>
 				            <div id="collapse${question.questionId}" class="accordion-collapse collapse" aria-labelledby="heading${question.questionId}" data-bs-parent="#accordionExample">
