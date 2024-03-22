@@ -48,6 +48,7 @@ public class UserController extends HttpServlet{
 			System.out.println("회원 판매 상품");
 			
 			String userId = request.getParameter("userId");
+			request.setAttribute("user1",dao.find(userId));
 			request.setAttribute("user",dao.find2(userId));
 			view = "/user/userTrans.jsp";
 			
