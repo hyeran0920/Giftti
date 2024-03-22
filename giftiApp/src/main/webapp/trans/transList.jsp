@@ -63,14 +63,13 @@ a {
                   <table id="datatablesSimple">
                      <thead>
                         <tr>
-
-                            <th>거래번호</th>
+							<th>거래 일자</th>	
                             <th>판매번호</th>
                                     <th>카테고리</th>
                                     <th>판매 상품명</th>
                                     <th>판매자 ID</th>
                                     <th>구매자 ID</th>
-                                    <th>거래 일자</th>
+                             <th>거래번호</th>       
                         </tr>
                         
                      </thead>
@@ -80,13 +79,13 @@ a {
             
                            <tr>
                         
-                              <td>${trans.transNum}</td>
+                              <td>${trans.transDate}</td>
                               <td>${trans.registerId}</td>
                               <td><a href="findCategory.product?category=${trans.category}">${trans.category}</a></td>
                               <td><a href="giftInfo.product?itemId=${trans.itemId}">${trans.itemName}</a></td>
                               <td><a href="userInfo.user?userId=${trans.userId}">${trans.userId}</a></td>
                               <td><a href="userInfo.user?userId=${trans.buyId}">${trans.buyId}</a></td>
-                              <td>${trans.transDate}</td>
+                              <td>${trans.transNum}</td>
                               
                            </tr>
                         </c:forEach>

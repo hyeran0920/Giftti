@@ -1,7 +1,5 @@
 package dto;
 
-import java.util.Date;
-
 public class UserDTO {
 	private String user_id;
 	private String name;
