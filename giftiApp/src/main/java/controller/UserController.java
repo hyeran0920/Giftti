@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDAO;
+import dto.ProductDTO;
+import dto.UserDTO;
 
 @WebServlet("*.user")
 public class UserController extends HttpServlet{
@@ -42,6 +44,14 @@ public class UserController extends HttpServlet{
 			request.setAttribute("user",dao.findAll());
 			view = "/user/userList.jsp";
 			
+		}else if(PATH.equals("/userTrans.user")) {
+			System.out.println("회원 판매 상품");
+			
+			String userId = request.getParameter("userId");
+			request.setAttribute("user1",dao.find(userId));
+			request.setAttribute("user",dao.find2(userId));
+			view = "/user/userTrans.jsp";
+			
 		}else if(PATH.equals("/userInfo.user")) {
 			System.out.println("회원 정보");
 			
@@ -49,10 +59,31 @@ public class UserController extends HttpServlet{
 			request.setAttribute("user",dao.find(userId));
 			request.setAttribute("userTrans",dao.find2(userId));
 			view = "/user/userInfo.jsp";
-			
-		
-			
+						
+		}else if(PATH.equals("/userUpdateView.user")) {
+		    System.out.println("회원 수정");
+		    
+		    String userId = request.getParameter("userId");
+		    request.setAttribute("user", dao.find(userId));
+		    request.setAttribute("allStatus", dao.findAllStatus()); // 사용자 상태 값 전달
+		    
+		    view = "/user/userUpdate.jsp";
+		}else if (PATH.equals("/userUpdate.user")) {
+		    System.out.println("회원 수정");
+		    System.out.println(request.getParameter("status"));
+
+		    String userId = request.getParameter("userId");
+		    String status = request.getParameter("status"); // 사용자가 선택한 상태 값
+
+		    UserDTO dto = new UserDTO();
+		    dto.setId(userId);
+		    dto.setStatus(status);
+
+		    dao.updateStatus(dto); // 상태 값 업데이트 메서드 호출
+
+		    view = "userInfo.user?userId=" + userId;
 		}
+
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
