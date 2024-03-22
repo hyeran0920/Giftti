@@ -71,7 +71,7 @@
                                 <tr>
                                     <th>응답 내용</th>
                                     <td><input type="text"  class="form-control" name="answer" id="answer" > </td>
-                                </tr>ㅇ
+                                </tr>
                                 <th>카테고리</th>
                                     <td>
                               <select class="form-select" aria-label="Default select example"id="qcategory" name="qcategory">
