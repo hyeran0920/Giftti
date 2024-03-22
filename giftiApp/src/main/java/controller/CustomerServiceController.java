@@ -39,7 +39,7 @@ public class CustomerServiceController extends HttpServlet {
         } else if (PATH.equals("/findCategoryAll.customerservice")) {
             String qcategory = request.getParameter("qcategory");
             request.setAttribute("questions", dao.findByCategory(qcategory));
-            
+            request.setAttribute("category", qcategory);
             view = "/customerservice/FAQList.jsp";
             
         } else if(PATH.equals("/FAQUpdateView.customerservice")) {
@@ -64,7 +64,8 @@ public class CustomerServiceController extends HttpServlet {
             view = "FAQUpdateView.customerservice?questionId=" + questionId;
             
         } else if (PATH.equals("/FAQInsertView.customerservice")) {
-        	
+        	String category = request.getParameter("category");
+        	request.setAttribute("category", category);
             view = "/customerservice/FAQInsert.jsp";
             
         }else if (PATH.equals("/FAQInsert.customerservice")) {

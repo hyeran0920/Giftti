@@ -73,7 +73,11 @@
 								
 								</c:forEach>
                             </tbody>
+                            
                         </table>
+                        <div class="box-footer text-center">
+                        	<button type="submit" class="btn btn-primary btn-sm" onclick="location.href='giftList.product'">뒤로가기 </button>
+                    	</div>
                     </div>
                 </div>
             </main>

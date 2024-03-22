@@ -134,9 +134,9 @@ public class UserDAO {
 	            users.setSalePrice(rs.getInt("sale_price"));
 	            String sale = rs.getString("isSale");
 	            if(sale.equals("Available")) {
-	                users.setIsSale("false");
+	                users.setIsSale("판매중");
 	            } else {
-	                users.setIsSale("true");
+	                users.setIsSale("판매완료");
 	            }
 	            users.setInDate(rs.getDate("indate"));
 
