@@ -16,20 +16,20 @@ body {
   align-items: center;
   background: #ebecf0;
   overflow: hidden;
-}
+}	
 .container {
   border-radius: 10px;
   box-shadow: -5px -5px 10px #fff, 5px 5px 10px #babebc;
   position: absolute;
   width: 960px;
   min-height: 720px;
-  overflow: hidden;
+
 }
 form {
   background: #ebecf0;
   display: flex;
   flex-direction: column;
-  padding: 0 50px;
+  padding: 0 30px;
   height: 100%;
   justify-content: center;
   align-items: center;
@@ -51,8 +51,8 @@ button {
   outline: none;
   font-size: 12px;
   font-weight: bold;
-  padding: 15px 45px;
-  margin: 14px;
+  padding: 15px 25px;
+  margin: 10px;
   letter-spacing: 1px;
   text-transform: uppercase;
   cursor: pointer;
@@ -83,7 +83,10 @@ button {
   height: 100%;
   opacity: 0;
   transition: all 0.5s;
+  
+
 }
+
 .overlay-left {
   display: flex;
   flex-direction: column;
@@ -98,6 +101,7 @@ button {
   background-color: #ff4b2b;
   color: #fff;
   transition: all 0.5s;
+    overflow-y: scroll;
 }
 .overlay-right {
   display: flex;
@@ -166,4 +170,13 @@ span {
 }
 .social-links div:active {
   box-shadow: inset 1px 1px 2px #babebc, inset -1px -1px 2px #fff;
+}
+.gender {
+	  width: 50px;
+}
+.zipcode{
+ width: 120px;
+}
+.user_id{
+	 width: 150px;
 }

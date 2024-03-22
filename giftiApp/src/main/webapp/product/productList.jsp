@@ -100,6 +100,8 @@
 					                    </a>
 					                </li>
 					            </ul>
+					            <button type="submit" class="btn btn-secondary btn-sm "
+                                                id="btn_delete" onclick="location.href='giftInsertView.product'">상품 추가</button>
 					    </div>
 					</nav>
 					<div class="card mb-4">

@@ -51,7 +51,7 @@
                 </tr>
                 <tr>
                   <th>등록회원</th>
-                  <td>${saleItem.sellId}</td>
+                  <td>${saleItem.userId}</td>
                 </tr>
                 <tr>
                   <th>판매가</th>
