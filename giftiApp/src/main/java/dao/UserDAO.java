@@ -5,11 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import DBConnection.DBConnection;
-import dto.ProductDTO;
 import dto.TransDTO;
 import dto.UserDTO;
 
@@ -41,7 +39,7 @@ public class UserDAO {
 			while(rs.next()) {
 				UserDTO users = new UserDTO();
 				
-				users.setId(rs.getString("user_id"));
+				users.setUserId(rs.getString("user_id"));
 				users.setName(rs.getString("name"));
 				users.setNickname(rs.getString("nickname"));
 				users.setGender(rs.getString("gender"));
@@ -82,7 +80,7 @@ public class UserDAO {
 			
 			if(rs.next()) {
 				user = new UserDTO();
-				user.setId(rs.getString("user_id"));
+				user.setUserId(rs.getString("user_id"));
 				user.setName(rs.getString("name"));
 				user.setPassword(rs.getString("password"));
 				user.setEmail(rs.getString("email"));
@@ -161,7 +159,7 @@ public class UserDAO {
 	        con = DBConnection.getConnection();
 	        pstmt = con.prepareStatement(USER_UPDATE);
 	        pstmt.setString(1, user.getStatus());
-	        pstmt.setString(2, user.getId());
+	        pstmt.setString(2, user.getUserId());
 	        pstmt.executeUpdate();
 	    } catch (SQLException e) {
 	        e.printStackTrace();

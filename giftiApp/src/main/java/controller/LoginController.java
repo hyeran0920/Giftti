@@ -35,7 +35,6 @@ public class LoginController extends HttpServlet {
 		String URI = request.getRequestURI();
 		String PATH = URI.substring(URI.lastIndexOf("/"));
 		String view = "";
-		String ms ; //메시지
 		int result =0;
 		
 		//이미 로그인 함
@@ -61,7 +60,7 @@ public class LoginController extends HttpServlet {
 				System.out.println("비번은 맞음");
 				   view = "/index.jsp";// 회원 페이지로 이동
 				//관리자면 관리자 페이지로 이동
-				if(user.getId().equals("user1")) { //일단 관리자 아이디 user1
+				if(user.getUserId().equals("user1")) { //일단 관리자 아이디 user1
 					view = "/index.jsp";
 					System.out.println("관리자 로그인 처리");
 				}
@@ -113,7 +112,7 @@ public class LoginController extends HttpServlet {
 			System.out.println("여기냐 ?");
 			UserDTO dto =new UserDTO();	
 			System.out.println(gender);
-			dto.setUser_id(id);
+			dto.setUserId(id);
 			dto.setPassword(password1);
 			dto.setName(name);
 			dto.setAddress(address);

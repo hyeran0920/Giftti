@@ -104,7 +104,7 @@ a {
 
 								<c:forEach var="user" items="${user}">
 									<tr>
-										<td><a href="userInfo.user?userId=${userId}">${userId}</a></td>
+										<td><a href="userInfo.user?userId=${user.userId}">${user.userId}</a></td>
 										<td>${user.name}</td>
 										<td>${user.nickname}</td>
 										<td>${user.gender}</td>
@@ -112,7 +112,7 @@ a {
 										<td>${user.age}</td>
 										<td>${user.address}</td>
 										<td>${user.status}</td>
-							      		<td><a href="userTrans.user?userId=${user.id}">${user.count}</a></td>
+							      		<td><a href="userTrans.user?userId=${user.userId}">${user.count}</a></td>
 										
 									</tr>
 								</c:forEach>

@@ -61,7 +61,7 @@ public class ProductController extends HttpServlet {
 			dto.setImage(request.getParameter("image"));
 			
 			dao.Update(dto);
-			view = "giftUpdateView.product?itemId=" + itemId;
+			view = "giftList.product";
 			
 		}else if(PATH.equals("/giftInsertView.product")) {
 			

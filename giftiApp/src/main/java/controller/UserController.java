@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDAO;
-import dto.ProductDTO;
 import dto.UserDTO;
 
 @WebServlet("*.user")
@@ -76,7 +75,7 @@ public class UserController extends HttpServlet{
 		    String status = request.getParameter("status"); // 사용자가 선택한 상태 값
 
 		    UserDTO dto = new UserDTO();
-		    dto.setId(userId);
+		    dto.setUserId(userId);
 		    dto.setStatus(status);
 
 		    dao.updateStatus(dto); // 상태 값 업데이트 메서드 호출

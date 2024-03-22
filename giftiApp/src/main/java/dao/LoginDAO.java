@@ -54,7 +54,7 @@ public class LoginDAO {
 			con = DBConnection.getConnection();			
 			pstmt = con.prepareStatement(INSERT_USER);
 			
-			pstmt.setString(1, dto.getUser_id());
+			pstmt.setString(1, dto.getUserId());
 			pstmt.setString(2, dto.getName());
 			pstmt.setString(3, dto.getPassword());
 			pstmt.setString(4, dto.getEmail());

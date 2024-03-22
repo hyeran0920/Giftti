@@ -64,7 +64,7 @@
                             <tr>
                             
                                 <th>아이디</th>
-                                <td>${user.id}</td>
+                                <td>${user.userId}</td>
                             </tr>
                             <tr>
                                 <th>비밀번호</th>
@@ -123,7 +123,7 @@
                             <tr>
                               <th colspan="2" style="background-color: whitesmoke;">
 							    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-								<input type="button" value="수정" onclick="location.href='userUpdateView.user?userId=${user.id}'">
+								<input type="button" value="수정" onclick="location.href='userUpdateView.user?userId=${user.userId}'">
 							    </div>
 							</th>
 

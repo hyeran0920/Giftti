@@ -51,7 +51,7 @@
                 <hr class="mb-40">
                 <br>
                 <div class="container col-12 ">
-   				 <form action="userUpdate.user?userId=${user.id}" method="post" id="userUpdate.user">
+   				 <form action="userUpdate.user?userId=${user.userId}" method="post" id="userUpdate.user">
                         <table class="table-bordered center-table">
                             <tr>
 								<td class="col-1" colspan="2" rowspan="4" style="text-align: center;">
@@ -64,7 +64,7 @@
                             <tr>
                             
                                 <th>아이디</th>
-                                <td>${user.id}</td>
+                                <td>${user.userId}</td>
                             </tr>
                             <tr>
                                 <th>비밀번호</th>

@@ -1,7 +1,7 @@
 package dto;
 
 public class UserDTO {
-	private String user_id;
+	private String userId;
 	private String name;
 	private String password;
 	private String nickname;
@@ -18,12 +18,12 @@ public class UserDTO {
 	
 
 
-	public String getUser_id() {
-		return user_id;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setUserId(String user_id) {
+		this.userId = user_id;
 	}
 
 	public int getCount() {
@@ -34,13 +34,6 @@ public class UserDTO {
 		this.count = count;
 	}
 
-	public String getId() {
-	    return user_id;
-	}
-
-	public void setId(String id) {
-	    this.user_id = id;
-	}
 	public String getName() {
 		return name;
 	}

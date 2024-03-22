@@ -50,7 +50,7 @@
 					<li> 등록한 상품 목록</li>
 					</ol>
 				</div>
-				<h3>&nbsp;&nbsp;&nbsp;&nbsp;${user1.id} 님의 등록 내역</h3>
+				<h3>&nbsp;&nbsp;&nbsp;&nbsp;${user1.userId} 님의 등록 내역</h3>
 				<br><br>
 				<table class="table-bordered center-table" id="saleList">
 					<tr>
@@ -65,7 +65,7 @@
 					</tr>
 					<c:forEach var="transaction" items="${user}">
 					    <tr>
-					        <th>${transaction.user_id}</th>
+					        <th>${transaction.userId}</th>
 					        <td>${transaction.registerId}</td>
 					        <td>${transaction.category}</td>
 					        <td>${transaction.itemName}</td>
