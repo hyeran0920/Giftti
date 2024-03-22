@@ -17,7 +17,7 @@ public class TransDAO {
 	
 	private final String SELECT_TRANS = "select S.register_id, trans_num, category, item_name, user_id, buy_id, trans_date, S.item_id as item_id "
 	         + " from trans_tbl as T join sale_tbl as S on S.register_id = T.register_id"
-	         + " inner join gifticon_tbl as G on G.item_id =S.item_id ";
+	         + " inner join gifticon_tbl as G on G.item_id =S.item_id order by trans_date desc";
 	private final String SELECT_TRANS_FIVE = "select S.register_id, trans_num, category, item_name, user_id, buy_id, trans_date, S.item_id as item_id "
 	         + " from trans_tbl as T join sale_tbl as S on S.register_id = T.register_id"
 	         + " inner join gifticon_tbl as G on G.item_id =S.item_id ORDER BY register_id desc limit 5";
