@@ -30,13 +30,7 @@ body {
    font-family: "Noto Sans KR", sans-serif;
 }
 
-th, td {
-   font-size: 1rem;
-}
 
-a {
-   text-decoration: none;
-}
 </style>
 </head>
 

@@ -29,6 +29,9 @@
 		.sb-nav-fixed{
 			font-family: 'NEXON Lv1 Gothic OTF';
 		}
+		a{
+		font-size:16px;
+		}
 	</style>
 	
 </head>
@@ -139,7 +142,7 @@
                                                 id="btn_update" onclick="location.href='giftUpdateView.product?itemId=${product.itemId}'">수정</button>
                                             <button type="submit" class="btn btn-danger btn-sm"
                                                 id="btn_delete" onclick="location.href='giftDelete.product?itemId=${product.itemId}'">삭제</button>
-                                        </div>
+                                        </div> 
                                     	</td>
                                     	<c:url value="sellList.trans" var="sellList">
                                     		<c:param name="itemId" value="${product.itemId }"/>

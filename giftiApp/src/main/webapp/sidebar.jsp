@@ -27,8 +27,9 @@
     	font-weight: normal;
     		font-style: normal;
 		}	
+		
 		body{
-			font-family: 'NEXON Lv1 Gothic OTF';
+  			font-family: "Helvetica Neue", "Arial", sans-serif;
 			padding: 10px;
 		}
 		
