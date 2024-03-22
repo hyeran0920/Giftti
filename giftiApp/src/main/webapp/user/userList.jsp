@@ -104,7 +104,7 @@ a {
 
 								<c:forEach var="user" items="${user}">
 									<tr>
-										<td><a href="userInfo.user?userId=${user.id}">${user.id}</a></td>
+										<td><a href="userInfo.user?userId=${userId}">${userId}</a></td>
 										<td>${user.name}</td>
 										<td>${user.nickname}</td>
 										<td>${user.gender}</td>

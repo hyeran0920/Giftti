@@ -125,13 +125,12 @@ public class UserDAO {
 	        while(rs.next()) {
 	            TransDTO users = new TransDTO();
 	            users.setCategory(rs.getString("category"));
-	            users.setSellId(rs.getString("user_id"));
 	            users.setPrice(rs.getInt("price"));
 	            users.setInDate(rs.getDate("inDate"));
 	            users.setItemId(rs.getInt("item_id"));
 	            
 	            
-				users.setUser_id(rs.getString("user_id"));
+				users.setUserId(rs.getString("user_id"));
 	            users.setRegisterId(rs.getInt("register_id"));
 	            users.setItemName(rs.getString("item_name"));
 	            users.setSalePrice(rs.getInt("sale_price"));
