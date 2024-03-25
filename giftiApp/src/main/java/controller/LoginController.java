@@ -97,7 +97,6 @@ public class LoginController extends HttpServlet {
 		}
 		
 		UserDTO dto =new UserDTO();	
-		System.out.println(gender);
 		dto.setUserId(id);
 		dto.setPassword(password1);
 		dto.setName(name);
@@ -142,12 +141,10 @@ public class LoginController extends HttpServlet {
 			 session.setAttribute("userId", id);
 			//세션에 저장된 회원 정보 호출
 			session.setMaxInactiveInterval(600); //세션 연결 기간600초		
-			System.out.println("비번은 맞음");
 			   view = "/index.jsp";// 회원 페이지로 이동
 			//관리자면 관리자 페이지로 이동
 			if(user.getUserId().equals("user1")) { //일단 관리자 아이디 user1
 				view = "/index.jsp";
-				System.out.println("관리자 로그인 처리");
 			}
 	
 		}else {
