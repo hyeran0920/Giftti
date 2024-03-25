@@ -62,7 +62,6 @@ public class LoginDAO {
 			pstmt.setString(8, dto.getAddress());
 			pstmt.setString(9, dto.getNickname());			
 			pstmt.executeUpdate();
-			System.out.println("dao까지는 옵");
 		}catch (SQLException e) { //예외 발생
 			e.printStackTrace();
 			result =-1; //데이터베이스 오류

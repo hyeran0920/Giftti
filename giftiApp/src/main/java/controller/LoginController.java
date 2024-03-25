@@ -77,7 +77,6 @@ public class LoginController extends HttpServlet {
 		int age = Integer.parseInt(request.getParameter("age"));
 		String address = request.getParameter("zipcode") + " " +request.getParameter("address1") + " " + request.getParameter("address2") ;
 		String nickname = request.getParameter("nickname");
-		 System.out.println(id+name+password1+password2+email+phone);
 		
 		if(id==null || id.equals("")||password1==null || password1.equals("")||
 				password2==null || password2.equals("")||name==null || name.equals("")||	
@@ -126,7 +125,7 @@ public class LoginController extends HttpServlet {
 	private String logout(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		view = "/login2.jsp";
+		view = "/login.jsp";
 		return view;
 	}
 	private String login(HttpServletRequest request, HttpServletResponse response) {
@@ -152,7 +151,7 @@ public class LoginController extends HttpServlet {
 			}
 	
 		}else {
-			view ="/login2.jsp";
+			view ="/login.jsp";
 			
 		}
 		return view;
