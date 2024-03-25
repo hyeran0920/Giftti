@@ -132,7 +132,7 @@
                         </table>
                         <div class="box-footer text-center">
                             <!-- {% if session_user_name == orm_obj.writer %} -->
-                            <button type="submit" class="btn btn-primary btn-sm" id="btn_update">등록</button>
+                            <button type="submit" class="btn btn-primary btn-sm" id="btn_update"><i class="fa-solid fa-check"></i> 수정</button>
 
                             <!-- {% endif %} -->
                         </div>

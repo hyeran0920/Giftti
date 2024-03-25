@@ -102,7 +102,7 @@ a {
 					            </ul>
 					            <button type="submit" class="btn btn-secondary btn-sm"
 								id="btn_update"
-								onclick="location.href='FAQInsertView.customerservice?category=${category}'">FAQ 등록</button>
+								onclick="location.href='FAQInsertView.customerservice?category=${category}'"><i class="fa-solid fa-plus"></i> FAQ 등록</button>
 						
 					    </div>
 					</nav>
@@ -128,9 +128,9 @@ a {
 				                    ${question.answer} 
 				                    		         <div class="box-footer">
                                             <button type="submit" class="btn btn-primary btn-sm"
-                                                id="btn_update" onclick="location.href='FAQUpdateView.customerservice?questionId=${question.questionId}'">수정</button>
+                                                id="btn_update" onclick="location.href='FAQUpdateView.customerservice?questionId=${question.questionId}'"><i class="fa-solid fa-pen"></i> 수정</button>
                                             <button type="submit" class="btn btn-danger btn-sm"
-                                                id="btn_delete" onclick="location.href='FAQDelete.customerservice?questionId=${question.questionId}'">삭제</button>
+                                                id="btn_delete" onclick="location.href='FAQDelete.customerservice?questionId=${question.questionId}'"><i class="fa-solid fa-trash"></i> 삭제</button>
                                         </div>
 				                    
 				                    

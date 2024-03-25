@@ -99,7 +99,7 @@
                             </tbody>
                         </table>
                         <div class="box-footer text-center">
-                            <button type="submit" class="btn btn-primary btn-sm" id="btn_update">등 록</button>
+                            <button type="submit" class="btn btn-primary btn-sm" id="btn_update"><i class="fa-solid fa-check"></i> 등 록</button>
 
                         </div>
                     </div>
