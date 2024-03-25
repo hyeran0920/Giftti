@@ -53,15 +53,15 @@ public class CustomerServiceController extends HttpServlet {
             CSDTO dto = new CSDTO();
             
             int questionId = Integer.parseInt(request.getParameter("questionId"));
-
+            String qcategory = request.getParameter("qcategory");
             dto.setQuestionId(questionId);
-            dto.setQcategory(request.getParameter("qcategory"));
+            dto.setQcategory(qcategory);
             dto.setFaquestion(request.getParameter("faquestion"));
             dto.setAnswer(request.getParameter("answer"));
 
             dao.updateFAQ(dto);
             
-            view = "FAQUpdateView.customerservice?questionId=" + questionId;
+            view = "findCategoryAll.customerservice?qcategory=" + qcategory;
             
         } else if (PATH.equals("/FAQInsertView.customerservice")) {
         	String category = request.getParameter("category");
