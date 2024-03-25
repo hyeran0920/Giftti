@@ -18,74 +18,109 @@ import dto.CSDTO;
 @WebServlet("*.customerservice")
 public class CustomerServiceController extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private CSDAO dao;
+    private CSDAO dao;//사용할 dao를 간단하게 출력하기 위한 변수 선언
 
+    //servlet 초기화
     public CustomerServiceController() {
-        super();
-        this.dao = new CSDAO();
+        super();//상속
+        this.dao = new CSDAO();//데이터베이스와 상호작용 준비
     }
-
+    
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         String URI = request.getRequestURI();
         String PATH = URI.substring(URI.lastIndexOf("/"));
         String view = "";
+        
+        
 
-        if (PATH.equals("/FAQ.customerservice")) {
-            request.setAttribute("questions", dao.getAllQuestions());
+        if (PATH.equals("/FAQ.customerservice")) {//이 주소로 들어 오면
+           
             
-            view = "/customerservice/FAQ.jsp";
+            view =  FAQtotal(request, response);
             
         } else if (PATH.equals("/findCategoryAll.customerservice")) {
-            String qcategory = request.getParameter("qcategory");
-            request.setAttribute("questions", dao.findByCategory(qcategory));
-            request.setAttribute("category", qcategory);
-            view = "/customerservice/FAQList.jsp";
             
+            view = FAQcategory(request, response);
         } else if(PATH.equals("/FAQUpdateView.customerservice")) {
-			
-			int questionId = Integer.parseInt(request.getParameter("questionId"));
-			request.setAttribute("faq", dao.findquestion(questionId));
-		
-			view = "/customerservice/FAQUpdate.jsp";
-			
+         
+         view = FAQupdateView(request, response);
+         
         } else if (PATH.equals("/FAQUpdate.customerservice")) {
-            CSDTO dto = new CSDTO();
             
-            int questionId = Integer.parseInt(request.getParameter("questionId"));
-            String qcategory = request.getParameter("qcategory");
-            dto.setQuestionId(questionId);
-            dto.setQcategory(qcategory);
-            dto.setFaquestion(request.getParameter("faquestion"));
-            dto.setAnswer(request.getParameter("answer"));
-
-            dao.updateFAQ(dto);
-            
-            view = "findCategoryAll.customerservice?qcategory=" + qcategory;
+           view = FAQupdate(request, response);
             
         } else if (PATH.equals("/FAQInsertView.customerservice")) {
-        	String category = request.getParameter("category");
-        	request.setAttribute("category", category);
-            view = "/customerservice/FAQInsert.jsp";
+           
+           view = FAQinsertView(request, response);
             
         }else if (PATH.equals("/FAQInsert.customerservice")) {
-            CSDTO dto = new CSDTO();
-
-            dto.setQcategory(request.getParameter("qcategory"));
-            dto.setFaquestion(request.getParameter("faquestion"));
-            dto.setAnswer(request.getParameter("answer"));
-
-            dao.insertFAQ(dto);
-            
-            view = "FAQ.customerservice";
-            
+           
+           view = FAQinsert(request, response);
         } else if (PATH.equals("/FAQDelete.customerservice")) {
-            int questionId = Integer.parseInt(request.getParameter("questionId"));
-            dao.deleteFAQ(questionId);
-            view = "FAQ.customerservice";
+            view = FAQdelete(request, response);
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(view);
         dispatcher.forward(request, response);
     }
+    
+    private String FAQtotal(HttpServletRequest request, HttpServletResponse response){
+        request.setAttribute("questions", dao.getAllQuestions());//dao 가져오기
+       return "/customerservice/FAQ.jsp";
+    }
+    private String FAQcategory(HttpServletRequest request, HttpServletResponse response) {
+       String qcategory = request.getParameter("qcategory");
+        request.setAttribute("questions", dao.findByCategory(qcategory));
+        request.setAttribute("category", qcategory);
+        return  "/customerservice/FAQList.jsp";
+    }
+    private String FAQupdateView(HttpServletRequest request, HttpServletResponse response) {
+       int questionId = Integer.parseInt(request.getParameter("questionId"));
+      request.setAttribute("faq", dao.findquestion(questionId));
+   
+      return  "/customerservice/FAQUpdate.jsp";
+    }
+    private String FAQupdate (HttpServletRequest request, HttpServletResponse response) {
+       CSDTO dto = new CSDTO();
+        
+        int questionId = Integer.parseInt(request.getParameter("questionId"));
+        String qcategory = request.getParameter("qcategory");
+        dto.setQuestionId(questionId);
+        dto.setQcategory(qcategory);
+        dto.setFaquestion(request.getParameter("faquestion"));
+        dto.setAnswer(request.getParameter("answer"));
+
+        dao.updateFAQ(dto);
+        
+        return "findCategoryAll.customerservice?qcategory=" + qcategory;
+        
+    }
+    private String FAQinsertView(HttpServletRequest request, HttpServletResponse response) {
+       String category = request.getParameter("category");
+       request.setAttribute("category", category);
+        return "/customerservice/FAQInsert.jsp";
+    }
+    private String FAQinsert(HttpServletRequest request, HttpServletResponse response) {
+        CSDTO dto = new CSDTO();
+        String qcategory =request.getParameter("qcategory");
+         dto.setQcategory(qcategory);
+         dto.setFaquestion(request.getParameter("faquestion"));
+         dto.setAnswer(request.getParameter("answer"));
+
+         dao.insertFAQ(dto);
+         
+         return "findCategoryAll.customerservice?qcategory=" + qcategory;
+         
+    }
+    private String FAQdelete(HttpServletRequest request, HttpServletResponse response) {
+       int questionId = Integer.parseInt(request.getParameter("questionId"));
+        dao.deleteFAQ(questionId);
+        return "FAQ.customerservice";
+    }
+    
+    
+    
+    
+    
 }

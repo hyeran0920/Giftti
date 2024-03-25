@@ -35,83 +35,111 @@ public class ProductController extends HttpServlet {
 		String URI = request.getRequestURI();
 		String PATH = URI.substring(URI.lastIndexOf("/"));
 		String view = "";
-		System.out.println(PATH);
 		
 		if(PATH.equals("/giftList.product")) {
-			
-			request.setAttribute("products",dao.findAll());
-			view = "/product/productList.jsp";
+			view = list(request, response);
 			
 		} else if(PATH.equals("/giftUpdateView.product")) {
-			
-			int itemId = Integer.parseInt(request.getParameter("itemId"));
-			request.setAttribute("product", dao.find(itemId));
-			request.setAttribute("categories", dao.getCategory());
-			view = "/product/productUpdate.jsp";
+			view = updateView(request, response);
 			
 		} else if(PATH.equals("/giftUpdate.product")) {
-			
-			ProductDTO dto = new ProductDTO();
-			String itemId = request.getParameter("item_id");
-			dto.setItemId(Integer.parseInt(itemId));
-			dto.setItemName(request.getParameter("item_name"));
-			dto.setPrice(Integer.parseInt(request.getParameter("price")));
-			dto.setBrand(request.getParameter("brand"));
-			dto.setCategory(request.getParameter("category"));
-			dto.setImage(request.getParameter("image"));
-			
-			dao.Update(dto);
-			view = "giftList.product";
+			view = update(request, response);
 			
 		}else if(PATH.equals("/giftInsertView.product")) {
-			
-			int currentItemId = dao.getCurrentItemId();
-			request.setAttribute("itemId", currentItemId);
-			request.setAttribute("categories", dao.getCategory());
-			view = "/product/productInsert.jsp";
+			view = insertView(request, response);
 			
 		} else if(PATH.equals("/giftInsert.product")) {
-			String path = request.getRealPath("/productImages");
-			int size = 1024 * 1024 * 5;
+			view = insert(request, response);
 			
-			MultipartRequest multi = new MultipartRequest(request,
-					path, size, "UTF-8", new DefaultFileRenamePolicy());
-			
-			ProductDTO dto = new ProductDTO();
-			dto.setItemId(Integer.parseInt(multi.getParameter("item_id")));
-			dto.setItemName(multi.getParameter("item_name"));
-			dto.setPrice(Integer.parseInt(multi.getParameter("price")));
-			dto.setBrand(multi.getParameter("brand"));
-			dto.setCategory(multi.getParameter("category"));
-			dto.setImage(multi.getFilesystemName("image"));
-			
-			dao.insert(dto);
-			view = "giftInsertView.product";
 		} else if(PATH.equals("/giftDelete.product")) {
-			
-			int itemId = Integer.parseInt(request.getParameter("itemId"));
-			dao.delete(itemId);
-			
-			view = "giftList.product";
+			view = delete(request, response);
 			
 		} else if(PATH.equals("/giftInfo.product")) {
-			
-			int itemId = Integer.parseInt(request.getParameter("itemId"));
-			request.setAttribute("product", dao.find(itemId));
-			view = "/product/productInfo.jsp";
+			view = info(request, response);
 
 		} else if(PATH.equals("/findCategory.product")) {
-	         
-	         String category = request.getParameter("category");
-	         request.setAttribute("products", dao.findCategoryAll(category));
-	         view = "/product/productList.jsp";
-
-		  }
-		
+	        view = findCategory(request, response);
+	        
+		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 		
+	}
+	private String list(HttpServletRequest request, HttpServletResponse response) {
+		request.setAttribute("products",dao.findAll());
+		return "/product/productList.jsp";
+	}
+	
+	private String updateView(HttpServletRequest request, HttpServletResponse response) {
+		int itemId = Integer.parseInt(request.getParameter("itemId"));
+		request.setAttribute("product", dao.find(itemId));
+		request.setAttribute("categories", dao.getCategory());
+		return "/product/productUpdate.jsp";
+	}
+	
+	private String update(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String path = request.getRealPath("/productImages");
+		int size = 1024 * 1024 * 5;
+		
+		MultipartRequest multi = new MultipartRequest(request,
+				path, size, "UTF-8", new DefaultFileRenamePolicy());
+		
+		ProductDTO dto = new ProductDTO();
+		dto.setItemId(Integer.parseInt(multi.getParameter("item_id")));
+		dto.setItemName(multi.getParameter("item_name"));
+		dto.setPrice(Integer.parseInt(multi.getParameter("price")));
+		dto.setBrand(multi.getParameter("brand"));
+		dto.setCategory(multi.getParameter("category"));
+		dto.setImage(multi.getFilesystemName("image"));
+		
+		dao.Update(dto);
+		return "giftList.product";
+	}
+	
+	private String insertView(HttpServletRequest request, HttpServletResponse response) {
+		int currentItemId = dao.getCurrentItemId();
+		request.setAttribute("itemId", currentItemId);
+		request.setAttribute("categories", dao.getCategory());
+		return "/product/productInsert.jsp";
+	}
+	
+	private String insert(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String path = request.getRealPath("/productImages");
+		int size = 1024 * 1024 * 5;
+		
+		MultipartRequest multi = new MultipartRequest(request,
+				path, size, "UTF-8", new DefaultFileRenamePolicy());
+		
+		ProductDTO dto = new ProductDTO();
+		dto.setItemId(Integer.parseInt(multi.getParameter("item_id")));
+		dto.setItemName(multi.getParameter("item_name"));
+		dto.setPrice(Integer.parseInt(multi.getParameter("price")));
+		dto.setBrand(multi.getParameter("brand"));
+		dto.setCategory(multi.getParameter("category"));
+		dto.setImage(multi.getFilesystemName("image"));
+		
+		dao.insert(dto);
+		return "giftInsertView.product";
+	}
+	
+	private String delete(HttpServletRequest request, HttpServletResponse response) {
+		int itemId = Integer.parseInt(request.getParameter("itemId"));
+		dao.delete(itemId);
+		
+		return "giftList.product";
+	}
+	
+	private String info(HttpServletRequest request, HttpServletResponse response) {
+		int itemId = Integer.parseInt(request.getParameter("itemId"));
+		request.setAttribute("product", dao.find(itemId));
+		return "/product/productInfo.jsp";
+	}
+	
+	private String findCategory(HttpServletRequest request, HttpServletResponse response) {
+		String category = request.getParameter("category");
+        request.setAttribute("products", dao.findCategoryAll(category));
+      	return "/product/productList.jsp";
 	}
 
 }
