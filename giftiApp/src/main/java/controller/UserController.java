@@ -14,11 +14,12 @@ import dao.UserDAO;
 import dto.UserDTO;
 
 @WebServlet("*.user")
-public class UserController extends HttpServlet {
-   private static final long serialVersionUID = 1L;
 
-   UserDAO dao; // 사용할 dao를 간단하게 출력하기 위해 변수 선언
-
+public class UserController extends HttpServlet{
+    private static final long serialVersionUID = 1L;
+    String view = "";
+    UserDAO dao; //사용할 dao를 간단하게 출력하기 위해 변수 선언
+    
    // servlet 초기화
    public UserController() {
       super(); // 생성자 아마

@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import DBConnection.DBConnection;
-import dto.ProductDTO;
 import dto.UserDTO;
 
 public class LoginDAO {
@@ -16,7 +15,8 @@ public class LoginDAO {
 	private PreparedStatement pstmt; //sql문 실행
 	private ResultSet rs; //db 결과 검색
 	private String LOGIN = "SELECT user_id FROM user_tbl WHERE user_id = ? ";
-	int result =0;
+	private final String INSERT_USER = "INSERT INTO user_tbl(user_id, name, password, email, phone, gender, age, address, nickname) VALUES(?,?,?,?,?,?,?,?,?);";
+	
 
 
 	public int registerCheck(String id) { 
@@ -29,9 +29,9 @@ public class LoginDAO {
 			rs=pstmt.executeQuery();
 			         
 			   if(rs.next()|| id.equals("")){
-					return 0; //이미 존재하는 회원 아이디
+				   return 0; //이미 존재하는 회원 아이디
 			   }else {
-				   return 1; // 가입 가능한 회원 아이디
+				  return 1; // 가입 가능한 회원 아이디
 			   }
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -41,14 +41,12 @@ public class LoginDAO {
 		}finally {
 			DBConnection.close(rs, pstmt, con);
 		}
-
-	    return -1; //데이터 베이스 오류 알려주기
+	     return -1;
 	}
-	private final String INSERT_USER = "INSERT INTO user_tbl(user_id, name, password, email, phone, gender, age, address, nickname) VALUES(?,?,?,?,?,?,?,?,?);";
 	
 	
 	public int insertUser(UserDTO dto) {
-		
+		int result;
 		try {
 			
 			con = DBConnection.getConnection();			
@@ -64,7 +62,7 @@ public class LoginDAO {
 			pstmt.setString(8, dto.getAddress());
 			pstmt.setString(9, dto.getNickname());			
 			pstmt.executeUpdate();
-			
+			System.out.println("dao까지는 옵");
 		}catch (SQLException e) { //예외 발생
 			e.printStackTrace();
 			result =-1; //데이터베이스 오류
