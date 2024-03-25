@@ -18,12 +18,30 @@ import dto.CSDTO;
 @WebServlet("*.customerservice")
 public class CustomerServiceController extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private CSDAO dao;
+    private CSDAO dao;//사용할 dao를 간단하게 출력하기 위한 변수 선언
 
+    //servlet 초기화
     public CustomerServiceController() {
-        super();
-        this.dao = new CSDAO();
+        super();//상속
+        this.dao = new CSDAO();//데이터베이스와 상호작용 준비
     }
+    
+    private String FAQtotal(HttpServletRequest request,HttpServletResponse response) {
+    	return "/customerservice/FAQ.jsp";
+    }
+    private String FAQcategory(HttpServletRequest request, HttpServletResponse restponse) {
+    	return "/customerservice/FAQList.jsp";
+    }
+    private String FAQupdateView(HttpServletRequest request, HttpServletResponse response) {
+    	return "/customerservice/FAQUpdate.jsp";
+    }
+    private String FAQupdate(HttpServletRequest request, HttpServletResponse response, String qcategory) {
+    	return "findCategoryAll.customerservice?qcategory=" + qcategory;
+    }
+    
+    
+    
+    
 
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
@@ -31,42 +49,41 @@ public class CustomerServiceController extends HttpServlet {
         String PATH = URI.substring(URI.lastIndexOf("/"));
         String view = "";
 
-        if (PATH.equals("/FAQ.customerservice")) {
-            request.setAttribute("questions", dao.getAllQuestions());
+        if (PATH.equals("/FAQ.customerservice")) {//이 주소로 들어 오면
+            request.setAttribute("questions", dao.getAllQuestions());//dao 가져오기
             
-            view = "/customerservice/FAQ.jsp";
+            view = FAQtotal(request, response);//메소드 호출, jsp불러오면서 값도 같이 보내기
             
         } else if (PATH.equals("/findCategoryAll.customerservice")) {
             String qcategory = request.getParameter("qcategory");
             request.setAttribute("questions", dao.findByCategory(qcategory));
+            request.setAttribute("category", qcategory);
+            view = FAQcategory(request, response);
             
-            view = "/customerservice/FAQList.jsp";
-            
-        } else if(PATH.equals("/FAQUpdate.customerservice")) {
+        } else if(PATH.equals("/FAQUpdateView.customerservice")) {
 			
 			int questionId = Integer.parseInt(request.getParameter("questionId"));
-			request.setAttribute("faquestion", dao.findquestion(questionId));
-			request.setAttribute("answer", dao.findquestion(questionId));
-			request.setAttribute("qcategory", dao.findquestion(questionId));
+			request.setAttribute("faq", dao.findquestion(questionId));
 		
-			view = "/customerservice/FAQUpdate.jsp";
+			view = FAQupdateView(request, response);
 			
-        } else if (PATH.equals("/FAQUpdateView.customerservice")) {
+        } else if (PATH.equals("/FAQUpdate.customerservice")) {
             CSDTO dto = new CSDTO();
             
             int questionId = Integer.parseInt(request.getParameter("questionId"));
-
-            dto.setQuestionId(Integer.parseInt(request.getParameter("questionId")));
-            dto.setQcategory(request.getParameter("qcategory"));
+            String qcategory = request.getParameter("qcategory");
+            dto.setQuestionId(questionId);
+            dto.setQcategory(qcategory);
             dto.setFaquestion(request.getParameter("faquestion"));
             dto.setAnswer(request.getParameter("answer"));
 
             dao.updateFAQ(dto);
             
-            view = "FAQUpdateView.customerservice?questionId=" + questionId;
+            view = FAQupdate(request, response, qcategory);
             
         } else if (PATH.equals("/FAQInsertView.customerservice")) {
-        	
+        	String category = request.getParameter("category");
+        	request.setAttribute("category", category);
             view = "/customerservice/FAQInsert.jsp";
             
         }else if (PATH.equals("/FAQInsert.customerservice")) {
@@ -81,7 +98,7 @@ public class CustomerServiceController extends HttpServlet {
             view = "FAQ.customerservice";
             
         } else if (PATH.equals("/FAQDelete.customerservice")) {
-            int questionId = Integer.parseInt(request.getParameter("q_id"));
+            int questionId = Integer.parseInt(request.getParameter("questionId"));
             dao.deleteFAQ(questionId);
             view = "FAQ.customerservice";
         }
