@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpFilter;
 
                 //urlPatterns {} 안에 특정 여러 서블릿 매핑 가능
-@WebFilter(urlPatterns = {"*.product","*.trans","*.user"}, 
+@WebFilter(urlPatterns = {"*.product","*.trans","*.user","*.do"}, 
 	initParams = @WebInitParam(name = "boardEncoding", value = "UTF-8"))
 
 public class CharacterEncodingFilter extends HttpFilter implements Filter {

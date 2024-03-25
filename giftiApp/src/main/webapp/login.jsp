@@ -12,47 +12,48 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
     <title>Login Page</title>
+
     <link href="/giftiApp/css/login.css" rel="stylesheet" />
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function() {
-	//ID 중복 확인
-	//id를 입력할 수 있는 input text 영역을 벗어나면 동작한다.
-	$("#user_id").on("focusout", function() {
-		
-		var id = $("#user_id").val();
-		
-		if(id == '' || id.length == 0) {
-			$("#label1").css("color", "red").text("공백은 ID로 사용할 수 없습니다.");
-			return false;
-		}
-		
-    	//Ajax로 전송
-    	$.ajax({
-    		url : "idCheck.do",
-    		data : {
-    			user_id : user_id
-    		},
-    		type : 'POST',
-    		dataType : 'json',
-    		success : function(result) {
-    			if (result == true) {
-    				$("#label1").css("color", "black").text("사용 가능한 ID 입니다.");
-    			} else{
-    				$("#label1").css("color", "red").text("사용 불가능한 ID 입니다.");
-    				$("#user_id").val('');
-    			}
-    		}
-    	}); //End Ajax
-    	alert("미안"       });
-})
-</script>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+//아이디 중복 검사
+function passwordCheckFunction(){
 
-<script>
+	let password1 =$('#password1').val(); //value 값
+	let password2 =$('#password2').val(); //value 값
+	if(password1 !== password2){
+		$("#passwordText").text("비밀번호가 일치하지 않습니다.")
+	}else{
+		$("#passwordText").text('')
+		$("#password2").attr("disabled",true); //비활성화(true) , 활성화(false)
+		$("#password2").prop("disabled",true); //읽기 전용(true) , 활성화(false)
+	}
+	
+}
+
+//아이디 중복체크
+function registerFunction(){
+	let id =$('#id').val();
+	$.ajax({
+		type : 'POST', //전달 방식,경로 ,데이터를 넣어 줘야함
+		url : 'idCheck.do', //url
+		data : {user_id:id}, //{변수명 : 변수값}
+		success : function(result){
+			
+			if(result == 1){
+				$('#idText').text("사용할 수 있는 아이디입니다.")
+			}else{
+				$('#idText').text("사용할 수 없는 아이디입니다.")
+			}
+		}
+	});
+}
+</script>
+
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js">
 document.addEventListener('DOMContentLoaded', function() {
     // 1. 우편번호 검색 버튼
     const zipbtn = document.querySelector("#zipbtn");
@@ -101,9 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
-
-
 </head>
 
 <body>
@@ -119,10 +117,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <caption>회원가입 양식</caption> 
                     
             <tr>
-                <th class="tTitle"><label for="user_id">아이디</label></th>
-                <td class="tCont"><input type="text" class="user_id" name="user_id" id="user_id"  required="required">
-                            <button type="button" class="btn" id="overlapCheck" onclick="registerFunction()">중복체크</button><br>
-                            <span id="label1"></span>
+                <th class="tTitle"><label for="id">아이디</label></th>
+                <td class="tCont"><input type="text" class="user_id" name="user_id" id="id"  required="required">
+                            <button type="button" class="btn" id="overlapCheck" onclick="registerFunction()">중복체크</button>
+                        <br><span id="idText" style="color:red;"></span>                              
                 </td>
             </tr>
             <tr>
@@ -134,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <tr>
                 <th class="tTitle"><label for="password2">비밀번호 확인</label></th>
                 <td class="tCont"><input type="password" class="input1" name="password2" id="password2" onkeyup="passwordCheckFunction()" required="required">
-                <br><span id="passwordText"></span>
+                <br><span id="passwordText" style="color:red;"></span>
                 </td>
             
             </tr>
@@ -144,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </tr>
             <tr>
                 <th class="tTitle"><label for="email">E-mail</label></th>
-                <td class="tCont"><input type="text" class="input1" name="email" id="email""></td>
+                <td class="tCont"><input type="text" class="input1" name="email" id="email"></td>
             </tr>
             
             <tr >
@@ -169,11 +167,11 @@ document.addEventListener('DOMContentLoaded', function() {
             </tr>           
       
             <tr>
-                <th class="tTitle"><label for="address">주소</label></th>
+                <th class="tTitle"><label for="address1">주소</label></th>
                 <td class="tCont"><input type="text" class="input1 iaddress" name="address1" id="address1" readonly="readonly"></td>
             </tr>
             <tr>
-                <th class="tTitle"><label for="address1">상세주소</label></th>
+                <th class="tTitle"><label for="address2">상세주소</label></th>
                 <td class="tCont"><input type="text" class="input1 iaddress" name="address2" id="address2"></td>
             </tr>
             <tr>
@@ -238,31 +236,6 @@ signInBtn.addEventListener("click", () => {
   container.classList.remove("right-panel-active");
 });
 </script>
-<script >
-
-</script>
-<script>
-//아이디 중복체크
-function registerFunction(){
-	let user_id =$('#user_id').val();
-	// 	$.ajax({경로, 동기화 여부, 성공하면 할일 })
-	// 	$.ajax({url :'경로', async :'true/false', sussess : function(result) })
-	$.ajax({
-		type : 'POST', //전달 방식,경로 ,데이터를 넣어 줘야함
-		url : 'UserRegisterCheck.do', //url
-		data : {user_id:user_id},
-		success : function(result){
-			if(result ==1){
-				$('#idText').text("사용할 수 있는 아이디입니다.")
-			}else{
-				$('#idText').text("사용할 수 없는 아이디입니다.")
-			}
-		}
-	});
-	alter("idText");
-}
-</script>
-
 
 
 
