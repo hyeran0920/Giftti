@@ -154,13 +154,13 @@ function registerFunction(){
                                                 <input class="form-control" id="inputEmail" type="email" name="email"  placeholder="name@example.com" />
                                                 <label for="inputEmail"> 이메일 </label>
                                             </div>
-<<<<<<< HEAD
+
                                             
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputphone" type="text" name="phone" placeholder="연락처를 번호로만 입력해주세요" />
                                                 <label for="inputphone">연락처</label>
-=======
->>>>>>> refs/heads/develop
+
+
                                             </div>
                                             <div class="col-md-8">
                                             <div class="form-floating mb-3">
