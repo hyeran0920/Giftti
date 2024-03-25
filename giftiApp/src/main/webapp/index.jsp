@@ -55,7 +55,7 @@ if (session == null || session.getAttribute("userId") == null) {
 		<div id="layoutSidenav_content">
 			<main>
 				                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">매인페이지</h1>
+                        <h1 class="mt-4">메인 페이지</h1>
                        <br>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
