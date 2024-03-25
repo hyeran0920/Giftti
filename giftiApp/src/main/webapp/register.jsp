@@ -153,6 +153,7 @@ function registerFunction(){
                                                 <input class="form-control" id="inputEmail" type="email" name="email"  placeholder="name@example.com" />
                                                 <label for="inputEmail">Email address</label>
                                             </div>
+                                            
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputphone" type="text" name="phone" placeholder="연락처를 번호로만 입력해주세요" />
                                                 <label for="inputphone">연락처</label>
@@ -163,7 +164,7 @@ function registerFunction(){
                                                 <label for="age">나이</label>
                                                 <select class="form-control" id="number" name="age" placeholder="나이" >
 									            <% for (int i = 1; i <= 100; i++) { %>
-									                <option class="text-end fs-3" value="<%= i %>"><%= i %></option>
+									                <option class="text-end fs-1" value="<%= i %>"><%= i %></option>
 									            <% } %>
 									        	</select>
                                             </div>

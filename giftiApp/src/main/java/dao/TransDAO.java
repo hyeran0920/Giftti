@@ -161,7 +161,7 @@ public class TransDAO {
 		      
 		      return transactions;
 	   }
-	   public List<TransDTO> findSaleAvailFIVE(){
+	   public List<TransDTO> findSaleAvailFive(){
 		      List<TransDTO> transactions = new ArrayList<>();
 		      
 		      try {

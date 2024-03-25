@@ -14,8 +14,7 @@
     <link href="/giftiApp/css/styles.css" rel="stylesheet" />
     <link rel="icon" type="images/png" href="/giftiApp/images/pavicon.png">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-	<style>
-	</style>
+
 	<script>
     	function checkProductInsert(){
 			const itemName = document.querySelector('#item_name');
@@ -41,6 +40,26 @@
             }
             return true;
 		}
+</script>
+<script type="text/javascript">
+	function loadFile(input) {
+	    let file = input.files[0]; // 선택파일 가져오기
+	
+	    let newImage = document.createElement("img"); //새 이미지 태그 생성
+	
+	    //이미지 source 가져오기
+	    newImage.src = URL.createObjectURL(file);
+	    newImage.style.width = "200px"; 
+	    newImage.style.height = "200px";
+
+	    //이미지를 image-show div에 추가
+	    let container = document.getElementById('imageBox');
+	    container.style.margin= "5px";
+	    while(container.firstChild)  {
+	    	container.firstChild.remove()
+	      }
+	    container.appendChild(newImage);
+	}
 </script>
 </head>
 <body>
@@ -104,8 +123,8 @@
                                 <tr>
                                     <th>이미지</th>
                                     <td>
-                                    	<input type="file"  class="form-control" name="image">
- 
+                                    	<div class="imageBox" id="imageBox"></div>
+                                    	<input type="file" accept="image/*" class="form-control" name="image" onchange="loadFile(this)">
                                     </td>
                                 </tr>
 							</form>

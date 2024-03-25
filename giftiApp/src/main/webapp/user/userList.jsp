@@ -61,14 +61,14 @@ a {
 						<table id="datatablesSimple">
 							<thead>
 								<tr>
-									<th>User ID</th>
-									<th>Name</th>
-									<th>Nickname</th>
-									<th>Gender</th>
-									<th>Phone</th>
-									<th>Age</th>
-									<th>Address</th>
-									<th>Status</th>
+									<th>회원 ID</th>
+									<th>이름</th>
+									<th>닉네임</th>
+									<th>성별</th>
+									<th>핸드폰</th>
+									<th>나이</th>
+									<th>지역</th>
+									<th>상태</th>
 									<th>판매상품</th>
 								</tr>
 								<!-- <tr>
@@ -111,7 +111,12 @@ a {
 										<td>${user.phone}</td>
 										<td>${user.age}</td>
 										<td>${user.address}</td>
-										<td>${user.status}</td>
+										<td>
+										<c:choose>
+										<c:when test="${user.status eq 'ing' }">활동</c:when>
+										<c:otherwise>정지</c:otherwise>
+										</c:choose>
+										</td>
 							      		<td><a href="userTrans.user?userId=${user.userId}">${user.count}</a></td>
 										
 									</tr>
