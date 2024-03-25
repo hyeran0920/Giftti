@@ -111,9 +111,14 @@
                                 <th>활동상태</th>
 								<td>
 								    <select class="form-control" name="status">
-									    <c:forEach var="status" items="${allStatus}">
-									        <option value="${status}">${status}</option>
-									    </c:forEach>
+										<c:if test="${user.status eq 'ing' }">
+											<option value="ing" selected="selected">활동</option>
+											<option value="stop">정지</option>
+										</c:if>
+										<c:if test="${user.status ne 'ing' }">
+											<option value="ing">활동</option>
+											<option value="stop" selected="selected">정지</option>
+										</c:if>
 									</select>
 
 								</td>

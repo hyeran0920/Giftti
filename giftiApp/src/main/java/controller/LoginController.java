@@ -39,8 +39,6 @@ public class LoginController extends HttpServlet {
 		
 		//이미 로그인 함
 		
-		
-		
 		if(PATH.equals("/login.do")) {
 			System.out.println("로그인 처리");
 			

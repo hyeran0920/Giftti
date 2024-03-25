@@ -13,6 +13,7 @@
     <!-- 폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+    
     <style type="text/css">
     	.song-myung-regular {
         font-family: "Song Myung", serif;
