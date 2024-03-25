@@ -26,7 +26,7 @@
    
       <div class="login__forms">
 <!--         login form -->
-        <form action="login.do" class="login__register" id="login-in">
+        <form action="login.do" class="login__register" id="login-in" method="post">
          
           <h1 class="login__title">GIFFTY</h1>
           <div class="login__box">
