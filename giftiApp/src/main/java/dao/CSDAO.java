@@ -22,7 +22,7 @@ public class CSDAO {
 
     private final String SELECT_QUESTION = "SELECT faquestion, answer, qcategory, q_id FROM question_tbl WHERE q_id=?;";
     
-    private final String UPDATE_FAQ = "UPDATE question_tbl SET faquestion=?, answer=?, qcategory WHERE q_id=?;";
+    private final String UPDATE_FAQ = "UPDATE question_tbl SET faquestion=?, answer=?, qcategory=? WHERE q_id=?;";
     
     private final String DELETE_FAQ = "DELETE FROM question_tbl WHERE q_id=?;";
     
