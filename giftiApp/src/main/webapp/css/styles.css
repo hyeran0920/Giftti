@@ -11255,4 +11255,20 @@ body {
   border-radius: 0.375rem !important;
 }
 
+<<<<<<< HEAD
 
+=======
+#zipbtn{
+	 display:block;
+   padding:1rem;
+    margin:2rem 0;
+    background-color:#D93644;
+    color:white;
+    font-weight:600;
+    text-align:center;
+    border-radius:.5rem;
+    transition:.3s;
+    width: 300px;
+    border: none;
+}
+>>>>>>> refs/heads/develop

@@ -63,7 +63,11 @@ fieldset {
   box-sizing: border-box;
 }
 #zipbtn,#overlapCheck{
+<<<<<<< HEAD
 	 display:block;
+=======
+    display:block;
+>>>>>>> refs/heads/develop
   padding-bottom:15px;
   padding-top:15px;
   line-height: 1.5;
@@ -77,4 +81,7 @@ fieldset {
     width: 150px;
     border: none;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/heads/develop

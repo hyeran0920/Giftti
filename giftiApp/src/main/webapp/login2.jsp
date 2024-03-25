@@ -11,7 +11,8 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-    <title>Login Page</title>
+    <title>로그인</title>
+    <link rel="icon" type="images/png" href="/giftiApp/images/pavicon.png">
 
     <link href="/giftiApp/css/login2.scss" rel="stylesheet" />
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -25,23 +26,23 @@
    
       <div class="login__forms">
 <!--         login form -->
-        <form action="login.do" class="login__register" id="login-in">
+        <form action="login.do" class="login__register" id="login-in" method="post">
          
           <h1 class="login__title">GIFFTY</h1>
           <div class="login__box">
             <i class='bx bx-user login__icon'></i>
-            <input type="text" placeholder="UserID" id ="userId" name="userId" class="login__input">
+            <input type="text" placeholder="아이디" id ="userId" name="userId" class="login__input">
           </div>
           <div class="login__box">
             <i class='bx bx-lock login__icon'></i>
-            <input type="text" placeholder="Password" id ="password" name="password" class="login__input">
+            <input type="password" placeholder="비밀번호" id ="password" name="password" class="login__input">
           </div>
-          <a href="#" class="login__forgot">Forgot Password? </a>
+          <a href="#" class="login__forgot">비밀번호 찾기</a>
           
          <button type="submit" class="login__button">로그인</button>
           <div>
-            <span class="login__account login__account--account">Don't Have an Account?</span>
-            <a href="register.jsp"><span class="login__signin" id="sign-up">Sign Up</span></a>
+            <span class="login__account login__account--account"></span>
+            <a href="register.jsp"><span class="login__signin" id="sign-up">회원 가입</span></a>
           </div>
           
         </form>
