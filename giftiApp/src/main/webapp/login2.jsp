@@ -35,7 +35,7 @@
           </div>
           <div class="login__box">
             <i class='bx bx-lock login__icon'></i>
-            <input type="text" placeholder="비밀번호" id ="password" name="password" class="login__input">
+            <input type="password" placeholder="비밀번호" id ="password" name="password" class="login__input">
           </div>
           <a href="#" class="login__forgot">비밀번호 찾기</a>
           
