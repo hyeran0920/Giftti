@@ -62,19 +62,18 @@ fieldset {
 *::after {
   box-sizing: border-box;
 }
-#zipbtn{
-	 display:block;
-   padding:1rem;
-    margin:2rem 0;
+#zipbtn,#overlapCheck{
+    display:block;
+  padding-bottom:15px;
+  padding-top:15px;
+  line-height: 1.5;
+  border: none transparent;
     background-color:#D93644;
     color:ghostwhite;
-    font-weight:600;
+    font-weight:600px;    
     text-align:center;
     border-radius:.5rem;
     transition:.3s;
-    width: 300px;
+    width: 150px;
     border: none;
-}
-#overlapCheck{
-	background: aqua;
 }

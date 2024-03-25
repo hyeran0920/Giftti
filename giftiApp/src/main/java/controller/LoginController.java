@@ -40,10 +40,8 @@ public class LoginController extends HttpServlet {
 		
 		//이미 로그인 함
 		if(PATH.equals("/idCheck.do")) {
-			System.out.println("아이디 중복 검색");
 			String id = request.getParameter("user_id");//문자열로 받아 옴.
 			result =dao.registerCheck(id);
-			System.out.println(result);
 			response.getWriter().write(result+"");
 			
 		} 
@@ -128,7 +126,7 @@ public class LoginController extends HttpServlet {
 	private String logout(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		view = "/login.jsp";
+		view = "/login2.jsp";
 		return view;
 	}
 	private String login(HttpServletRequest request, HttpServletResponse response) {

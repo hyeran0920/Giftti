@@ -122,7 +122,7 @@ function registerFunction(){
                                             <div class="col-md-8">
                                                <div class="form-floating mb-3 ">
                                                   <input class="form-control" id="id" name="user_id" type="text" placeholder="ID를 입력해주세요" />                                            
-                                                        <label for="id">ID</label>
+                                                        <label for="id"> ID</label>
                                                         <span id="idText"></span>                                              
                                                     </div> 
                                                     </div>
@@ -133,31 +133,35 @@ function registerFunction(){
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 ">
                                                         <input class="form-control" id="password1" type="password" name="password1" placeholder="Create a password" />
-                                                        <label for="password1">비밀번호</label>
+                                                        <label for="password1"> 비밀번호</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 ">
                                                         <input class="form-control" id="password2" type="password" name="password2" onkeyup="passwordCheckFunction()" required="required" placeholder="Confirm password" />
-                                                        <label for="password2">비밀번호 확인</label>
+                                                        <label for="password2"> 비밀번호 확인</label>
                                                     </div>
                                                 </div>
                                                 <br><span id="passwordText"></span>
-                                              
+                                              	<div class="col-md-6">
                                                     <div class="form-floating mb-3" >
-                                                        <input class="form-control" id="inputFirstName"name="name" type="text" placeholder="이름을 입력해주세요" />
+                                                        <input class="form-control" id="inputFirstName" name="name" type="text" placeholder="이름을 입력해주세요" />
                                                         <label for="inputFirstName">이름</label>
-                                                    </div>                                              
-                                   
+                                                    </div>     
+                                                   </div>                                         
+                                   			<div class="col-md-10">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" type="email" name="email"  placeholder="name@example.com" />
-                                                <label for="inputEmail">Email address</label>
+                                                <label for="inputEmail"> 이메일 </label>
                                             </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputphone" type="text" name="phone" placeholder="연락처를 번호로만 입력해주세요" />
-                                                <label for="inputphone">연락처</label>
                                             </div>
                                             <div class="col-md-8">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputphone" type="text" name="phone" placeholder="연락처를 번호로만 입력해주세요" />
+                                                <label for="inputphone"> 연락처 (숫자만 입력)</label>
+                                            </div>
+                                            </div>
+                                            <div class="col-md-6">
                                             <div class="form-floating mb-3">
                                           
                                                 <label for="age">나이</label>
@@ -168,7 +172,7 @@ function registerFunction(){
 									        	</select>
                                             </div>
                                             </div>
-                                            <div class="col-md-4 checks">
+                                            <div class="col-md-4 checks mt-2">
                                                              
 								                		<input type="radio" id="gender1" name="gender" value="남">
 													    <label for="gender1">남자 </label>
@@ -180,21 +184,24 @@ function registerFunction(){
                                              <div class="col-md-8">
                                             <div class="form-floating mb-3 ">                     
                                                 <input class="form-control" id="post" type="text" class="zipcode" name="zipcode" placeholder="우편번호를 검색해주세요" readonly="readonly"/>
-                                                <label for="post">우편번호</label>
+                                                <label for="post"> 우편번호</label>
                                             </div>                                       
                                             </div>
                                              <div class="col-md-4 ">                                       
-                                                <button type="button" class="btn " id="zipbtn">우편번호</button>
+                                                <button type="button" class="btn " id="zipbtn"> 우편번호</button>
                                             </div>
                                             
-                                         
+                                         	<div class="col-md-10">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputAddress1" name="address1" type="text" placeholder="주소를 입력해주세요" />
-                                                <label for="inputAddress1"> 주소</label>
+                                                <label for="inputAddress1">주소</label>
                                             </div>
+                                            </div>
+                                            <div class="col-md-10">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputAddress2" name="address2" type="text" placeholder="상세주소를 입력해주세요" />
                                                 <label for="inputAddress2"> 상세주소</label>
+                                            </div>
                                             </div>
                                         
                                             <div class="mt-4 mb-0">
