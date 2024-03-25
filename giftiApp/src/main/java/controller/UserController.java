@@ -29,7 +29,23 @@ public class UserController extends HttpServlet{
     }
     
     
+    private String userList(HttpServletRequest request, HttpServletResponse response) {
+        return "/user/userList.jsp";//이동할 jsp 경로
+    }
+    private String userTrans(HttpServletRequest request, HttpServletResponse response) {
+    	return "/user/userTrans.jsp";//이동할 jsp 경로
+    }
+    private String userInfo(HttpServletRequest request, HttpServletResponse response) {
+    	return "/user/userInfo.jsp";//이동할 jsp 경로
+    }
+    private String userUpdateView(HttpServletRequest request, HttpServletResponse response) {
+    	return "/user/userUpdate.jsp";//이동할 jsp 경로
+    }
+    private String userUpdate(HttpServletRequest request, HttpServletResponse response, String userId) {
+    	return "userInfo.user?userId=" + userId;//이동할 jsp 경로
+    }
     
+
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	request.setCharacterEncoding("utf-8");
 		
@@ -38,10 +54,10 @@ public class UserController extends HttpServlet{
 		String view = "";
 		System.out.println(PATH);
 		
-		if(PATH.equals("/userList.user")) {
-			System.out.println("회원 리스트");
-			request.setAttribute("user",dao.findAll());
-			view = "/user/userList.jsp";
+		if(PATH.equals("/userList.user")) {//이 주소로 들어오면
+			System.out.println("회원 리스트");//콘솔에서 출력
+			request.setAttribute("user",dao.findAll());//dao가져오기
+			view = userList(request, response);//메소드로 가서 jsp를 불러오면서 값도 같이 보내기
 			
 		}else if(PATH.equals("/userTrans.user")) {
 			System.out.println("회원 판매 상품");
@@ -49,7 +65,7 @@ public class UserController extends HttpServlet{
 			String userId = request.getParameter("userId");
 			request.setAttribute("user1",dao.find(userId));
 			request.setAttribute("user",dao.find2(userId));
-			view = "/user/userTrans.jsp";
+			view = userTrans(request, response);
 			
 		}else if(PATH.equals("/userInfo.user")) {
 			System.out.println("회원 정보");
@@ -57,7 +73,7 @@ public class UserController extends HttpServlet{
 			String userId = request.getParameter("userId");
 			request.setAttribute("user",dao.find(userId));
 			request.setAttribute("userTrans",dao.find2(userId));
-			view = "/user/userInfo.jsp";
+			view = userInfo(request, response);
 						
 		}else if(PATH.equals("/userUpdateView.user")) {
 		    System.out.println("회원 수정");
@@ -66,7 +82,7 @@ public class UserController extends HttpServlet{
 		    request.setAttribute("user", dao.find(userId));
 		    request.setAttribute("allStatus", dao.findAllStatus()); // 사용자 상태 값 전달
 		    
-		    view = "/user/userUpdate.jsp";
+		    view = userUpdateView(request, response);
 		}else if (PATH.equals("/userUpdate.user")) {
 		    System.out.println("회원 수정");
 		    System.out.println(request.getParameter("status"));
@@ -80,7 +96,7 @@ public class UserController extends HttpServlet{
 
 		    dao.updateStatus(dto); // 상태 값 업데이트 메서드 호출
 
-		    view = "userInfo.user?userId=" + userId;
+		    view = userUpdate(request, response,userId);
 		}
 
 
