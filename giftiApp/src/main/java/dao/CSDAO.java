@@ -22,7 +22,7 @@ public class CSDAO {
 
     private final String SELECT_QUESTION = "SELECT faquestion, answer, qcategory, q_id FROM question_tbl WHERE q_id=?;";
     
-    private final String UPDATE_FAQ = "UPDATE question_tbl SET faquestion=?, answer=? WHERE q_id=?;";
+    private final String UPDATE_FAQ = "UPDATE question_tbl SET faquestion=?, answer=?, qcategory WHERE q_id=?;";
     
     private final String DELETE_FAQ = "DELETE FROM question_tbl WHERE q_id=?;";
     
@@ -109,7 +109,8 @@ public class CSDAO {
             pstmt = con.prepareStatement(UPDATE_FAQ);
             pstmt.setString(1, question.getFaquestion());
             pstmt.setString(2, question.getAnswer());
-            pstmt.setInt(3, question.getQuestionId());
+            pstmt.setString(3, question.getQcategory());
+            pstmt.setInt(4, question.getQuestionId());
 
             int success = pstmt.executeUpdate();
 

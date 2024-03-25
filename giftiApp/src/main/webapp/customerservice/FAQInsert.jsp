@@ -29,10 +29,10 @@
 	            return false;
 	        }
 	        
-	      /*   if(qcategory.value.length === 0){
+	       if(qcategory.value.length === 0){
 	            alert('질의응답의 카테고리를 입력하세요.')
 	            return false;
-	        }//선택하는 걸로 어떻게 바꾸지 */
+	        }//선택하는 걸로 어떻게 바꾸지
 	        return true;
 		}
 	</script>
@@ -57,7 +57,7 @@
                     <!-- TABLE START -->
                     <div class="card-body">
                         <h3> FAQ 등록 </h3>
-                        <form action="FAQInsert.customerservice" method="post">
+                        <form action="FAQInsert.customerservice" method="post" onsubmit="return checkFAQInsert()">
                         	<table id="datatablesSimple" class="table table-bordered justify-content-center">
                             <thead>
                             </thead>
@@ -70,7 +70,7 @@
 
                                 <tr>
                                     <th>응답 내용</th>
-                                    <td><input type="text"  class="form-control" name="answer" id="answer" > </td>
+                                    <td><textarea rows="5" cols="100" name="answer" id="answer" class="form-control"></textarea>
                                 </tr>
                                 <th>카테고리</th>
                                     <td>
