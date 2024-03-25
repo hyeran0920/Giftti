@@ -48,8 +48,8 @@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts-user" aria-expanded="false"
                             aria-controls="collapseLayouts-user">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns text-color-giffty"></i></div>
-                            <span class="text-color-giffty font-nexon">회원 관리</span>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user text-color-giffty"></i></div>
+                            <span class="text-color-giffty font-nexon">&nbsp; 회원 관리</span>
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down text-color-giffty"></i></div>
                         </a>
                         </span>
@@ -64,8 +64,8 @@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts-product" aria-expanded="false"
                             aria-controls="collapseLayouts-product">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns text-color-giffty"></i></div>
-                            <span class="text-color-giffty">상품 관리</span>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-gift text-color-giffty"></i></div>
+                            <span class="text-color-giffty">&nbsp; 상품 관리</span>
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down text-color-giffty"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts-product" aria-labelledby="headingOne"
@@ -80,9 +80,9 @@
                             data-bs-target="#collapseLayouts-tran" aria-expanded="false"
                             aria-controls="collapseLayouts-tran">
                             <div class="sb-nav-link-icon">
-                                <i class="fas fa-columns text-color-giffty"></i>
+                                <i class="fa-solid fa-cart-shopping text-color-giffty"></i>
                             </div>
-                            <span class="text-color-giffty">거래 관리</span>
+                            <span class="text-color-giffty">&nbsp; 거래 관리</span>
                             <div class="sb-sidenav-collapse-arrow">
                                 <i class="fas fa-angle-down text-color-giffty"></i>
                             </div>
@@ -99,9 +99,9 @@
                             data-bs-target="#collapseLayouts-customer" aria-expanded="false"
                             aria-controls="collapseLayouts-customer">
                             <div class="sb-nav-link-icon">
-                                <i class="fas fa-columns text-color-giffty"></i>
+                                <i class="fa-solid fa-envelope text-color-giffty"></i>
                             </div>
-                            <span class="text-color-giffty">고객 지원</span>
+                            <span class="text-color-giffty">&nbsp; 고객 지원</span>
                             <div class="sb-sidenav-collapse-arrow">
                                 <i class="fas fa-angle-down text-color-giffty"></i>
                             </div>
