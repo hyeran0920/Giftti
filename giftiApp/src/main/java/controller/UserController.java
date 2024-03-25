@@ -33,16 +33,16 @@ public class UserController extends HttpServlet{
         return "/user/userList.jsp";//이동할 jsp 경로
     }
     private String userTrans(HttpServletRequest request, HttpServletResponse response) {
-    	return "/user/userTrans.jsp";//이동할 jsp 경로
+    	return "/user/userTrans.jsp";
     }
     private String userInfo(HttpServletRequest request, HttpServletResponse response) {
-    	return "/user/userInfo.jsp";//이동할 jsp 경로
+    	return "/user/userInfo.jsp";
     }
     private String userUpdateView(HttpServletRequest request, HttpServletResponse response) {
-    	return "/user/userUpdate.jsp";//이동할 jsp 경로
+    	return "/user/userUpdate.jsp";
     }
     private String userUpdate(HttpServletRequest request, HttpServletResponse response, String userId) {
-    	return "userInfo.user?userId=" + userId;//이동할 jsp 경로
+    	return "userInfo.user?userId=" + userId;
     }
     
 
@@ -52,15 +52,12 @@ public class UserController extends HttpServlet{
     	String URI = request.getRequestURI();
 		String PATH = URI.substring(URI.lastIndexOf("/"));
 		String view = "";
-		System.out.println(PATH);
 		
 		if(PATH.equals("/userList.user")) {//이 주소로 들어오면
-			System.out.println("회원 리스트");//콘솔에서 출력
 			request.setAttribute("user",dao.findAll());//dao가져오기
 			view = userList(request, response);//메소드로 가서 jsp를 불러오면서 값도 같이 보내기
 			
 		}else if(PATH.equals("/userTrans.user")) {
-			System.out.println("회원 판매 상품");
 			
 			String userId = request.getParameter("userId");
 			request.setAttribute("user1",dao.find(userId));
@@ -68,7 +65,6 @@ public class UserController extends HttpServlet{
 			view = userTrans(request, response);
 			
 		}else if(PATH.equals("/userInfo.user")) {
-			System.out.println("회원 정보");
 			
 			String userId = request.getParameter("userId");
 			request.setAttribute("user",dao.find(userId));
@@ -76,7 +72,6 @@ public class UserController extends HttpServlet{
 			view = userInfo(request, response);
 						
 		}else if(PATH.equals("/userUpdateView.user")) {
-		    System.out.println("회원 수정");
 		    
 		    String userId = request.getParameter("userId");
 		    request.setAttribute("user", dao.find(userId));
@@ -84,8 +79,6 @@ public class UserController extends HttpServlet{
 		    
 		    view = userUpdateView(request, response);
 		}else if (PATH.equals("/userUpdate.user")) {
-		    System.out.println("회원 수정");
-		    System.out.println(request.getParameter("status"));
 
 		    String userId = request.getParameter("userId");
 		    String status = request.getParameter("status"); // 사용자가 선택한 상태 값
