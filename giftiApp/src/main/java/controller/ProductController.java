@@ -35,7 +35,6 @@ public class ProductController extends HttpServlet {
 		String URI = request.getRequestURI();
 		String PATH = URI.substring(URI.lastIndexOf("/"));
 		String view = "";
-		System.out.println(PATH);
 		
 		if(PATH.equals("/giftList.product")) {
 			view = list(request, response);
