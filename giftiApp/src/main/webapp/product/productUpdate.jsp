@@ -38,6 +38,7 @@
 	            alert('브랜드를 입력하세요.')
 	            return false;
 	        }
+	        alert('상품 수정 완료!')
 	        return true;
 		}
 	</script>
@@ -124,7 +125,7 @@
                                     		<img class="giftImage" alt="${ product.itemName }" src="/giftiApp/productImages/${product.image }" >
                                     	</div>
                                     	<input type="file" accept="image/*" class="form-control" name="image" onchange="loadFile(this)">
-                                    	<input type="text"  class="form-control" id="image" value="${product.image }" readonly>
+                                    	<input type="text"  class="form-control" id="image" value="${product.image }" name="image2" readonly>
                                     </td>
                                 </tr>
 							</form>

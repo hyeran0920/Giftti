@@ -38,6 +38,7 @@
                 alert('브랜드를 입력하세요.')
                 return false;
             }
+            alert('상품 등록 완료!')
             return true;
 		}
 </script>

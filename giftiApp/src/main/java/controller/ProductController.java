@@ -91,7 +91,12 @@ public class ProductController extends HttpServlet {
 		dto.setPrice(Integer.parseInt(multi.getParameter("price")));
 		dto.setBrand(multi.getParameter("brand"));
 		dto.setCategory(multi.getParameter("category"));
-		dto.setImage(multi.getFilesystemName("image"));
+		
+		if(multi.getFilesystemName("image") == null) {
+			dto.setImage(multi.getParameter("image2"));
+		} else {
+			dto.setImage(multi.getFilesystemName("image"));
+		}
 		
 		dao.Update(dto);
 		return "giftList.product";

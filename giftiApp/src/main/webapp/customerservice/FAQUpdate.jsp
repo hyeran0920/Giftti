@@ -34,6 +34,7 @@
 	            alert('질의응답의 카테고리를 입력하세요.')
 	            return false;
 	        }//선택하는 걸로 어떻게 바꾸지
+	        alert('FAQ 수정 완료!')
 	        return true;
 		}
 	</script>

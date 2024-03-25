@@ -117,7 +117,7 @@ function registerFunction(){
                             <img src="https://raw.githubusercontent.com/hyeran0920/JavaMiniProject/6bd667da7303be9f5261011b36510bf8e1d48347/KakaoTalk_20240310_232608243.png" style="width: 100px;" class="logo rounded mx-auto d-block" >                                      
                                 <h3 class="text-center font-weight-light my-4">회원 가입</h3></div>
                                     <div class="card-body">
-                                       <form action="membership.do" method="post" name="userMember" > 
+                                       <form action="membership.do" method="post" name="userMember" onsubmit="alert('회원가입 완료')"> 
                                          <div class="row mb-3">
                                             <div class="col-md-8">
                                                <div class="form-floating mb-3 ">
