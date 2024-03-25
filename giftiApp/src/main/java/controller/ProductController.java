@@ -78,15 +78,20 @@ public class ProductController extends HttpServlet {
 		return "/product/productUpdate.jsp";
 	}
 	
-	private String update(HttpServletRequest request, HttpServletResponse response) {
+	private String update(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String path = request.getRealPath("/productImages");
+		int size = 1024 * 1024 * 5;
+		
+		MultipartRequest multi = new MultipartRequest(request,
+				path, size, "UTF-8", new DefaultFileRenamePolicy());
+		
 		ProductDTO dto = new ProductDTO();
-		String itemId = request.getParameter("item_id");
-		dto.setItemId(Integer.parseInt(itemId));
-		dto.setItemName(request.getParameter("item_name"));
-		dto.setPrice(Integer.parseInt(request.getParameter("price")));
-		dto.setBrand(request.getParameter("brand"));
-		dto.setCategory(request.getParameter("category"));
-		dto.setImage(request.getParameter("image"));
+		dto.setItemId(Integer.parseInt(multi.getParameter("item_id")));
+		dto.setItemName(multi.getParameter("item_name"));
+		dto.setPrice(Integer.parseInt(multi.getParameter("price")));
+		dto.setBrand(multi.getParameter("brand"));
+		dto.setCategory(multi.getParameter("category"));
+		dto.setImage(multi.getFilesystemName("image"));
 		
 		dao.Update(dto);
 		return "giftList.product";

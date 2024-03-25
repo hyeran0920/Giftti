@@ -14,6 +14,12 @@
     <link rel="icon" type="images/png" href="/giftiApp/images/pavicon.png">
     <link href="/giftiApp/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+	<style type="text/css">
+		img.giftImage{
+				width: 300px;
+				height:300px;
+		}
+	</style>
 	<script type="text/javascript">
 		function checkProductInsert(){
 			const itemName = document.querySelector('#item_name');
@@ -35,6 +41,29 @@
 	        return true;
 		}
 	</script>
+	<script type="text/javascript">
+		function loadFile(input) {
+		    let file = input.files[0]; // 선택파일 가져오기
+		
+		    let newImage = document.createElement("img"); //새 이미지 태그 생성
+		
+		    //이미지 source 가져오기
+		    newImage.src = URL.createObjectURL(file);
+		    newImage.style.width = "300px"; 
+		    newImage.style.height = "300px";
+		    
+		    //이미지를 image-show div에 추가
+		    let container = document.getElementById('imageBox');
+		    let inputText = document.querySelector('#image')
+		    container.style.margin= "5px";
+		    
+		    while(container.firstChild)  {
+		    	container.firstChild.remove()
+		      }
+		    inputText.style.display = "none";
+	    	container.appendChild(newImage);
+	}
+</script>
 </head>
 <body>
 	<class class="sb-nav-fixed">
@@ -56,7 +85,7 @@
                     <!-- TABLE START -->
                     <div class="card-body">
                         <h3> 관리자 상품 등록 </h3>
-                        <form action="giftUpdate.product" method="post">
+                        <form action="giftUpdate.product" method="post" enctype="multipart/form-data" onsubmit="return checkProductInsert()">
                         	<table id="datatablesSimple" class="table table-bordered justify-content-center">
                             <thead>
                             </thead>
@@ -91,8 +120,11 @@
                                 <tr>
                                     <th>이미지</th>
                                     <td>
-                                    	<input type="text"  class="form-control" name="image" value="${product.image }">
- 
+                                    	<div class="imageBox" id="imageBox">
+                                    		<img class="giftImage" alt="${ product.itemName }" src="/giftiApp/productImages/${product.image }" >
+                                    	</div>
+                                    	<input type="file" accept="image/*" class="form-control" name="image" onchange="loadFile(this)">
+                                    	<input type="text"  class="form-control" id="image" value="${product.image }" readonly>
                                     </td>
                                 </tr>
 							</form>
