@@ -13,8 +13,8 @@
    content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>유저 조회</title>
-<link rel="icon" type="images/png" href="./images/pavicon.png">
+<title>판매 거래 내역</title>
+<link rel="icon" type="images/png" href="/giftiApp/images/pavicon.png">
 <link
    href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
    rel="stylesheet" />
@@ -28,10 +28,6 @@
 <style>
 body {
    font-family: "Noto Sans KR", sans-serif;
-}
-
-th, td {
-   font-size: 1rem;
 }
 
 a {
@@ -48,65 +44,90 @@ a {
          <main>
             <div class="container-fluid px-4">
                <h3 class="mt-4">
-                  <span class="text-primary">거래관리</span>>거래내역
+                  <span class="text-primary">거래관리 </span>> 전체 거래내역
                </h3>
                <ol class="breadcrumb mb-4">
-                  <li class="breadcrumb-item active">거래 내역 화면</li>
+                  <li class="breadcrumb-item active">판매중, 거래 내역 화면</li>
                </ol>
             </div>
             <hr class="mb-40">
             <div class="card mb-4">
                <div class="card-header">
-                  <i class="fas fa-table me-1"></i> 거래 전체 조회
+                  <i class="fas fa-table me-1"></i> <a href="saleAvailList.trans">최근 판매중인 상품 조회</a>
                </div>
                <div class="card-body">
-                  <table id="datatablesSimple">
+                  <table class="table table-bordered">
                      <thead>
                         <tr>
 
-                            <th>거래번호</th>
+                            <th>판매번호</th>
                                     <th>카테고리</th>
+                                    <th>브랜드</th>
                                     <th>판매 상품명</th>
                                     <th>판매자 ID</th>
-                                    <th>구매자 ID</th>
-                                    <th>정가</th>
                                     <th>판매가</th>
-                                    <th>판매 등록일</th>
-                                    <th>거래 일자</th>
-                                    <th>거래 상태</th>
-
+                                    <th>할인율</th>
+                                    <th>유효기간</th>
+                                    <th>등록일</th>
                         </tr>
                         
                      </thead>
-                     <tfoot>
+                     <tbody>
+                        <c:forEach var="sale" items="${saleList}">
+            
+                           <tr>
+                        
+                              <td>${sale.registerId}</td>
+                              <td><a href="findCategory.product?category=${sale.category}">${sale.category}</a></td>
+                              <td>${sale.brand}</td>
+                              <td><a href="giftInfo.product?itemId=${sale.itemId}">${sale.itemName}</a></td>
+                              <td><a href="userInfo.user?userId=${sale.userId}">${sale.userId}</a></td>
+                              <td><fmt:formatNumber value="${sale.salePrice}" pattern="#,###원"/></td>
+                              <td><fmt:formatNumber value="${sale.discount}" pattern="#0.#%"/></td>
+                              <td>${sale.availDate}</td>
+                              <td>${sale.inDate}</td>
+                           </tr>
+                        </c:forEach>
+                        
+
+
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+            <hr class="mb-40">
+            <div class="card mb-4">
+               <div class="card-header">
+                  <i class="fas fa-table me-1"></i> <a href="transList.trans">최근 거래완료 조회</a>
+               </div>
+               <div class="card-body">
+                  <table class="table table-bordered">
+                     <thead>
                         <tr>
-                            <th>거래번호</th>
+
+                                    <th>거래 일자</th>
+                            <th>판매번호</th>
                                     <th>카테고리</th>
                                     <th>판매 상품명</th>
                                     <th>판매자 ID</th>
                                     <th>구매자 ID</th>
-                                    <th>정가</th>
-                                    <th>판매가</th>
-                                    <th>판매 등록일</th>
-                                    <th>거래 일자</th>
-                                    <th>거래 상태</th>
+                            <th>거래번호</th>
                         </tr>
-                     </tfoot>
+                        
+                     </thead>
+                    
                      <tbody>
                         <c:forEach var="trans" items="${transactions}">
             
                            <tr>
                         
+                              <td>${trans.transDate}</td>
                               <td>${trans.registerId}</td>
                               <td><a href="findCategory.product?category=${trans.category}">${trans.category}</a></td>
                               <td><a href="giftInfo.product?itemId=${trans.itemId}">${trans.itemName}</a></td>
-                              <td><a href="userInfo.user?userId=${trans.sellId}">${trans.sellId}</a></td>
-                              <td><a href="userInfo.user?userId${trans.buyId}">${trans.buyId}</a></td>
-                              <td><fmt:formatNumber value="${trans.price}" pattern="#,###원"/></td>
-                              <td><fmt:formatNumber value="${trans.salePrice}" pattern="#,###원"/></td>
-                              <td>${trans.inDate}</td>
-                              <td>${trans.transDate}</td>
-                              <td>${trans.isSale.equals("Available") ? '판매 가능' : '판매 완료'}</td>
+                              <td><a href="userInfo.user?userId=${trans.userId}">${trans.userId}</a></td>
+                              <td><a href="userInfo.user?userId=${trans.buyId}">${trans.buyId}</a></td>
+                              <td>${trans.transNum}</td>
                               
                            </tr>
                         </c:forEach>

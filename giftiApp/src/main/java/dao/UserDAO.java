@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import DBConnection.DBConnection;
@@ -40,7 +39,7 @@ public class UserDAO {
 			while(rs.next()) {
 				UserDTO users = new UserDTO();
 				
-				users.setId(rs.getString("user_id"));
+				users.setUserId(rs.getString("user_id"));
 				users.setName(rs.getString("name"));
 				users.setNickname(rs.getString("nickname"));
 				users.setGender(rs.getString("gender"));
@@ -81,7 +80,7 @@ public class UserDAO {
 			
 			if(rs.next()) {
 				user = new UserDTO();
-				user.setId(rs.getString("user_id"));
+				user.setUserId(rs.getString("user_id"));
 				user.setName(rs.getString("name"));
 				user.setPassword(rs.getString("password"));
 				user.setEmail(rs.getString("email"));
@@ -91,19 +90,6 @@ public class UserDAO {
 				user.setAge(rs.getInt("age"));
 				user.setAddress(rs.getString("address"));
 				user.setStatus(rs.getString("status"));
-
-
-//				user.setRegisterId(rs.getInt("register_id"));
-//				user.setItemName(rs.getString("item_name"));
-//				user.setSalePrice(rs.getInt("sale_price"));
-//				String sale = rs.getString("isSale");
-//				if(sale.equals("Available")) {
-//					user.setSale(false);
-//				} else {
-//					user.setSale(true);
-//				}
-//				user.setInDate(rs.getDate("indate"));
-				
 			}
 			
 		}catch (SQLException e) { //예외 발생
@@ -136,15 +122,21 @@ public class UserDAO {
 	        rs = pstmt.executeQuery();
 	        while(rs.next()) {
 	            TransDTO users = new TransDTO();
+	            users.setCategory(rs.getString("category"));
+	            users.setPrice(rs.getInt("price"));
+	            users.setInDate(rs.getDate("inDate"));
+	            users.setItemId(rs.getInt("item_id"));
 	            
+	            
+				users.setUserId(rs.getString("user_id"));
 	            users.setRegisterId(rs.getInt("register_id"));
 	            users.setItemName(rs.getString("item_name"));
 	            users.setSalePrice(rs.getInt("sale_price"));
 	            String sale = rs.getString("isSale");
 	            if(sale.equals("Available")) {
-	                users.setIsSale("false");
+	                users.setIsSale("판매중");
 	            } else {
-	                users.setIsSale("true");
+	                users.setIsSale("판매완료");
 	            }
 	            users.setInDate(rs.getDate("indate"));
 
@@ -161,6 +153,47 @@ public class UserDAO {
 	
 	}
 	
+	String USER_UPDATE ="update user_tbl set status=? where user_id=?;";
+	public void updateStatus(UserDTO user) {
+	    try {
+	        con = DBConnection.getConnection();
+	        pstmt = con.prepareStatement(USER_UPDATE);
+	        pstmt.setString(1, user.getStatus());
+	        pstmt.setString(2, user.getUserId());
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBConnection.close(rs, pstmt, con);
+	    }
+	}
+
+
+
+
+	private final String SELECT_STATUS = "SELECT DISTINCT status FROM user_tbl;";
+
+	public List<String> findAllStatus() {
+	    List<String> statuses = new ArrayList<>();
+
+	    try {
+	        con = DBConnection.getConnection();
+	        pstmt = con.prepareStatement(SELECT_STATUS);
+	        rs = pstmt.executeQuery();
+	        
+	        while (rs.next()) {
+	            String status = rs.getString("status");
+	            statuses.add(status);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBConnection.close(rs, pstmt, con);
+	    }
+
+	    return statuses;
+	}
+
 	
 	
 }

@@ -77,8 +77,8 @@ function passwordCheckFunction(){
 		$("#passwordText").text("비밀번호가 일치하지 않습니다.").css("color", "red");
 	}else{
 		$("#passwordText").text('')
-		$("#password2").attr("disabled",true); //비활성화(true) , 활성화(false)
-		$("#password2").prop("disabled",true); //읽기 전용(true) , 활성화(false)
+	//	$("#password2").attr("disabled",true); //비활성화(true) , 활성화(false)
+	//	$("#password2").prop("disabled",true); //읽기 전용(true) , 활성화(false)
 	}
 	
 }

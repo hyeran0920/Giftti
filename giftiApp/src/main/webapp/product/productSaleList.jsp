@@ -46,6 +46,7 @@
                                     <th>할인율</th>
                                     <th>유효 기간</th>
                                     <th>등록 일자</th>
+                                    <th>삭제</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -62,16 +63,21 @@
 								<c:forEach var="saleItem" items="${saleItems}">
 								<tr>
                                     <td><a href="sellInfo.trans?registerId=${saleItem.registerId}">${saleItem.registerId}</a></td>
-                                    <td>${saleItem.sellId}</td>
+                                    <td>${saleItem.userId}</td>
                                     <td><fmt:formatNumber value="${saleItem.salePrice}" pattern="#,###원"/></td>
                                     <td><fmt:formatNumber value="${saleItem.discount}" pattern="0.#%"/></td>
                                     <td>${saleItem.availDate }</td>
                                     <td>${saleItem.inDate} </td>
+                                    <td><button class="btn btn-danger btn-sm" onclick="location.href='saleDelete.trans?registerId=${saleItem.registerId}'">삭제</button></td>
                                 </tr>
 								
 								</c:forEach>
                             </tbody>
+                            
                         </table>
+                        <div class="box-footer text-center">
+                        	<button type="submit" class="btn btn-primary btn-sm" onclick="location.href='giftList.product'">뒤로가기 </button>
+                    	</div>
                     </div>
                 </div>
             </main>

@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import DBConnection.DBConnection;
-import dto.ProductDTO;
 import dto.UserDTO;
 
 public class LoginDAO {
@@ -16,7 +15,7 @@ public class LoginDAO {
 	private PreparedStatement pstmt; //sql문 실행
 	private ResultSet rs; //db 결과 검색
 	private String LOGIN = "SELECT user_id FROM user_tbl WHERE user_id = ? ";
-	private String FIND = "SELECT * FROM user_tbl WHERE user_id = ? ";
+	private final String INSERT_USER = "INSERT INTO user_tbl(user_id, name, password, email, phone, gender, age, address, nickname) VALUES(?,?,?,?,?,?,?,?,?);";
 	
 
 
@@ -44,7 +43,6 @@ public class LoginDAO {
 		}
 	     return -1;
 	}
-	private final String INSERT_USER = "INSERT INTO user_tbl(user_id, name, password, email, phone, gender, age, address, nickname) VALUES(?,?,?,?,?,?,?,?,?);";
 	
 	
 	public int insertUser(UserDTO dto) {
@@ -54,7 +52,7 @@ public class LoginDAO {
 			con = DBConnection.getConnection();			
 			pstmt = con.prepareStatement(INSERT_USER);
 			
-			pstmt.setString(1, dto.getUser_id());
+			pstmt.setString(1, dto.getUserId());
 			pstmt.setString(2, dto.getName());
 			pstmt.setString(3, dto.getPassword());
 			pstmt.setString(4, dto.getEmail());
@@ -64,7 +62,7 @@ public class LoginDAO {
 			pstmt.setString(8, dto.getAddress());
 			pstmt.setString(9, dto.getNickname());			
 			pstmt.executeUpdate();
-			
+			System.out.println("dao까지는 옵");
 		}catch (SQLException e) { //예외 발생
 			e.printStackTrace();
 			result =-1; //데이터베이스 오류

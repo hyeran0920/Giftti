@@ -35,8 +35,9 @@ public class TransController extends HttpServlet {
 		if(PATH.equals("/allList.trans")) {
 	         System.out.println("거래 리스트");
 	      
-	         request.setAttribute("transactions", dao.findAll());
-	         view = "/trans/transList.jsp";
+	         request.setAttribute("transactions", dao.findTransFive());
+	         request.setAttribute("saleList", dao.findSaleAvailFIVE());
+	         view = "/trans/transSaleList.jsp";
 	            
 	      } else if(PATH.equals("/sellInfo.trans")) {
 			
@@ -56,18 +57,30 @@ public class TransController extends HttpServlet {
 			int itemId = dao.getItemId(registerId);
 			dao.deleteSale(registerId);
 			view = "productSaleList.trans?itemId=" + itemId;
-		} else if(PATH.equals("/selltransList.trans")) {
-	         //완료 거래
-	         String isSale = "Sold";
-	         
-	         request.setAttribute("transactions", dao.findSoldOut(isSale));
+			
+		}else if(PATH.equals("/saleDeleteList.trans")){
+			
+			int registerId = Integer.parseInt(request.getParameter("registerId"));
+			dao.deleteSale(registerId);
+			view = "saleList.trans";
+			
+		} else if(PATH.equals("/transList.trans")) {
+			//거래 완료내역
+	         request.setAttribute("transactions", dao.findTrans());
 	         view = "/trans/transList.jsp";
-	   }else if(PATH.equals("/transList.trans")) {
-	         //미 거래 내역
-	         String isSale = "Available"   ;
-	         request.setAttribute("transactions", dao.findSoldOut(isSale));
-	         view = "/trans/transList.jsp";
-	      }
+		}else if(PATH.equals("/saleList.trans")) {
+			//판매 전체 내역
+	         request.setAttribute("saleList", dao.findSale());
+	         view = "/trans/saleList.jsp";
+	      }else if(PATH.equals("/saleAvailList.trans")) {
+	    	  //판매중
+	         request.setAttribute("saleList", dao.findSaleAvail());
+	         view = "/trans/saleList.jsp";
+	      }else if(PATH.equals("/saleSoldList.trans")) {
+	    	  //판매완료
+		         request.setAttribute("saleList", dao.findSaleSold());
+		         view = "/trans/saleList.jsp";
+		   }
 
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);

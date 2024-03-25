@@ -11,11 +11,11 @@
 	<footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div class="text-muted">Copyright &copy; Giftti</div>
                         <div>
-                            <a href="#">Privacy Policy</a>
+                            <a href="#">쁘띠조</a>
                             &middot;
-                            <a href="#">Terms &amp; Conditions</a>
+                            <a href="#">서유진 &amp; 유지연 &amp; 이성훈 &amp; 최현철</a>
                         </div>
                     </div>
                 </div>
