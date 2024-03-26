@@ -148,7 +148,13 @@ function registerFunction(){
                                                         <input class="form-control" id="inputFirstName" name="name" type="text" placeholder="이름을 입력해주세요" />
                                                         <label for="inputFirstName">이름</label>
                                                     </div>     
-                                                   </div>                                         
+                                                   </div>   
+                                                   <div class="col-md-6">
+                                                    <div class="form-floating mb-3" >
+                                                        <input class="form-control" id="inputNickname" name="nickname" type="text" placeholder="닉네임을 입력해주세요" />
+                                                        <label for="inputFirstName">닉네임</label>
+                                                    </div>     
+                                                   </div>                                        
                                    			<div class="col-md-10">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" type="email" name="email"  placeholder="name@example.com" />

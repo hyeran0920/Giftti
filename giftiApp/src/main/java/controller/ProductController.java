@@ -79,7 +79,7 @@ public class ProductController extends HttpServlet {
 	}
 	
 	private String update(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getRealPath("/productImages");
+		String path = request.getServletContext().getRealPath("/productImages");
 		int size = 1024 * 1024 * 5;
 		
 		MultipartRequest multi = new MultipartRequest(request,
