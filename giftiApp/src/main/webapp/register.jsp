@@ -11,7 +11,9 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-    <title>Login Page</title>
+    <title>회원가입</title>
+    
+<link rel="icon" type="images/png" href="/giftiApp/images/pavicon.png">
     <link href="/giftiApp/css/styles.css" rel="stylesheet" />
     <link href="/giftiApp/css/cust.css" rel="stylesheet" />
 
