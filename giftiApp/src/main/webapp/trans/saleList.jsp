@@ -110,7 +110,7 @@ a {
                            	  <td>
                            	  	<c:if test="${sale.isSale eq 'Available'}">
                            	  		<button type="submit" class="btn btn-danger btn-sm"
-                                                id="btn_delete" onclick="location.href='saleDeleteList.trans?registerId=${sale.registerId}'">삭제</button>
+                                                id="btn_delete" onclick="location.href='saleDeleteList.trans?registerId=${sale.registerId}'"><i class="fa-solid fa-trash"></i></button>
                            	  	</c:if>
                            	  </td>
                            </tr>
