@@ -1,0 +1,498 @@
+
+drop database if exists gifittidb;
+create database gifittidb;
+use gifittidb;
+drop table if exists user_tbl;
+
+-- 유저 테이블
+create table user_tbl(
+user_id VARCHAR(20) PRIMARY KEY,
+name VARCHAR(20) NOT NULL,
+password VARCHAR(20) NOT NULL, -- char에서 varchar??
+email VARCHAR(50) NOT NULL,
+phone CHAR(13) NOT NULL,
+gender char(1),
+age INT,
+address VARCHAR(100),
+status char(5) default 'ing',
+nickname VARCHAR(50) unique
+);
+
+INSERT INTO user_tbl(user_id, name, password, email, phone, gender, age, address, status, nickname) VALUES
+('user1', '강준', 'b5234', 'user1@google.com', '01012345779', '여', 28, '경기 부천시 원미구', 'stop', '동별'),
+('youngjin', '최영진', 'qwerty', 'youngjin@gmail.com', '01056789012', '남', 40, ' 경기 성남시 분당구', 'ing', '영진이'),
+('jungmy', '정미영', 'pass5678', 'jungmy@naver.com', '01067890123', '여', 32, '인천 연수구', 'ing', '미영스'),
+('kimth', '김태현', 'asdfg', 'kimth@naver.com', '01078901234', '남', 45, '대전 서구', 'stop', '태현짱'),
+('jspark', '박지수', 'password', 'jspark@gmail.com', '01089012345', '여', 27, '대전 유성구', 'ing', '지수야'),
+('leeseungho', '이승호', 'seungho123', 'leeseungho@naver.com', '01090123456', '남', 33, '서울 영등포구', 'ing', '승호갓'),
+('hjm', '황정민', 'q1w2e3r4', 'hjm@naver.com', '01001234567', '남', 29, '대구 달서구', 'ing', '정민z'),
+('eunjung', '김은정', 'asdf1234', 'eunjung@naver.com', '01012345678', '여', 31, '서울 강서구', 'stop', '은정S2'),
+('choi', '최재원', 'passpass', 'choi@naver.com', '01023456789', '남', 37, '광주 서구', 'ing', 'zl존재원'),
+('jhwbb', '장현우', 'hyunwoo', 'jhwbb@gmail.com', '01034567890', '남', 24, '울산 울주군', 'ing', 'hi현우'),
+('leejieun', '이지은', 'qazwsx', 'leejieun@naver.com', '01045678901', '여', 39, '대전 대덕구', 'ing', '지은99'),
+('parksj', '박성준', 'jun123', 'parksj@naver.com', '01056789012', '남', 36, '인천 계양구', 'stop', '성준'),
+('kimhn', '김하늘', 'skyblue', 'kimhn@naver.com', '01067890123', '여', 28, '대구 수성구', 'ing', '하늘'),
+('jyj486', '정유진', 'yujin789', 'jyj486@naver.com', '01078901234', '여', 32, '부산 해운대구', 'ing', '유진정'),
+('lhw123', '이현우', 'ehw123', 'lhw123@gmail.com', '01089012345', '남', 34, '부산 동래구', 'ing', '현우'),
+('kimminji', '김민지', 'minji456', 'kimminji@naver.com', '01090123456', '여', 30, '서울 마포구', 'stop', '민지'),
+('parkjw99', '박진우', 'jinwoo123', 'parkjw99@gmail.com', '01001234567', '남', 26, '서울 종로구', 'ing', '진우'),
+('choijw55', '최지원', 'jwc456', 'choijw55@naver.com', '01012345678', '여', 29, '서울 송파구', 'ing', '지원'),
+('ljm0101', '이정민', 'ljm789', 'ljm0101@naver.com', '01023456789', '여', 33, '경기 수원시 장안구 ', 'ing', '정민'),
+('kms0322', '김민수', 'minsu789', 'kms0322@gmail.com', '01034567890', '남', 37, '경기 안양시 만안구', 'stop', '민수'),
+('pyj2000', '박유진', 'yujinpark', 'pyj2000@gmail.com', '01045678901', '여', 25, '경기 용인시 동안구', 'ing', '유진공원'),
+('jjm30', '정재민', 'jjm123', 'jjm30@gmail.com', '01056789012', '남', 31, '경기 고양시 덕양구', 'ing', '재민'),
+('choisj', '최성준', 'sj1234', 'choisj@gmail.com', '01023456789', '남', 28, '부산 해운대구', 'ing', '성준z'),
+('kimss', '김수성', 'ss5678', 'kimss@naver.com', '01034567890', '여', 31, '대구 중구', 'stop', '수성님'),
+('leewh', '이우현', 'wh1234', 'leewh@naver.com', '01045678901', '남', 35, '인천 남동구', 'ing', '우현짱'),
+('kimsj', '김승진', 'sj5678', 'kimsj@gmail.com', '01056789012', '여', 29, '광주 북구', 'ing', '승진이'),
+('parkcj', '박찬주', 'cj1234', 'parkcj@naver.com', '01067890123', '남', 33, '대전 유성구', 'ing', '찬주님'),
+('leewk', '이원준', 'wk1234', 'leewk@gmail.com', '01078901234', '여', 30, '울산 남구', 'ing', '원준S2'),
+('kimyj', '김영진', 'yj1234', 'kimyj@naver.com', '01089012345', '남', 32, '경기 수원시 영통구', 'stop', '영진'),
+('choiws', '최우성', 'ws1234', 'choiws@naver.com', '01090123456', '여', 27, '강원 춘천시', 'ing', '우성님'),
+('jangjh', '장정현', 'jh1234', 'jangjh@gmail.com', '01001234567', '남', 36, '강원 원주시', 'ing', '정현짱'),
+('leesk', '이성규', 'sk1234', 'leesk@gmail.com', '01012345678', '여', 34, '전북 전주시 완산구', 'ing', '성규님'),
+('parkhk', '박현기', 'hk1234', 'parkhk@gmail.com', '01023456789', '남', 26, '전남 목포시', 'ing', '현기z'),
+('kimsg', '김수경', 'sg1234', 'kimsg@naver.com', '01034567890', '여', 29, '경남 창원시 의창구', 'ing', '수경S2'),
+('kangjh', '강재훈', 'jh1234', 'kangjh@naver.com', '01045678901', '남', 31, '경북 포항시 북구', 'ing', '재훈짱'),
+('leewj', '이우진', 'wj1234', 'leewj@naver.com', '01056789012', '여', 33, '충북 청주시 상당구', 'ing', '우진이'),
+('kimjk', '김정규', 'jk1234', 'kimjk@gmail.com', '01067890123', '남', 28, '충남 천안시 동남구', 'ing', '정규z'),
+('kimhj', '김현주', 'hj1234', 'kimhj@naver.com', '01078901234', '여', 30, '경기 안산시', 'ing', '현주님'),
+('choijh', '최지훈', 'jh1234', 'choijh@naver.com', '01089012345', '남', 32, '경기 용인시 기흥구', 'stop', '지훈짱'),
+('hankh', '한경훈', 'kh1234', 'hankh@naver.com', '01090123456', '여', 27, '강원 강릉시', 'ing', '경훈님'),
+('songye', '송예린', 'ye1234', 'songye@naver.com', '01001234567', '남', 36, '전남 여수시', 'ing', '예린이'),
+('baegy', '배규리', 'gy1234', 'baegy@naver.com', '01012345678', '여', 25, '전북 군산시', 'ing', '규리'),
+('kimjh', '김재현', 'jh1234', 'kimjh@gmail.com', '01023456789', '남', 33, '전북 전주시 덕진구', 'ing', '재현');
+
+select * from user_tbl;
+
+
+drop table IF exists gifticon_tbl;
+CREATE TABLE gifticon_tbl (
+    item_id INT AUTO_INCREMENT PRIMARY KEY, -- 아이템 ID (기본키) 자동증가
+    item_name VARCHAR(50) NOT NULL, -- 상품명 크기 변경 사항
+    price int NOT NULL, -- 가격
+    brand VARCHAR(20), -- 브랜드 변경사항 크기
+    category VARCHAR(10), -- 카테고리
+    image VARCHAR(100) -- 이미지 URL이 입력이 안됨
+);
+
+insert into gifticon_tbl(item_name, price, brand, category,image) values ('맥스파이시 상하이버거 세트', 6900, '맥도날드', '패스트푸드', '맥도날드-맥스파이시 상하이버거 세트.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image) values ('디지털 상품권 2만원', 20000, '맥도날드', '패스트푸드','맥도날드-디지털 상품권 2만원.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image) values ('불고기버거 세트', 4900, '맥도날드', '패스트푸드', '맥도날드-불고기버거 세트.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image) values ('맥치킨 모짜렐라 세트', 6900, '맥도날드', '패스트푸드', '맥도날드-맥치킨 모짜렐라 세트.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image) values ('Double X2 버거', 6800, '롯데리아', '패스트푸드', '롯데리아-Double X2 버거.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image) values ('Double X2 세트', 8700, '롯데리아', '패스트푸드', '롯데리아-Double X2 버거 세트.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image) values ('선데아이스크림 스트로베리', 1900, '롯데리아', '패스트푸드', '롯데리아-선데아이스크림 스트로베리.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image) values ('T-REX 세트', 6900, '롯데리아', '패스트푸드', '롯데리아- T-REX 세트.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)values ('통 모짜와퍼 + 콜라R', 10900, '버거킹', '패스트푸드', '버거킹-통모짜와퍼+콜라R.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image) values ('치즈와퍼 주니어 + 콜라R', 7000, '버거킹', '패스트푸드', '버거킹-치즈와퍼주니어+콜라R.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image) values ('더블비프불고기 버거 + 치즈버거 + 콜라R', 12500, '버거킹', '패스트푸드', '버거킹-더블비프불고기버거+치즈버거+콜라R2.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image) values ('비브불고기버거 + 치즈스틱 + 콜라R', 8500, '버거킹', '패스트푸드', '버거킹-비프불고기버거+치즈스틱+콜라R.jpg');
+
+--  카페
+
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('시그니처 생딸기 우유생크림케이크' , 33000, '파리바게뜨', '베이커리', '파리바게트_시그니처 생딸기 우유생크림케이크.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('실키롤케익' , 13000, '파리바게뜨', '베이커리', '파리바게트_실키롤케익.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('호두 파운드 케익' , 15000, '파리바게뜨', '베이커리','파리바게트_호두파운드케익.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('가나슈 초콜릿 케이크' , 5200, '파리바게뜨', '베이커리', '파리바게트_가나슈초콜릿케이크.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('부드러운 정통우유 식빵' , 3400, '파리바게뜨', '베이커리', '파리바게트_부드러운정통우유식빵.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('딸기와 우유 생크림 2호' , 32000, '뚜레쥬르', '베이커리', '뚜레쥬르_딸기와우유생크림2호.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('올스타 케이크' , 32000, '뚜레쥬르', '베이커리','뚜레쥬르_올스타케이크.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('산딸기 라떼 롤케이크' , 15000, '뚜레쥬르', '베이커리', '뚜레쥬르_산딸기라떼롤케이크.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('클래식 롤케이크' , 14000, '뚜레쥬르', '베이커리', '뚜레쥬르_클래식롤케이크.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('까망쿠키 속 리얼말차 브라우니' , 3200, '뚜레쥬르', '베이커리', '뚜레쥬르_까망쿠키속리얼말차브라우니.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('미니글레이즈드 2개 + 미니초코링 2개 + 미니스트로베리필드 2개 ' , 4200, '던킨도너츠', '베이커리', '던킨도넛_미니글레이즈드2개+미니초코링2개+미니스트로베리필드2개.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('먼치킨 10개팩 ' , 5000, '던킨도너츠', '베이커리', '던킨도넛_먼치킨10개팩.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('허니딸기라떼' , 5200, '던킨도너츠', '베이커리', '던킨도넛_허니딸기라떼.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('베이컨에그 잉글리쉬머핀' , 3500, '던킨도너츠', '베이커리','던킨도넛_베이컨에그잉글리쉬머핀.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('약과(45개입)' , 17300, '던킨도너츠', '베이커리', '던킨도넛_약과(45개입).png');
+
+-- 치킨
+
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('갈비천왕 +콜라 1.25L', 20500, '굽네치킨', '치킨/피자', '갈비천왕 +콜라 1.25L.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('고추바사삭+콜라1.25L', 20500, '굽네치킨', '치킨/피자', '고추바사삭+콜라1.25L.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('오리지널+볼케이노+콜라1.25L', 36500, '굽네치킨', '치킨/피자', '오리지널+볼케이노+콜라1.25L.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('갈비천왕+시카고피자+콜라1.25L', 38000, '굽네치킨', '치킨/피자', '갈비천왕+시카고피자+콜라1.25L.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('고추바사삭+갈비천왕치밥+콜라1.25L', 26800, '굽네치킨', '치킨/피자', '고추바사삭+갈비천왕치밥+콜라1.25L.png');
+
+
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('(오리지널/순살)후라이드치킨+콜라1.25L', 20000, '노랑통닭', '치킨/피자', '(오리지널_순살)후라이드치킨+콜라1.25L.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('(레귤러/순살)칼칼한청양치킨+콜라1.25L', 21000, '노랑통닭', '치킨/피자', '(레귤러_순살)칼칼한청양치킨+콜라1.25L.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('(오리지널/순살)노랑3종+떡볶이+오리지널치즈볼+콜라1.25L', 34000, '노랑통닭', '치킨/피자', '(오리지널_순살)노랑3종+떡볶이+오리지널치즈볼+콜라1.25L.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('(오리지널/순살)노랑3종+노랑칩스+콜라1.25L', 26000, '노랑통닭', '치킨/피자', '(오리지널_순살)노랑3종+노랑칩스+콜라1.25L.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('(레귤러/순살)후라이드치킨+깐풍똥집+3종치즈볼+노랑칩스+콜라1.25L', 40000, '노랑통닭', '치킨/피자', '(레귤러_순살)후라이드치킨+깐풍똥집+3종치즈볼+노랑칩스+콜라1.25L.png');
+
+
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('블랙타이거슈림프(오리지널)L+콜라1.25L', 39200, '도미노피자', '치킨/피자', '블랙타이거슈림프(오리지널)L+콜라1.25L.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('베스트콰트로피자(오리지널)L+NEW치볼+콜라1.25L', 49000, '도미노피자', '치킨/피자', '베스트콰트로피자(오리지널)L+NEW치볼+콜라1.25L.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('와일드와일드웨스트 스테이크 오리지날(L)+뉴치볼+콜라1.25L', 46000, '도미노피자', '치킨/피자', '와일드와일드웨스트 스테이크 오리지날(L)+뉴치볼+콜라1.25L.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('블록버스터4(오리지널)L+뉴치볼+콜라1.25L', 49000, '도미노피자', '치킨/피자', '블록버스터4(오리지널)L+뉴치볼+콜라1.25L.png');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('치즈 크레이프 샌드(더블샌드)L+콜라1.25L', 37200, '도미노피자', '치킨/피자', '치즈 크레이프 샌드(더블샌드)L+콜라1.25L.png');
+
+
+-- 카페a
+
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('쿨 라임 피지오 Tall', 5900, '스타벅스', '커피/음료', '쿨라임피지오.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('카페 아메리카노 Tall', 4100, '스타벅스', '커피/음료', '카페아메리카노.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('자바 칩 프라푸치노 Tall', 6300, '스타벅스', '커피/음료', '자바칩프라푸치노.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('딸기 아사이 레모네이드 스타벅스 리프레셔 T', 5900, '스타벅스', '커피/음료', '딸기 아사이 레모네이드 스타벅스 리프레셔.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('달콤한 디저트 세트 [카페 아메리카노 T + 7 레이어 가나슈 케이크]', 10200, '스타벅스', '커피/음료', '달콤한 디저트 세트 [카페 아메리카노 T + 7 레이어 가나슈 케이크].jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('떠먹는 티라미수', 6500, '투썸플레이스', '커피/음료', '떠먹는 티라미수.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('아메리카노 (R)', 4500, '투썸플레이스', '커피/음료', '아메리카노 (R).jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('떠먹는 아이스박스', 6500, '투썸플레이스', '커피/음료', '떠먹는 아이스박스.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('떠먹는 스트로베리 초콜릿 생크림 + 아메리카노 (R)', 11200, '투썸플레이스', '커피/음료', '떠먹는 스트로베리 초콜릿 생크림 + 아메리카노 (R).jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('딸기 퐁당 라떼 (R)', 6500, '투썸플레이스', '커피/음료', '딸기 퐁당 라떼 (R).jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('크랜베리 치킨 샌드위치', 6000, '할리스', '커피/음료', '크랜베리 치킨 샌드위치.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('베리베리 딸기 요거트', 6300, '할리스', '커피/음료', '베리베리 딸기 요거트.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('민트 초코칩 할리치노 R', 6300, '할리스', '커피/음료', '민트 초코칩 할리치노 R.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('아메리카노R + 바닐라딜라이트R + 트리플초코케이크', 16500, '할리스', '커피/음료', '아메리카노R + 바닐라딜라이트R + 트리플초코케이크.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('흑임자 팥붕어빵', 2300, '이디야', '커피/음료','흑임자 팥붕어빵.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('생과일 수박 리프레싱 모히토 (R)', 4900, '이디야', '커피/음료', '생과일 수박 리프레싱 모히토 (R).jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('소금빵', 3000, '이디야', '커피/음료', '소금빵.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('아메리카노(ICED)', 1800, '빽다방', '커피/음료','달콤아이스티.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('달콤아이스티', 2500, '빽다방', '커피/음료','달콤아이스티.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('초코라떼(ICED)', 3500, '빽다방', '커피/음료','초코라떼(ICED).jpg');
+
+-- 베라
+
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('1인 그릭요거트+벌집꿀+그래놀라(배달가능)', 8000, '요거트아이스크림의정석', '아이스크림', '1인 그릭요거트+벌집꿀+그래놀라(배달가능).jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('바나나+초코소스+벌집꿀+콘푸라이트+그래놀라+후루트링+1인 요거트아이스크림', 11000, '요거트아이스크림의정석', '아이스크림', '바나나+초코소스+벌집꿀+콘푸라이트+그래놀라+후루트링+1인 요거트아이스크림.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('NEW 싱글퀸컵', 4500, '나뚜루', '아이스크림', 'NEW 싱글퀸컵.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('뉴 멀티플컵', 13000, '나뚜루', '아이스크림','뉴 멀티플컵.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('미니 스윗 망고', 19800, '나뚜루', '아이스크림', '미니 스윗 망고.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('파인트 아이스크림', 9800, '배스킨라빈스', '아이스크림', '파인트 아이스크림.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('수줍은 웰시코기의 숨바꼭질', 26000, '배스킨라빈스', '아이스크림','파인트 아이스크림.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('버라이어티팩', 23400, '배스킨라빈스', '아이스크림','버라이어티팩.jpg');
+
+-- 편의점
+
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('매일)페레로로쉐3구', 2700, 'CU', '마트/편의점','매일)페레로로쉐3구.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('농심)츄파춥스', 300, 'CU', '마트/편의점','농심)츄파춥스.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('하리보골드바렌', 2000, 'CU', '마트/편의점', '하리보골드바렌.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('롯데)ABC초코쿠키50g', 1200, '이마트24', '마트/편의점','롯데)ABC초코쿠키50g.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('육개장사발면', 1000, '이마트24', '마트/편의점','육개장사발면.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('매일)페레로로쉐3구', 2700, '이마트24', '마트/편의점','매일)페레로로쉐3구.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('매일)페레로로쉐3구', 2700, 'GS25', '마트/편의점','매일)페레로로쉐3구.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('서울)비요뜨(초코링)', 2000, 'GS25', '마트/편의점','서울)비요뜨(초코링).jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('삼양)불닭볶음면(용기)', 1800, 'GS25', '마트/편의점','삼양)불닭볶음면(용기).jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('PB) 요구르트맛젤리', 1300, '세븐일레븐', '마트/편의점','PB) 요구르트맛젤리.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('오뚜기)컵밥쇠고기미역국밥', 4800, '세븐일레븐', '마트/편의점','오뚜기)컵밥쇠고기미역국밥.jpg');
+insert into gifticon_tbl(item_name, price, brand, category,image)  values ('롯데)가나밀크2400', 2400, '세븐일레븐', '마트/편의점','롯데)가나밀크2400.jpg');
+
+
+
+
+select * from gifticon_tbl;
+
+select distinct brand from gifticon_tbl;
+
+
+drop table if exists sale_tbl;
+
+CREATE TABLE sale_tbl (
+    register_Id INT AUTO_INCREMENT PRIMARY KEY, -- 등록번호 ID (기본키) 자동증가
+    sale_price int NOT NULL,
+    avail_date date NOT NULL,
+    isSale ENUM('Available', 'Sold') NOT NULL DEFAULT 'Available',  -- 변경 사항 기본값설정
+    inDate DATE DEFAULT (CURRENT_DATE),  -- 현재 등록 시간 바로 뜨게
+    item_id INT NOT NULL,
+    user_id varchar(20), -- 변경 사항
+    FOREIGN KEY (user_id) REFERENCES user_tbl(user_id ) on delete set null,
+    FOREIGN KEY (item_id) REFERENCES gifticon_tbl(item_id) on delete cascade on update cascade-- 기프티콘테이블이랑 참조키
+       -- 유저테이블이랑 참조키
+);
+
+select * from sale_tbl;
+select * from sale_tbl where isSale = 'Sold';
+
+INSERT INTO sale_tbl (sale_price, avail_date, issale, inDate, item_id, user_id ) VALUES 
+(6000, '2024-03-12', 'Available', '2024-01-01', 1, 'baegy'),
+(5800, '2024-02-12', 'Sold', '2024-01-01', 1, 'eunjung'),
+(4000, '2024-04-12', 'Sold', '2024-01-01', 3, 'baegy'),
+(5800, '2024-04-10', 'Available', '2024-01-01', 4, 'choijh'),
+(1400, '2024-02-12', 'Available', '2024-01-01', 7, 'choisj'),
+(9100, '2024-02-01', 'Available', '2024-01-02', 9, 'leewh'),
+(11000, '2025-01-15', 'Sold', '2024-01-02', 11, 'leejieun'),
+(11500, '2024-06-12', 'Available', '2024-01-03', 14, 'leejieun'),
+(2700, '2024-07-12', 'Sold', '2024-01-03', 17, 'baegy'), 
+(13000, '2024-10-12', 'Sold', '2024-01-03', 20, 'kimth'),
+(12500, '2024-02-12', 'Sold', '2024-01-03', 21, 'choi'),
+(3500, '2024-05-10', 'Available', '2024-01-03', 23, 'kimth'),
+(15000, '2025-03-22', 'Available', '2024-01-03', 27, 'choi'),
+(32000, '2024-03-30', 'Available', '2024-01-04', 30, 'lhw123'),
+(25000, '2024-08-02', 'Sold', '2024-01-04', 32, 'choi'),
+(31000, '2025-01-02', 'Available', '2024-01-04', 35, 'lhw123'),
+(45000, '2025-02-12', 'Available', '2024-01-05', 41, 'kimhn'),
+(5500, '2024-04-12', 'Sold', '2024-01-05', 45, 'kimhn'),
+(8000, '2024-01-27', 'Sold', '2024-01-06', 47, 'parkjw99'),
+(5500, '2024-06-29', 'Available', '2024-01-06', 48, 'parkjw99'),
+(5700, '2024-05-05', 'Available', '2024-01-06', 50, 'parksj'),
+(5500, '2024-07-12', 'Available', '2024-01-06', 52, 'leeseungho'),
+(5400, '2024-06-12', 'Sold', '2024-01-07', 54, 'leeseungho'),
+(4200, '2025-01-14', 'Sold', '2024-01-07', 58, 'choisj'),
+(1500, '2025-02-17', 'Sold', '2024-01-07', 60, 'choijw55'),
+(3000, '2025-01-02', 'Sold', '2024-01-07', 62, 'kimsj'),
+(9900, '2024-03-01', 'Available', '2024-01-08', 64, 'choijw55'),
+(3500, '2024-06-24', 'Available', '2024-01-08', 65, 'choijw55'),
+(24000, '2024-04-25', 'Available', '2024-01-08', 69, 'parksj'), 
+(2200, '2024-05-12', 'Sold', '2024-01-08', 71, 'parksj'),
+(5500, '2024-04-05', 'Sold', '2024-01-08', 1, 'lhw123'),
+(18000, '2024-02-05', 'Sold', '2024-01-08', 2, 'lhw123'),
+(19000, '2024-03-15', 'Available', '2024-01-09', 2, 'kimhn'),
+(6000, '2024-04-20', 'Available', '2024-01-09', 4, 'youngjin'),
+(1500, '2024-02-01', 'Sold', '2024-01-09', 7, 'youngjin'),
+(9000, '2024-05-02', 'Sold', '2024-01-09', 9, 'eunjung'),
+(6500, '2024-03-21', 'Available', '2024-01-09', 12, 'lhw123'),
+(4500, '2024-04-11', 'Sold', '2024-01-09', 16, 'hankh'),
+(4500, '2024-06-25', 'Sold', '2024-01-10', 25, 'eunjung'),
+(24000, '2024-05-15', 'Available', '2024-01-10', 32, 'hankh'),
+(19500, '2024-05-05', 'Available', '2024-01-11', 34, 'kimth'),
+(24500, '2024-06-23', 'Available', '2024-01-11', 36, 'lhw123'),
+(45500, '2024-07-07', 'Sold', '2024-01-11', 41, 'jhwbb'),
+(34500, '2024-04-01', 'Sold', '2024-01-11', 42, 'hankh'),
+(5400, '2024-06-03', 'Sold', '2024-01-11', 46, 'parkjw99'),
+(5500, '2024-04-05', 'Available', '2024-01-11', 52, 'parkjw99'),
+(5700, '2024-09-05', 'Available', '2024-01-12', 54, 'lhw123'),
+(5800, '2024-11-22', 'Available', '2024-01-12', 55, 'lhw123'),
+(4500, '2024-11-11', 'Sold', '2024-01-12', 58, 'hankh'),
+(3000, '2024-10-24', 'Sold', '2024-01-12', 62, 'ljm0101'),
+(7000, '2024-06-05', 'Available', '2024-01-12', 63, 'kimsj'),
+(3900, '2024-07-27', 'Available', '2024-01-12', 65, 'lhw123'),
+(8800, '2024-12-12', 'Sold', '2024-01-12', 68, 'kimsj'),
+(150, '2024-01-30', 'Sold', '2024-01-12', 72, 'jspark'),
+(900, '2024-06-30', 'Sold', '2024-01-12', 74, 'jhwbb'),
+(2000, '2024-02-05', 'Available', '2024-01-13', 76, 'lhw123'),
+(2300, '2024-08-09', 'Available', '2024-01-13', 77, 'leejieun'),
+(1700, '2024-04-02', 'Sold', '2024-01-13', 78, 'jhwbb'),
+(1900, '2024-04-06', 'Sold', '2024-01-13', 82, 'jhwbb'),
+(1900, '2024-03-15', 'Available', '2024-01-13', 82, 'kimss'),
+(4400, '2025-02-18', 'Sold', '2024-01-13', 3, 'pyj2000'),
+(5500, '2024-04-05', 'Sold', '2024-01-14', 1, 'jspark'),
+(18000, '2024-02-05', 'Sold', '2024-01-14', 2, 'jspark'),
+(18500, '2024-03-15', 'Available', '2024-01-14', 2, 'kimhn'),
+(6000, '2024-04-20', 'Available', '2024-01-15', 4, 'hjm'),
+(5900, '2024-02-01', 'Sold', '2024-01-15', 5, 'youngjin'),
+(6000, '2024-05-02', 'Sold', '2024-01-15', 8, 'eunjung'),
+(10500, '2024-03-21', 'Available', '2024-01-15', 11, 'lhw123'),
+(13500, '2024-04-11', 'Sold', '2024-01-16', 15, 'eunjung'),
+(4500, '2024-06-25', 'Sold', '2024-01-16', 24, 'eunjung'),
+(35000, '2024-05-15', 'Available', '2024-01-16', 31, 'kimth'),
+(18500, '2024-05-05', 'Available', '2024-01-16', 33, 'parkjw99'),
+(31500, '2024-06-23', 'Available', '2024-01-17', 35, 'lhw123'),
+(40500, '2024-07-07', 'Sold', '2024-01-17', 40, 'jhwbb'),
+(44500, '2024-04-01', 'Sold', '2024-01-18', 41, 'jhwbb'),
+(5500, '2024-06-03', 'Sold', '2024-01-18', 45, 'parkjw99'),
+(10000, '2024-04-05', 'Available', '2024-01-18', 51, 'parkjw99'),
+(5300, '2024-09-05', 'Available', '2024-01-18', 53, 'choisj'),
+(5600, '2024-11-22', 'Available', '2024-01-18', 54, 'leewh'),
+(1500, '2024-11-11', 'Sold', '2024-01-18', 57, 'leewh'),
+(2000, '2024-10-24', 'Sold', '2024-01-19', 61, 'choijw55'),
+(3000, '2024-06-05', 'Available', '2024-01-19', 62, 'jspark'),
+(9500, '2024-07-27', 'Available', '2024-01-19', 64, 'lhw123'),
+(2100, '2024-12-12', 'Sold', '2024-01-19', 67, 'jyj486'),
+(2100, '2024-01-30', 'Sold', '2024-01-20', 71, 'jyj486'),
+(1500, '2024-06-30', 'Sold', '2024-01-20', 73, 'jyj486'),
+(800, '2024-02-05', 'Available', '2024-01-20', 75, 'jhwbb'),
+(2500, '2024-08-09', 'Available', '2024-01-21', 76, 'leejieun'),
+(2200, '2024-04-02', 'Sold', '2024-01-22', 77, 'jhwbb'),
+(1500, '2024-04-06', 'Sold', '2024-01-22', 78, 'kimss'),
+(1000, '2024-04-05', 'Available', '2024-01-22', 80, 'kimss'),
+(6000, '2025-04-01', 'Available', '2024-01-22', 4, 'choijh'),
+(5900, '2025-03-18', 'Available', '2024-01-22', 5, 'eunjung'),
+(7500, '2025-03-12', 'Available', '2024-01-23', 6, 'lhw123'),
+(1500, '2025-04-05', 'Sold', '2024-01-23', 7, 'lhw123'),
+(6000, '2025-02-18', 'Sold', '2024-01-23', 8, 'pyj2000'),
+(10000, '2025-04-01', 'Available', '2024-01-23', 9, 'choijh'),
+(6500, '2025-03-18', 'Available', '2024-01-24', 10, 'eunjung'),
+(11000, '2025-03-12', 'Available', '2024-01-24', 11, 'lhw123'),
+(7500, '2025-04-05', 'Sold', '2024-01-24', 12, 'lhw123'),
+(31000, '2025-02-18', 'Sold', '2024-01-24', 13, 'pyj2000'),
+(12000, '2025-04-01', 'Available', '2024-01-25', 14, 'choijh'),
+(13500, '2025-03-18', 'Available', '2024-01-25', 15, 'jangjh'),
+(4700, '2025-03-12', 'Available', '2024-01-25', 16, 'lhw123'),
+(3000, '2025-04-05', 'Sold', '2024-01-26', 17, 'lhw123'),
+(30000, '2025-02-18', 'Sold', '2024-01-26', 18, 'pyj2000'),
+(30000, '2025-04-01', 'Available', '2024-01-26', 19, 'baegy'),
+(13500, '2025-03-18', 'Available', '2024-01-27', 20, 'jangjh'),
+(13000, '2025-03-12', 'Available', '2024-01-27', 21, 'lhw123'),
+(2500, '2025-04-05', 'Sold', '2024-01-27', 22, 'lhw123'),
+(3700, '2025-02-18', 'Sold', '2024-01-28', 23, 'pyj2000'),
+(4500, '2025-04-01', 'Available', '2024-01-28', 24, 'baegy'),
+(4900, '2025-03-18', 'Available', '2024-01-28', 25, 'jangjh'),
+(3000, '2025-03-12', 'Available', '2024-01-29', 26, 'lhw123'),
+(15500, '2025-04-05', 'Sold', '2024-01-29', 27, 'lhw123'),
+(18500, '2025-02-18', 'Sold', '2024-01-29', 28, 'pyj2000'),
+(18900, '2025-04-01', 'Available', '2024-01-29', 29, 'choi'),
+(33900, '2025-03-18', 'Available', '2024-01-29', 30, 'jangjh'),
+(35000, '2025-03-12', 'Available', '2024-01-29', 31, 'lhw123'),
+(24500, '2025-04-05', 'Sold', '2024-01-30', 32, 'lhw123'),
+(18500, '2025-02-18', 'Sold', '2024-01-30', 33, 'pyj2000'),
+(19000, '2025-04-01', 'Available', '2024-01-30', 34, 'choi'),
+(32000, '2025-03-18', 'Available', '2024-01-31', 35, 'kms0322'),
+(24500, '2025-03-12', 'Available', '2024-01-31', 36, 'lhw123'),
+(35000, '2025-04-05', 'Sold', '2024-01-31', 37, 'lhw123'),
+(36000, '2025-02-18', 'Sold', '2024-01-31', 38, 'pyj2000'),
+(46000, '2025-04-01', 'Available', '2024-01-31', 39, 'choiws'),
+(42900, '2025-03-18', 'Available', '2024-02-01', 40, 'kms0322'),
+(47000, '2025-03-12', 'Available', '2024-02-01', 41, 'lhw123'),
+(35000, '2025-04-05', 'Sold', '2024-02-01', 42, 'lhw123'),
+(5500, '2025-02-18', 'Sold', '2024-02-01', 43, 'pyj2000'),
+(3700, '2025-04-01', 'Available', '2024-02-01', 44, 'jjm30'),
+(5800, '2025-03-18', 'Available', '2024-02-01', 45, 'kms0322'),
+(5500, '2025-03-12', 'Available', '2024-02-01', 46, 'lhw123'),
+(9500, '2025-04-05', 'Sold', '2024-02-01', 47, 'lhw123'),
+(5700, '2025-02-18', 'Sold', '2024-02-01', 48, 'pyj2000'),
+(4000, '2025-04-01', 'Available', '2024-02-01', 49, 'jjm30'),
+(5900, '2025-03-18', 'Available', '2024-02-01', 50, 'kms0322'),
+(10000, '2025-03-12', 'Available', '2024-02-02', 51, 'lhw123'),
+(5900, '2025-04-05', 'Sold', '2024-02-02', 52, 'lhw123'),
+(5500, '2025-02-18', 'Sold', '2024-02-02', 53, 'pyj2000'),
+(5800, '2025-04-01', 'Available', '2024-02-03', 54, 'jjm30'),
+(5900, '2025-03-18', 'Available', '2024-02-03', 55, 'kms0322'),
+(15000, '2025-03-12', 'Available', '2024-02-03', 56, 'lhw123'),
+(2000, '2025-04-05', 'Sold', '2024-02-03', 57, 'lhw123'),
+(4400, '2025-02-18', 'Sold', '2024-02-03', 58, 'pyj2000'),
+(2700, '2025-04-01', 'Available', '2024-02-03', 59, 'jjm30'),
+(1500, '2025-03-18', 'Available', '2024-02-03', 60, 'kms0322'),
+(2000, '2025-03-12', 'Available', '2024-02-04', 61, 'lhw123'),
+(3200, '2025-04-05', 'Sold', '2024-02-04', 62, 'lhw123'),
+(7500, '2025-02-18', 'Sold', '2024-02-05', 63, 'pyj2000'),
+(9900, '2025-04-01', 'Available', '2024-02-05', 64, 'jjm30'),
+(4000, '2025-03-18', 'Available', '2024-02-06', 65, 'kms0322'),
+(12000, '2025-03-12', 'Available', '2024-02-06', 66, 'lhw123'),
+(18500, '2025-04-05', 'Sold', '2024-02-06', 67, 'lhw123'),
+(9000, '2025-02-18', 'Sold', '2024-02-07', 68, 'pyj2000'),
+(24000, '2025-04-01', 'Available', '2024-02-07', 69, 'jjm30'),
+(21900, '2025-03-18', 'Available', '2024-02-07', 70, 'kms0322'),
+(2200, '2025-03-12', 'Available', '2024-02-07', 71, 'lhw123'),
+(150, '2025-04-05', 'Sold', '2024-02-07', 72, 'lhw123'),
+(1600, '2025-02-18', 'Sold', '2024-02-08', 73, 'pyj2000'),
+(1000, '2025-04-01', 'Available', '2024-02-08', 74, 'jjm30'),
+(850, '2025-03-18', 'Available', '2024-02-08', 75, 'kms0322'),
+(2200, '2025-03-12', 'Available', '2024-02-08', 76, 'lhw123'),
+(2100, '2025-04-05', 'Sold', '2024-02-09', 77, 'lhw123'),
+(1500, '2025-02-18', 'Sold', '2024-02-09', 78, 'pyj2000'),
+(1600, '2025-04-01', 'Available', '2024-02-09', 79, 'jjm30'),
+(1000, '2025-03-18', 'Available', '2024-02-10', 80, 'kms0322'),
+(4400, '2025-03-18', 'Available', '2024-02-10', 81, 'kms0322'),
+(2000, '2025-03-18', 'Available', '2024-02-10', 82, 'jjm30');
+
+drop table if exists trans_tbl;
+
+CREATE TABLE IF NOT EXISTS trans_tbl (
+    trans_num INT AUTO_INCREMENT PRIMARY KEY, -- 거래번호 (기본키) 자동생성
+    trans_date DATE NOT NULL, -- 거래일자
+    register_id INT,  -- 등록번호
+    buy_id varchar(20) NOT NULL, -- 구매유저ID 변경사항 
+    FOREIGN KEY (register_id) REFERENCES sale_tbl(register_id) on delete set null, -- 판매테이블 참조키 -- 판매테이블 참조키
+    FOREIGN KEY (buy_id) REFERENCES user_tbl(user_id) on update cascade-- 유저테이블 참조키
+);
+
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-01', 2, 'baegy');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-02', 3, 'choi');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-02', 7, 'baegy');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-03', 9, 'jspark');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-10', 10, 'kimjh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-10', 11, 'leejieun');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-10', 15, 'baegy');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-10', 18, 'kimjh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-10', 19, 'leejieun');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-11', 23, 'leesk');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-11', 24, 'leewh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-11', 25, 'leewh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-11', 26, 'parkjw99');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-11', 30, 'lhw123');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-11', 31, 'lhw123');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-14', 32, 'pyj2000');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-14', 35, 'pyj2000');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-14', 36, 'pyj2000');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-14', 38, 'pyj2000');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-14', 39, 'pyj2000');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-14', 43, 'parkjw99');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-15', 44, 'parkjw99');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-15', 45, 'hankh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-15', 49, 'parkjw99');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-15', 50, 'choijw55');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-15', 53, 'choijw55');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-15', 54, 'hjm');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-15', 55, 'hjm');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-21', 58, 'hjm');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-21', 59, 'hjm');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-21', 61, 'hjm');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-21', 62, 'jangjh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-21', 63, 'jangjh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-21', 66, 'jangjh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-21', 67, 'jangjh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-21', 69, 'jangjh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-21', 70, 'jangjh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-21', 74, 'eunjung');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-27', 75, 'eunjung');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-27', 80, 'jhwbb');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-27', 81, 'jhwbb');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-27', 84, 'kangjh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-27', 85, 'kangjh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-01-27', 86, 'kangjh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-04', 89, 'kangjh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-04', 90, 'kimjk');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-04', 95, 'kimjk');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-04', 96, 'kimjk');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-04', 100, 'kimjk');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-04', 101, 'kimsg');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-04', 106, 'kimsg');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-28', 110, 'kimsg');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-28', 111, 'leejieun');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-28', 115, 'leejieun');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-28', 116, 'leejieun');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-28', 120, 'leejieun');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-28', 121, 'leejieun');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-28', 125, 'youngjin');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-28', 126, 'youngjin');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-02-28', 130, 'baegy');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-01', 131, 'choisj');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-01', 135, 'choijh');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-01', 136, 'choi');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-01', 140, 'baegy');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-01', 141, 'jspark');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-01', 145, 'jspark');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-01', 146, 'youngjin');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-01', 150, 'songye');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-01', 151, 'kimth');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-01', 155, 'kimyj');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-01', 156, 'parkhk');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-04', 160, 'parkhk');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-04', 161, 'pyj2000');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-04', 165, 'songye');
+INSERT INTO trans_tbl (trans_date, register_id, buy_id) VALUES ('2024-03-04', 166, 'youngjin');
+
+select * from trans_tbl;
+
+create table if not exists question_tbl(
+q_id integer auto_increment primary key,
+qcategory varchar(30) not null,-- 질문 카테고리
+faquestion varchar(500) not null, -- 질문
+answer varchar(2000) not null -- 답변내용
+);
+
+
+
+
+insert into question_tbl(qcategory, faquestion, answer) values 
+('서비스안내','기쁘띠캐시 충전 어떻게 하나요?','계좌 연동 방식을 통해 원하는 금액만큼 충전 가능합니다. 마이페이지에서 충전액을 확인해주세요.'),
+('서비스안내', '캐시 결제 서비스는 어떤 서비스인가요?', '캐시 결제서비스는 기쁘띠를 이용하시는 고객분들을 위한 특별서비스로 선캐시충전으로 기프티콘 거래가 가능한 서비스입니다. 자세한 이용안내는 고객센터에 문의 바랍니다.'),
+('서비스안내','기쁘띠캐시 충전 한도가 있나요?','네, 현재는 일 30만원, 월 최대한도 50만원까지만 충전 가능합니다.'),
+('서비스안내','기쁘띠캐시 출금할 경우 수수료가 있나요?','아니요! 기쁘띠는 별도 수수료를 받고 있지 않습니다. 출금 수수료는 0원입니다.'),
+('상품관련', '기프티콘의 유효기간은 얼마나 되나요?', '기프티콘의 유효기간은 상품마다 상이하며 상품정보에 명시되어 있는 사항을 참고하시길 바랍니다.'),
+('상품관련','실제사용여부를 확인해주실 수 있나요?','기쁘띠는 실사용여부 확인이 어려운 점 이해해주시면 감사합니다. 발행처로 문의 또는 매장 방문 후 직원을 통해 확인 가능합니다.'),
+('상품관련','카카오톡 선물 받은 상품 판매했는데 보관함에 남아 있네요.','기쁘띠와 카카오톡 선물하기는 연동되지 않기 때문에 판매한 상품에 대한 정보가 해당 보관함에 남아 있을 수 있습니다. 정해진 유효기간동안 절대 삭제 및 취소처리하시면 안됩니다.'),
+('상품관련','기쁘띠에서 산 기프티콘을 다시 판매해도 되나요?','기쁘띠 내 상품을 다시 재판매하는 행위는 현재 어려운 상태 입니다.'),
+('결제관련', '이미 결제했는데 결제방법을 바꾸려면 어떻게 해야 하나요?', '결제완료하신 이후에는 결제방법의 변경이 불가능합니다. 이에 이용에 불편이 없으시도록 결제하시기 전에 한 번 더 확인하시길 부탁드립니다.'),
+('결제관련','카드취소는 얼마나 걸리나요?','카드 결제 후 결제취소의 경우 카드사 정책에 따라 약 3-7일 소요되고 있습니다. 불편을 드려 죄송하지만 정확한 결제취소 정산에 대해서 확인하시려면 결제하셨던 카드사 측으로 문의바랍니다.'),
+('결제관련','구매 상품이 매장 내 재고가 없어요','불편을 드려 죄송하지만 구매 전 참고사항처럼 다른 매장 방문을 통해 사용해주시면 감사합니다.'),
+('결제관련','남은 잔액 확인 되나요?','구매하신 상품의 잔액은 브랜드 매장 방문 및 발행처 고객센터 문의를 통해 확인 가능한 점 참고해주시면 감사합니다'),
+('서비스이용', '회원정보 수정은 어떻게 하나요?', '회원정보의 수정이 필요하신 경우, 마이페이지에서 수정이 가능합니다.'),
+('서비스이용','회원탈퇴는 어떻게 하나요?','마이페이지 화면 내에서 회원 탈퇴 가능합니다. 탈퇴시 개인정보는 모두 삭제되지만 판매내역 히스토리 및 동일한 이디로 재가입을 막기 위하여 아이디는 유지됩니다.'),
+('서비스이용','회원탈퇴하면 개인정보는 모두 삭제되나요?','회원탈퇴와 함께 고객님의 개인정보는 완전 삭제되어 재가입을 해도 구매내역 확인이 불가합니다. '),
+('서비스이용','유효기간 연장이나 만료로 못 쓴 상품 환불 가능한가요?','구매 후 유효기간 연장은 불가합니다. 정말 죄송하지만 기쁘띠는 일반 소비자에게 기프티콘을 구매하여 재판매하고 있습니다. 그렇기에 상품 구매 후 유효기간 연장 및 환불 불가한 점 꼭 유념하여 구매 후 유효기간 내 꼭 사용해주세요.');
+
+
+select * from question_tbl;
