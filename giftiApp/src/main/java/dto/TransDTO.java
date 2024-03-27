@@ -3,20 +3,44 @@ package dto;
 import java.util.Date;
 
 public class TransDTO {
+
+	private String userId;
 	private int registerId;
+	private int transNum;
 	private String itemName;
 	private int price;
 	private int salePrice;
-	private String sellId;
 	private String buyId;
 	private String category;
 	private String brand;
 	private Date inDate;
 	private Date transDate;
 	private Date availDate;
-	private boolean isSale;
+	private String isSale;
 	private double discount;
+	private int itemId;
 	
+	public int getTransNum() {
+		return transNum;
+	}
+	public void setTransNum(int transNum) {
+		this.transNum = transNum;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public void setIsSale(String isSale) {
+		this.isSale = isSale;
+	}
+	public int getItemId() {
+		return itemId;
+	}
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
 	public Date getAvailDate() {
 		return availDate;
 	}
@@ -60,12 +84,6 @@ public class TransDTO {
 		this.salePrice = salePrice;
 	}
 	
-	public String getSellId() {
-		return sellId;
-	}
-	public void setSellId(String sellId) {
-		this.sellId = sellId;
-	}
 	public String getBuyId() {
 		return buyId;
 	}
@@ -90,10 +108,10 @@ public class TransDTO {
 	public void setTransDate(Date transDate) {
 		this.transDate = transDate;
 	}
-	public boolean isSale() {
+	public String getIsSale() {
 		return isSale;
 	}
-	public void setSale(boolean isSale) {
+	public void setSale(String isSale) {
 		this.isSale = isSale;
 	}
 	

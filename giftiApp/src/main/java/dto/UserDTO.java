@@ -10,15 +10,30 @@ public class UserDTO {
 	private int age;
 	private String gender;
 	private String address;
-	private boolean state;
-	private int totalSale;
-	private int totalTrans;
+	private String status;
+	private int count;
+
+
+
+	
+
+
 	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+
+	public void setUserId(String user_id) {
+		this.userId = user_id;
 	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -67,22 +82,17 @@ public class UserDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public boolean isState() {
-		return state;
+	public String getStatus() {
+		return status;
 	}
-	public void setState(boolean state) {
-		this.state = state;
+	public void setStatus(String status) {
+		this.status = status;
 	}
-	public int getTotalSale() {
-		return totalSale;
+
+	public UserDTO() {
+		super();
 	}
-	public void setTotalSale(int totalSale) {
-		this.totalSale = totalSale;
-	}
-	public int getTotalTrans() {
-		return totalTrans;
-	}
-	public void setTotalTrans(int totalTrans) {
-		this.totalTrans = totalTrans;
-	}
+	
+	
+	
 }

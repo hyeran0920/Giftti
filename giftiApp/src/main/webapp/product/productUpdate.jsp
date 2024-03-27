@@ -11,8 +11,60 @@
     <meta name="author" content="" />
     <title>상품 수정</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link rel="icon" type="images/png" href="/giftiApp/images/pavicon.png">
     <link href="/giftiApp/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+	<style type="text/css">
+		img.giftImage{
+				width: 300px;
+				height:300px;
+		}
+	</style>
+	<script type="text/javascript">
+		function checkProductInsert(){
+			const itemName = document.querySelector('#item_name');
+	        const price = document.querySelector('#price');
+	        const brand = document.querySelector('#brand');
+	
+	        if(itemName.value.length === 0){
+	            alert('상품명을 입력하세요');
+	            return false;
+	        }
+	        if(isNaN(price.value)){
+	            alert('가격은 숫자로 입력하세요.')
+	            return false;
+	        }
+	        if(brand.value.length === 0){
+	            alert('브랜드를 입력하세요.')
+	            return false;
+	        }
+	        alert('상품 수정 완료!')
+	        return true;
+		}
+	</script>
+	<script type="text/javascript">
+		function loadFile(input) {
+		    let file = input.files[0]; // 선택파일 가져오기
+		
+		    let newImage = document.createElement("img"); //새 이미지 태그 생성
+		
+		    //이미지 source 가져오기
+		    newImage.src = URL.createObjectURL(file);
+		    newImage.style.width = "300px"; 
+		    newImage.style.height = "300px";
+		    
+		    //이미지를 image-show div에 추가
+		    let container = document.getElementById('imageBox');
+		    let inputText = document.querySelector('#image')
+		    container.style.margin= "5px";
+		    
+		    while(container.firstChild)  {
+		    	container.firstChild.remove()
+		      }
+		    inputText.style.display = "none";
+	    	container.appendChild(newImage);
+	}
+</script>
 </head>
 <body>
 	<class class="sb-nav-fixed">
@@ -23,17 +75,18 @@
             <main>
                 <!-- START -->
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">${product.itemName } 수정</h1>
-                    <!-- 나중에 ${name}으로 가져오면될듯 -->
-                    <ol class="breadcrumb mb-10">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="#"></a>상품 등록</li>
-                    </ol>
-
+                    <h3 class="mt-4">
+						<span class="text-primary">상품관리 </span>> 상품수정
+					</h3>
+					<ol class="breadcrumb mb-4">
+						<li class="breadcrumb-item active">상품 관리 화면</li>
+					</ol>
+                    
+                    <hr class="mb-40">
                     <!-- TABLE START -->
                     <div class="card-body">
                         <h3> 관리자 상품 등록 </h3>
-                        <form action="giftUpdate.product" method="post">
+                        <form action="giftUpdate.product" method="post" enctype="multipart/form-data" onsubmit="return checkProductInsert()">
                         	<table id="datatablesSimple" class="table table-bordered justify-content-center">
                             <thead>
                             </thead>
@@ -44,40 +97,35 @@
                                 </tr>
                                 <tr>
                                     <th>상품명</th>
-                                    <td><input type="text"  class="form-control" name="item_name" value="${product.itemName }"> </td>
+                                    <td><input type="text"  class="form-control" name="item_name" id="item_name" value="${product.itemName }"> </td>
                                 </tr>
 
                                 <tr>
                                     <th>정가</th>
-                                    <td><input type="text"  class="form-control" name="price" required value="${product.price }"> </td>
+                                    <td><input type="text"  class="form-control" name="price" id="price" value="${product.price }"> </td>
                                 </tr>
                                 <th>카테고리</th>
                                     <td>
-                                     
-                                        <select  class="form-control" name="category" id="category" >
-                       						<option value="${product.category }" selected="selected">${product.category }</option>
-                                        	<c:forEach var="category" items="categories">
-                                        		<c:if test="${category } ne ${product.category }">
-		                                        	<option value="${category }">${category }</option>
-                                        		</c:if>
-                                        	</c:forEach>
-                                        </select> 
-                                       
+                                     <input class="form-control" name="category" id="category" value="${product.category }" readonly>
+                                        
                                         
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>브랜드</th>
                                     <td>
-                                    	<input type="text"  class="form-control" name="brand" value="${product.brand }" required>
+                                    	<input type="text"  class="form-control" name="brand" id="brand" value="${product.brand }">
                                     </td>
                                 </tr>
                                 
                                 <tr>
                                     <th>이미지</th>
                                     <td>
-                                    	<input type="text"  class="form-control" name="image" value="${product.image }">
- 
+                                    	<div class="imageBox" id="imageBox">
+                                    		<img class="giftImage" alt="${ product.itemName }" src="/giftiApp/productImages/${product.image }" >
+                                    	</div>
+                                    	<input type="file" accept="image/*" class="form-control" name="image" onchange="loadFile(this)">
+                                    	<input type="text"  class="form-control" id="image" value="${product.image }" name="image2" readonly>
                                     </td>
                                 </tr>
 							</form>
@@ -85,7 +133,7 @@
                         </table>
                         <div class="box-footer text-center">
                             <!-- {% if session_user_name == orm_obj.writer %} -->
-                            <button type="submit" class="btn btn-primary btn-sm" id="btn_update">등록</button>
+                            <button type="submit" class="btn btn-primary btn-sm" id="btn_update"><i class="fa-solid fa-check"></i> 수정</button>
 
                             <!-- {% endif %} -->
                         </div>

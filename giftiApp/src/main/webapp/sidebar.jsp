@@ -22,13 +22,15 @@
 		}
 		
 		@font-face {
-    font-family: 'NEXON Lv1 Gothic OTF';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-	}	
-		.sideTotal{
-			font-family: 'NEXON Lv1 Gothic OTF';
+    	font-family: 'NEXON Lv1 Gothic OTF';
+    	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    	font-weight: normal;
+    		font-style: normal;
+		}	
+		
+		body{
+  			font-family: "Helvetica Neue", "Arial", sans-serif;
+			padding: 10px;
 		}
 		
 	</style>
@@ -46,16 +48,15 @@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts-user" aria-expanded="false"
                             aria-controls="collapseLayouts-user">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns text-color-giffty"></i></div>
-                            <span class="text-color-giffty font-nexon">회원 관리</span>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user text-color-giffty"></i></div>
+                            <span class="text-color-giffty font-nexon">&nbsp; 회원 관리</span>
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down text-color-giffty"></i></div>
                         </a>
                         </span>
                         <div class="collapse" id="collapseLayouts-user" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="userList.html"><span class="text-color-giffty-h">유저 조회</span></a>
-                                <a class="nav-link" href="userInfo.html"><span class="text-color-giffty-h">유저 수정</span></a>
+                                <a class="nav-link" href="userList.user"><span class="text-color-giffty-h">유저 조회</span></a>
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading"><span class="text-color-giffty">상품</span>
@@ -63,8 +64,8 @@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts-product" aria-expanded="false"
                             aria-controls="collapseLayouts-product">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns text-color-giffty"></i></div>
-                            <span class="text-color-giffty">상품 관리</span>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-gift text-color-giffty"></i></div>
+                            <span class="text-color-giffty">&nbsp; 상품 관리</span>
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down text-color-giffty"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts-product" aria-labelledby="headingOne"
@@ -79,9 +80,9 @@
                             data-bs-target="#collapseLayouts-tran" aria-expanded="false"
                             aria-controls="collapseLayouts-tran">
                             <div class="sb-nav-link-icon">
-                                <i class="fas fa-columns text-color-giffty"></i>
+                                <i class="fa-solid fa-cart-shopping text-color-giffty"></i>
                             </div>
-                            <span class="text-color-giffty">거래 관리</span>
+                            <span class="text-color-giffty">&nbsp; 거래 관리</span>
                             <div class="sb-sidenav-collapse-arrow">
                                 <i class="fas fa-angle-down text-color-giffty"></i>
                             </div>
@@ -89,17 +90,18 @@
                         <div class="collapse" id="collapseLayouts-tran" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link text-color-giffty" href="./TransList.html"><span class="text-color-giffty-h">거래 내역</span></a><!--거래 조회페이지-->
-                            </nav>
+                                <a class="nav-link text-color-giffty" href="allList.trans"><span class="text-color-giffty-h">거래,판매 내역</span></a><!--거래 조회페이지-->
+                                <a class="nav-link text-color-giffty" href="transList.trans"><span class="text-color-giffty-h">거래 내역</span></a><!--거래 조회페이지-->
+                                <a class="nav-link text-color-giffty" href="saleList.trans"><span class="text-color-giffty-h">판매 내역</span></a><!--거래 조회페이지--></nav>
                         </div>
                         <div class="sb-sidenav-menu-heading"><span class="text-color-giffty">고객지원</span></div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts-customer" aria-expanded="false"
                             aria-controls="collapseLayouts-customer">
                             <div class="sb-nav-link-icon">
-                                <i class="fas fa-columns text-color-giffty"></i>
+                                <i class="fa-solid fa-envelope text-color-giffty"></i>
                             </div>
-                            <span class="text-color-giffty">고객 지원</span>
+                            <span class="text-color-giffty">&nbsp; 고객 지원</span>
                             <div class="sb-sidenav-collapse-arrow">
                                 <i class="fas fa-angle-down text-color-giffty"></i>
                             </div>
@@ -107,6 +109,7 @@
                         <div class="collapse" id="collapseLayouts-customer" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
+                            	<a class="nav-link text-color-giffty" href="FAQ.customerservice" ><span class="text-color-giffty-h">FAQ</span></a><!--신고 게시판페이지-->
                                 <a class="nav-link text-color-giffty" href="#" ><span class="text-color-giffty-h">신고 신청 게시판</span></a><!--신고 게시판페이지-->
                                 <a class="nav-link text-color-giffty" href="#"><span class="text-color-giffty-h">신고 내역 조회</span></a><!--상품 조회페이지-->
                             </nav>

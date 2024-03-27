@@ -6,13 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<link rel="icon" type="images/png" href="./images/pavicon.png">
+	<link rel="icon" type="/giftiApp/images/png" href="./images/pavicon.png">
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="/giftiApp/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- 폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+    
     <style type="text/css">
     	.song-myung-regular {
         font-family: "Song Myung", serif;
@@ -33,15 +34,21 @@
         a:visited{
         	text-decoration: none;
         }
-        
-		
+        		
     </style>
+    <%
+// 세션이 없으면 로그인 페이지로 리다이렉트
+ session = request.getSession(false);
+if (session == null || session.getAttribute("userId") == null) {
+    response.sendRedirect("login.jsp");
+}
+%>
 </head>
 <body>
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-light">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3 topLogo bg-light" href="index.jsp">
-            <img class="logo" src="./images/Logo.png">
+            <img class="logo" src="/giftiApp/images/Logo.png">
             <style>
                 .logo {
                     width: 30px;
@@ -60,8 +67,13 @@
         </form>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <a href="#" style="color: #D93644;"><i class="fas fa-user fa-fw"></i> 로그아웃 </a>
-                
+          <c:if test="${empty userId}"><a href="login.do" style="color: #D93644;"><i class="fas fa-user fa-fw"></i> 로그인 </a>
+    		</c:if>
+    		
+    	  <c:if test="${not empty userId}">
+    	  <a href="userInfo.user?userId=${userId}">${userId} 관리자님</a>
+        <a href="logout.do"style="color: #D93644;"><i class="fas fa-user fa-fw"></i>로그아웃</a>
+         </c:if>     
         </ul>
     </nav>
 </body>
