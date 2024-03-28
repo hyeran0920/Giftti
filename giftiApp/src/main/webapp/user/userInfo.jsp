@@ -68,7 +68,7 @@
                             </tr>
                             <tr>
                                 <th>비밀번호</th>
-                                <td>${user.password}</td>
+                                <td>*********</td>
 
                             </tr>
                             <tr>

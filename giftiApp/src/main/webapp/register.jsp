@@ -134,7 +134,7 @@ function registerFunction(){
                                                
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 ">
-                                                        <input class="form-control" id="password1" type="password" name="password1" placeholder="Create a password" />
+                                                        <input class="form-control" id="password1" type="password" name="password1" onkeyup="passwordCheckFunction()" placeholder="Create a password" />
                                                         <label for="password1"> 비밀번호</label>
                                                     </div>
                                                 </div>
