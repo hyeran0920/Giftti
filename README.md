@@ -7,3 +7,17 @@
 
 ---
 중앙인재개발원 클라우드 데브옵스 프론트엔드&백엔드 자바 풀스택 개발자 취업캠프 
+
+
+---
+### 주제 설명
+관리자가 카테고리를 설정하여 판매 가능한 상품을 등록하면
+사용자가 등록된 상품 중에 선택하여 판매 상품을 등록하고
+사용자가 기프티콘을 구매/판매 할 수 있도록 중개하는 시스템
+
+---
+### 개발 환경
+![html](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white) ![css](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white) ![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)![java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)![mysql](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+- 언어 : Java (JDK 17), HTML5, CSS3, Javascript
+- 서버 : Apache Tomcat 9.0
+- DB : MySQL 8.0.27
