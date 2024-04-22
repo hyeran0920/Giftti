@@ -1,5 +1,7 @@
 # 제 1차 자바 프로젝트
 
+<img src="https://github.com/hyeran0920/JavaMiniProject/assets/156064008/4b5e4d27-6700-49a4-ba40-1f7deaf4db30" width="300" height="300"/>
+
 
 ### 기쁘띠          쁘띠 조
 
@@ -12,7 +14,6 @@
 
 
 
-<img src="https://github.com/hyeran0920/JavaMiniProject/assets/156064008/4b5e4d27-6700-49a4-ba40-1f7deaf4db30" width="300" height="300"/>
 
 ---
 
