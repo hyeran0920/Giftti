@@ -1,0 +1,132 @@
+.wrap{
+    margin: 0 auto;
+    width: 100%;
+}
+.content{
+    width: 100%;
+}
+
+.item-text>h3{
+    font-size: clamp(12px, 2vw, 2rem);
+    margin: 5vh 0;
+    font-weight: bold;
+}
+.item-content{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.item-image{
+    width: 50%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+.item-image>img{
+    width: clamp(300px, 90%, 480px);
+    padding: 5%;
+    background-color: #fff;
+}
+.item-info{
+    box-sizing: border-box;
+    padding-left: 5%;
+    width: 50%;
+    font-weight: bold;
+}
+.item-name-div{
+    display: flex;
+    justify-content: space-between;
+}
+.saleList-btn{
+    width: 80%;
+}
+.brand, .item-name{
+    font-size: 1.2rem;
+}
+.price{
+    display: block;
+    font-size: 1.5rem;
+}
+p.brand{
+    color: #D3404C;
+}
+.item-info-saleList{
+    background-color: #fff;
+    width: 100%;
+    margin : 0.5vh 0;
+}
+.saleTable{
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.saleTable th,td{
+    text-align: center;
+    padding: 0.5vh;
+    font-size: clamp(12px, 1.5vw, 16px);
+    font-weight: normal;
+    width: 25%;
+}
+
+.item-info-footer{
+    margin-top: 1.5vh;
+    font-size: 25px;
+}
+.register-text{
+    margin-right: 3vw;
+}
+.lowest-price{
+    margin: 0;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 2vw;
+}
+.font-col-giffty{
+    color: #D3404C;
+}
+.item-info-button{
+    margin-top: 2vh;
+    display: flex;
+    justify-content: space-around;
+}
+button{
+    border: none;
+    width: 30%;
+}
+
+.like {
+    cursor: pointer;
+  }
+.like:before {
+    content: "\f08a";
+    font-family: fontawesome;
+    font-size: 24px;
+    color: #fff;
+  }
+.like.active:before {
+    content: "\f004";
+    color: crimson;
+  }
+@media screen and (max-width: 767.98px) {
+    .item-image{
+        width: 100%;
+    }
+    .item-info{
+        width: 100%;
+    }
+  }
+  @media screen and (max-width:575.98px) {
+    .saleTable th,td{
+
+        font-size: 14px;
+
+    }
+    .lowest-price{
+        font-size: 16px;
+    }
+  }
+  a:hover{
+    color: #d3404c;
+    text-decoration: none;
+  }

@@ -1,0 +1,393 @@
+/* ############## 바디  ############## */
+.container{
+  width: 100%;
+}
+
+a:hover{
+  color: #d3404c;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  width: 100%;
+}
+.color1 {
+  /* ############## 광고 배너  ############## */
+}
+.color2 {
+  /* ############## 상품 배너  ############## */
+  margin: 20px 0;
+  width: 100%;
+  height: 450px;
+}
+
+
+
+.color3 {
+    /* ############## 카테고리 배너  ############## */
+    height: 120px;
+    margin-top: 50px;
+}
+.contain {
+  width: 70%;
+  height: 100%; /* Make sure .contain fills its parent vertically */
+  background-color: #f5f5f5;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center; /* Horizontally centers content */
+  align-items: center; /* Vertically centers content */
+}
+
+.contain table th{
+  text-align: center;
+  width: 30px;
+  font-size: 35px;
+  color: #d3404c;
+}
+.contain table td{
+  padding-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  width: 15%;
+  font-size: 14px;
+}
+
+
+
+.color4 {
+  /* ############## 검색란 배너  ############## */
+  width: 100%;
+  margin: 50px 0;
+}
+
+.search2 {
+  position: relative;
+  width: 70%;
+}
+
+.search2 input {
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 30px;
+  padding: 10px 12px;
+  font-size: 16px;
+  font-weight: bold;
+
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* 내부 그림자 추가 */
+
+}
+
+.search2 img {
+  position : absolute;
+  width: 17px;
+  top: 10px;
+  right: 12px;
+  margin: 0;
+}
+.color5 {
+  /* ############## 남자 배너  ############## */
+  height: 300px;
+  margin-top: 20px;
+}
+.color6 {
+  /* ############## 여자 배너  ############## */
+  height: 300px;
+  margin-top: 20px;
+}
+
+/* \상품 배너 */
+
+/* Google Web Fonts CDN */
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap");
+
+@font-face {
+  font-family: "GmarketSansLight";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.items-inner {
+  width: 100%;
+
+}
+
+.items-category {
+  height: 33px;
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.items-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+}
+
+.items-category ul li {
+  padding: 5px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #cfcfcf;
+  text-align: center;
+  background-color: #fff;
+}
+
+.items-category a:link,
+.items-category a:visited,
+.items-category a:active {
+  text-decoration: none;
+  color: #d3404c;
+}
+.items-category li:first-child {
+  background-color: #d3404c;
+}
+
+.items-category li:first-child a {
+  color: #fff;
+}
+.items-category li:hover {
+  background-color: #d3404c;
+}
+.items-category li:hover a {
+  color: #fff;
+}
+
+
+.products {
+  display: flex;
+  gap: 20px;
+  counter-reset: item;
+}
+.product {
+  padding: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  background-color: #fff;
+  flex: 1;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+
+}
+.product:hover:before {
+  background-color: crimson;
+}
+.product:before {
+  content: counter(item);
+  counter-increment: item;
+  position: absolute;
+  width: 10%;
+  height: 30px;
+  background-color: gray;
+  z-index: 10;
+  border-radius: 10px 0 5px 0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 30px;
+}
+
+.photo {
+  position: relative;
+  height: 250px;
+  
+}
+.photo a {
+}
+.photo a img {
+  position: absolute;
+  width: 100%;
+  /* z-index: 0; */
+  transition: 0.5s;
+}
+.photo a img:first-child {
+  z-index: 1;
+}
+.photo a img:last-child {
+}
+.photo:hover a img:first-child {
+  opacity: 0;
+}
+
+.detail {
+  height: 100px;
+  position: relative;
+  font-weight: bold;
+
+}
+.detail span {
+  display: block;
+}
+.detail .price b {
+  color: crimson;
+  margin-right: 10px;
+  font-size: 17px;
+  
+}
+.detail .name {
+  font-size: 15px;
+}
+.detail .count {
+  color: #777;
+  text-align: right;
+  font-size: 10px;
+}
+.detail .like1 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 5px;
+  bottom: 5px;
+  cursor: pointer;
+}
+.like{
+  width: 20px;
+  height: 20px;
+}
+.detail .like1:before {
+  content: "\f08a";
+  font-family: fontawesome;
+  font-size: 18px;
+  color: #999;
+}
+.detail .like1.active:before {
+  content: "\f004";
+  color: crimson;
+}
+.circleBtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.circleBtn button {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%; /* 반지름을 절반으로 설정하여 동그란 모양으로 만듭니다. */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin: 10px; /* 각 버튼 사이의 여백 조정 */
+}
+.circleBtn button:first-child {
+  background-color: #ccc; /* 첫 번째 버튼에만 흰색 배경색을 적용합니다. */
+}
+
+/* ############## 모달  ############## */
+
+.modal-buy,
+.modal-sell {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.7);
+  z-index: 10;
+  opacity: 0;
+  transition: 0.5s;
+  /* pointer-events: none;*/
+  visibility: hidden;
+}
+.modal-buy.active,
+.modal-sell.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  /* pointer-events: all; */
+  visibility: visible;
+}
+.modal-content {
+  border: 1px solid black;
+  width: 600px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  display: flex;
+}
+.modal-content > div {
+  padding: 20px;
+}
+.modal-photo {
+  flex: 1; /* flex-grow :1; flex-shrink:0;flex-basis:0;*/
+  background-color: aquamarine;
+}
+.desc {
+  flex: 2;
+  text-align: center;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.15);
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.btn-buy-close,
+.btn-sell-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  color: #999;
+  cursor: pointer;
+}
+.btn-buy-close:hover,
+.btn-sell-close:hover {
+  color: #000;
+}
+.desc-content input[type="text"] {
+  display: block;
+  width: 100%;
+  text-align: centers;
+  padding: 7px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+.desc-content input[type="text"]::placeholder {
+  color: #272c38;
+  transition: 0.5s;
+}
+.desc-content input[type="text"]:focus::placeholder {
+  visibility: hidden;
+  opacity: 0;
+}
+.desc-content button {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: rebeccapurple;
+  color: #bbb;
+  cursor: pointer;
+  padding: 7px;
+}
+
+footer{
+  width: 100%;
+  background-color: #d3404c;
+  color: #fff;
+  text-align: right;
+}
+/*반응형 모달*/
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column;
+    width: 100%;
+  }
+  .modal-content > div {
+    width: 350px;
+  }
+  .modal-photo {
+    flex-basis: 250px;
+  }
+}

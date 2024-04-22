@@ -1,0 +1,117 @@
+.wrap{
+    margin: 0 auto;
+    width: 100%;
+}
+.content{
+    width: 100%;
+}
+.purchase-header{
+    width: 100%;
+    margin: 3vh 0;
+
+}
+.purchase-header>h3{
+    font-size: clamp(24px, 3vw, 3rem);
+    font-weight: bold;
+}
+.header-line{
+    background:#D3404C;
+    height: 3px;
+    border:0;
+}
+.item-content{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+}
+.item-image{
+    width: 50%;
+    text-align: center;
+}
+.item-info{
+    margin-left: 10%;
+    text-align: left;
+    
+}
+.item-image>img{
+    width: clamp(300px, 80%, 600px);
+    padding: 5%;
+    background-color: #f8f9fa;
+}
+
+.brand{
+    font-weight: bold;
+
+}
+.item-form{
+    box-sizing: border-box;
+    padding-left: 5%;
+    width: 50%;
+    font-size: 1rem;
+}
+.price-info{
+    display: flex;
+    width: 80%;
+    text-align: center;
+    background-color: #f8f9fa;
+    margin: 0 auto;
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+.price-info>div{
+    width: 50%;
+    padding: 3%;
+    box-sizing: border-box;
+}
+.price-info p{
+    font-weight: normal;
+    color: grey;
+}
+.form-title{
+    font-size: clamp(12px, 1.5vw, 24px);
+    width: 25%;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+
+}
+.form-title>span{
+    color: rgb(255, 88, 93);
+}
+.form-content{
+    margin-bottom: 3%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+input {
+    width: 75%;
+    height: 20%;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: #f2f2f2;
+  }
+
+.form-price>input{
+    width: 40%;
+}
+  @media screen and (max-width: 767.98px) {
+    .item-image{
+        width: 100%;
+    }
+    .item-form{
+        width: 100%;
+    }
+    .form-title{
+        font-size: 1rem;
+    }
+  }
+button{
+    width: 25%;
+}
+.saleList-btn{
+    border-radius: 30px;
+}
+
