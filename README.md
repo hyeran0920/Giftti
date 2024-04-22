@@ -34,11 +34,10 @@
 
 ---
 
-### # 구현
-# 관리자 페이지
+### # 관리자 페이지
 ![IMG_DAFF43C25F66-1](https://github.com/hyeran0920/JavaMiniProject/assets/93534308/59047f7f-e424-4847-84dd-93ffaafa4d01)
 
-# 사용자 페이지
+### # 사용자 페이지
 <img width="1331" alt="KakaoTalk_Photo_2024-04-22-22-59-10" src="https://github.com/hyeran0920/JavaMiniProject/assets/93534308/f07097c6-c9fc-4537-8188-5e5f8588b0b4">
 
 ---
