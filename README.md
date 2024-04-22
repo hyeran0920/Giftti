@@ -2,12 +2,14 @@
 
 
 ### 기쁘띠          쁘띠 조
+
+
 #### 기프티콘 거래 중개 웹 관리자 페이지
 
 
 중앙인재개발원 클라우드 데브옵스 프론트엔드&백엔드 자바 풀스택 개발자 취업캠프 
-![Logo_font](https://github.com/hyeran0920/JavaMiniProject/assets/156064008/704c98f5-9cf0-4837-9210-e8d6cf8a34b5)
-
+![Logo_font]()
+<img src="https://user-images.githubusercontent.com/51365114/119627750-716f3100-be47-11eb-8e83-686b23c2c161.png" width="300" height="300"/>
 
 ---
 
