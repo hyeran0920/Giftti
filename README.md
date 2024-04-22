@@ -6,8 +6,8 @@
 
 
 중앙인재개발원 클라우드 데브옵스 프론트엔드&백엔드 자바 풀스택 개발자 취업캠프 
+![Logo_font](https://github.com/hyeran0920/JavaMiniProject/assets/156064008/704c98f5-9cf0-4837-9210-e8d6cf8a34b5)
 
-![Logo](https://github.com/hyeran0920/JavaMiniProject/assets/156064008/559b6eba-65fb-424a-a849-d101c5401fc5)
 
 ---
 
