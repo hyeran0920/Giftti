@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/header.css" />
+
+  <title>Document</title>
+</head>
+<body>
+  
+<script>
+  //검색 바 
+  var icon = document.querySelector('.icon'),
+    search = document.querySelector('.search'),
+    clear = document.querySelector('.clear')
+  searchInput = document.getElementById('searchInput'),
+    section = document.querySelector('item');
+
+  icon.onclick = function () {
+    search.classList.toggle('active')
+  }
+  clear.onclick = function () {
+    searchInput.value = ''
+  };
+
+
+</script>
+<header>
+
+<div class="lnb-outer">
+<div class="lnb">
+  <div class="logo">
+    <a href="#none"><img src="images/Logo.png" /></a>
+  </div>
+  <div class="lnb-navi">
+    <div class="search ">
+      <span class="clear"><i class="xi-close-thin"></i></span>
+      <div class="icon"><i class="xi-search"></i></div>
+      <div class="input-frame">
+        <input type="text" id="searchInput" placeholder="Type Here..">
+      </div>
+    </div>
+    
+  </div>
+  <div class="login">
+    <a href="#none">로그인</a>
+    <a href="#none">회원가입</a>
+  </div>
+</div>
+</div>
+<div class="gnb-outer">
+<nav>
+  <ul class="gnb">
+    <div class="trigger">
+      <li><a href="#">상품</a></li>
+      <li><a href="#">인기상품</a></li>
+      <li><a href="#">브랜드</a></li>
+      <li><a href="#">고객지원</a></li>
+    </div>
+  </ul>
+
+  <div class="sitemap-outer">
+    <div class="sitemap">
+      <div>
+        <b>Guided Lessons</b>
+        <a href="https://www.naver.com">Progress Tracker</a>
+        <a href="#none">Classroom Mode</a>
+        <a href="#none">Skills Progression</a>
+      </div>
+      <div>
+        <b>Learning Library</b>
+        <a href="#none">Worksheets</a>
+        <a href="#none">Games</a>
+        <a href="#none">Workbooks</a>
+        <a href="#none">Activities</a>
+        <a href="#none">Songs</a>
+        <a href="#none">Stories</a>
+        <a href="#none">Exercises</a>
+      </div>
+      <div>
+        <b>Teaching Tools</b>
+        <a href="#none">Lesson Plans</a>
+        <a href="#none">Worksheet Generator</a>
+        <a href="#none">Common Core Resources</a>
+        <a href="#none">More Teaching Tools</a>
+      </div>
+
+      <div>
+        <b>About Us</b>
+        <a href="#none">Company</a>
+        <a href="#none">Reviews</a>
+        <a href="#none">Blog</a>
+        <a href="#none">Press</a>
+        <a href="#none">Site Map</a>
+        <a href="#none">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</nav>
+</div>
+</header>
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="images/Logo.png"/> 
+  <title>GIFTTI</title>
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/header.css" />
+  <link rel="stylesheet" href="./css/product.css" />
+<!-- 아이콘 -->
+<script src="https://kit.fontawesome.com/99b81fb5ca.js" crossorigin="anonymous"></script>
+  <style>
+    /* XEICON CDN  */
+    @import url("http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css");
+
+    /* Google Web Font */
+    @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap");
+
+    /* Fontawesome 4.7 CDN   */
+    @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+    * {
+      box-sizing: border-box;
+      font-family: "Montserrat", sans-serif;
+      outline: none;
+      width: 87.5%;
+      margin : 0 auto;
+
+    }
+
+body {
+
+  font-size: 15px;
+  margin: 0 auto;
+  line-height: 1.5em;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <!-- <div class="banner-outer">
+          <div class="banner">
+            <span class="close-banner"><i class="xi-close-thin"></i></span>
+            <img src="images/banner.png" />
+          </div> -->
+  </div>
+  <div class="lnb-outer">
+    <div class="lnb">
+      <div class="logo">
+        <img src="images/Logo.png"/>
+        <a href="index.html" style="color: #d3404c; font-size: 28px; font-weight: 500;">GIFTTI</a>      
+      </div>
+      <div class="lnb-navi">
+        <div class="search ">
+          <span class="clear"><i class="xi-close-thin"></i></span>
+          <div class="icon"><i class="xi-search"></i></div>
+          <div class="input-frame">
+            <input type="text" id="searchInput" placeholder="Type Here..">
+          </div>
+        </div>
+        
+      </div>
+      <div class="login">
+        <a href="#none">로그인</a>
+        <a href="#none">회원가입</a>
+      </div>
+    </div>
+  </div>
+  <div class="gnb-outer">
+    <nav>
+      <ul class="gnb">
+        <div class="trigger">
+          <li><a href="#">상품</a></li>
+          <li><a href="#">인기상품</a></li>
+          <li><a href="#">브랜드</a></li>
+          <li><a href="#">고객지원</a></li>
+        </div>
+      </ul>
+
+      <div class="sitemap-outer">
+        <div class="sitemap">
+          <div>
+            <b>Guided Lessons</b>
+            <a href="https://www.naver.com">Progress Tracker</a>
+            <a href="#none">Classroom Mode</a>
+            <a href="#none">Skills Progression</a>
+          </div>
+          <div>
+            <b>Learning Library</b>
+            <a href="#none">Worksheets</a>
+            <a href="#none">Games</a>
+            <a href="#none">Workbooks</a>
+            <a href="#none">Activities</a>
+            <a href="#none">Songs</a>
+            <a href="#none">Stories</a>
+            <a href="#none">Exercises</a>
+          </div>
+          <div>
+            <b>Teaching Tools</b>
+            <a href="#none">Lesson Plans</a>
+            <a href="#none">Worksheet Generator</a>
+            <a href="#none">Common Core Resources</a>
+            <a href="#none">More Teaching Tools</a>
+          </div>
+
+          <div>
+            <b>About Us</b>
+            <a href="#none">Company</a>
+            <a href="#none">Reviews</a>
+            <a href="#none">Blog</a>
+            <a href="#none">Press</a>
+            <a href="#none">Site Map</a>
+            <a href="#none">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  </header>
+<body>
+  <style>
+    
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+        padding: 20px;
+       
+    }
+
+    .item {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;     
+    }
+
+    .item img {
+        max-width: 100%;
+        height:auto     
+    }
+    .detail .like {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+  .nav-item img{
+    width: 40px;
+  }
+   
+
+    @media only screen and (max-width: 768px) {
+        .grid-container {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+        .item, .item img,.detail,.navbar-expand-lg,.navbar-nav{
+        max-width: auto;
+        height: auto;
+        font-size: 15px;
+    }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .grid-container {
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        }
+        .item, .item img,.detail ,.navbar-expand-lg,.navbar-nav{
+          max-width: auto;
+        height: auto;
+        font-size: 10px;
+    }
+    }
+</style>
+
+<body>
+  <br>
+  <div class="body-wrap">
+  <div> <!--네비-->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+              <ul class="navbar-nav">
+                  <li class="nav-item category">
+                      <a class="nav-link" href="giftList.product">전체 보기</a>
+                  </li>
+                  
+                  <li class="nav-item category">
+                      <a class="nav-link" href="findCategory.product?category=패스트푸드">
+                          <img src="./images/burger.png" alt="" class="d-inline-block align-text-top">
+                          <br>
+                          패스트푸드
+                      </a>
+                  </li>
+                  <li class="nav-item category">
+                      <a class="nav-link" href="findCategory.product?category=베이커리">
+                          <img src="./images/bread.png" alt="" class="d-inline-block align-text-top">
+                          <br>
+                          베이커리
+                      </a>
+                  </li>
+                  <li class="nav-item category">
+                      <a class="nav-link" href="findCategory.product?category=치킨/피자">
+                          <img src="./images/fast-food.png" alt="" class="d-inline-block align-text-top">
+                          <br>
+
+                          치킨/피자
+                      </a>
+                  </li>
+                  <li class="nav-item category">
+                      <a class="nav-link" href="findCategory.product?category=커피/음료">
+                          <img src="./images/cafe.png" alt="" class="d-inline-block align-text-top">
+                          <br>
+                          커피/음료
+                      </a>
+                  </li>
+                  <li class="nav-item category">
+                      <a class="nav-link" href="findCategory.product?category=아이스크림">
+                          <img src="./images/ice-cream.png" alt="" class="d-inline-block align-text-top">
+                          <br>
+                          아이스크림
+                      </a>
+                  </li>
+                  <li class="nav-item category">
+                      <a class="nav-link" href="findCategory.product?category=마트/편의점">
+                          <img src="./images/convenience-store.png" alt="" class="d-inline-block align-text-top">
+                          <br>
+                          마트/편의점
+                      </a>
+                  </li>
+              </ul>           
+      </div>
+  </nav>
+  </div><!-- 네비 끝 -->
+
+<div class="grid-container"><!-- 상품 진열 박스 -->
+  
+  <div class="item" id="item1">
+    <div class="img">           
+        <img src="images/떠먹는 아이스박스.jpg">
+    </div>
+    <div class="detail">      
+        <span class="price"><b>11<small>%</small></b>5,800원<span class="like"></span></span>
+        <span class="name"><a href="itemPurchase.html">떠먹는 아이스박스</a></span>
+        <span class="count">구매 120</span>      
+    </div>
+</div>
+
+
+
+  <div class="item">
+    <div class="img">      
+      <img src="images/스타벅스_아메리카노.jpg">
+    </div>
+    <div class="detail">      
+      <span class="price"><b>10<small>%</small></b>4,050원<span class="like"></span></span>
+      <span class="name">카페 아메리카노 Tall</span>
+      <span class="count">구매 104</span>      
+    </div>
+  </div>    
+  <div class="item">
+  <div class="img">      
+    <img src="images/스타벅스_라떼.jpg">
+  </div>
+  <div class="detail">      
+    <span class="price"><b>10<small>%</small></b>4,500원<span class="like"></span></span>
+    <span class="name">카페 라떼 Tall</span>
+    <span class="count">구매 98</span>      
+  </div>
+</div>
+  <div class="item">
+    <div class="img">      
+      <img src="images/투썸_스초생.jpg">
+    </div>
+    <div class="detail">      
+      <span class="price"><b>11<small>%</small></b>33,100원<span class="like"></span></span>
+      <span class="name">스트로베리 초콜릿 생크림</span>
+      <span class="count">구매 85</span>      
+    </div>
+  </div>
+  <div class="item">
+    <div class="img">      
+        <img src="./productImages/PB) 요구르트맛젤리.jpg">      
+    </div>
+    <div class="detail">      
+      <span class="price"><b>5<small>%</small></b>1,140원<span class="like"></span></span>
+      <span class="name">요구르트</span>
+      <span class="count">구매 54</span>      
+    </div>
+  </div>
+  <div class="item">
+    <div class="img">      
+      <img src="images/cu_5천원권.jpeg">
+    </div>
+    <div class="detail">      
+      <span class="price"><b>3<small>%</small></b>4,850원<span class="like"></span></span>
+      <span class="name">5천원권</span>
+      <span class="count">구매 30</span>      
+    </div>
+  </div>
+  <div class="item">
+    <div class="img">      
+        <img src="./productImages/PB) 요구르트맛젤리.jpg">      
+    </div>
+    <div class="detail">      
+      <span class="price"><b>20<small>%</small></b>23,000원<span class="like"></span></span>
+      <span class="name">요구르트</span>
+      <span class="count">구매 70</span>      
+    </div>
+  </div>
+  <div class="item">
+    <div class="img">      
+        <img src="./productImages/PB) 요구르트맛젤리.jpg">      
+    </div>
+    <div class="detail">      
+      <span class="price"><b>20<small>%</small></b>23,000원<span class="like"></span></span>
+      <span class="name">요구르트</span>
+      <span class="count">구매 70</span>      
+    </div>
+  </div>
+  <div class="item">
+    <div class="img">      
+        <img src="./productImages/PB) 요구르트맛젤리.jpg">      
+    </div>
+    <div class="detail">      
+      <span class="price"><b>20<small>%</small></b>23,000원<span class="like"></span></span>
+      <span class="name">요구르트</span>
+      <span class="count">구매 70</span>      
+    </div>
+  </div>
+  
+
+  
+  
+<!-- 상품 진열 끝 추가는 여기 안으로 -->
+</div>
+</div> 
+<br><br><br><br><br>
+<footer>
+  <br>
+<p>@ 기쁘띠 조</p>
+<br>
+<p>서유진 | 유지연 | 이성훈 | 최현철</p>
+</footer>
+</body>
+<script>
+  $(document).ready(function() {
+    // .like 클래스를 가진 요소를 클릭 가능 영역에서 제외시킴
+    $('.grid-container .item').click(function(event) {
+      // 클릭한 요소의 하위 요소 중 .like 클래스를 가진 요소가 클릭되면 동작 중지
+      if ($(event.target).hasClass('like')) {
+        return;
+      }
+      
+      // 그 외의 경우에만 링크로 이동
+      window.location.href = $(this).find('a').attr('href');
+    });
+  });
+</script>
+<script>
+  $(".close-banner").click(function () {
+    // $('.banner-outer').hide()
+    // $('.banner-outer').fadeOut()
+    $(".banner-outer").slideUp();
+  });
+  $(".trigger").click(function () { //마우스를 올리면 메뉴가
+    $(this).addClass("active");
+    $(".gnb li").addClass("active");
+    $(".sitemap-outer").fadeIn();
+    $(".body-wrap").css("margin-top", "250px"); // body에 위쪽 여백 추가
+});
+
+  $(".trigger").click(function (event) {
+    event.stopPropagation(); // 이벤트 전파 방지
+  });
+
+  $(document).click(function () { //클릭해야 메뉴가 닫힌다
+    $(".trigger").removeClass("active");
+    $(".gnb li").removeClass("active");
+    $(".sitemap-outer").fadeOut();
+    $(".body-wrap").css("margin-top", "0"); // body에 위쪽 여백 제거
+  });
+
+
+  $('.like').click(function () {
+    $(this).toggleClass('active')
+  })
+  //검색 바 
+  var icon = document.querySelector('.icon'),
+    search = document.querySelector('.search'),
+    clear = document.querySelector('.clear')
+  searchInput = document.getElementById('searchInput'),
+    section = document.querySelector('item');
+
+  icon.onclick = function () {
+    search.classList.toggle('active')
+  }
+  clear.onclick = function () {
+    searchInput.value = ''
+  }
+  //쿼리문 닫기랑 기록삭제가 안됨
+  // $('.icon').click(function(){
+  //   $('.search').addClass('active')
+  // })
+  // $('.clear').click(function(){
+  //   $('searchInput').val('')
+  // })
+
+  //판매모달
+  $('.btn-sell-open').click(function () {
+    $('.modal-sell').addClass('active')
+  })
+  $('.btn-sell-close').click(function () {
+    $('.modal-sell').removeClass('active')
+  })
+  //구매모달
+  $('.btn-buy-open').click(function () {
+    $('.modal-buy').addClass('active')
+  })
+  $('.btn-buy-close').click(function () {
+    $('.modal-buy').removeClass('active')
+  })
+
+
+</script>
+</body>
+
+</html>
