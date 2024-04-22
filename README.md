@@ -66,5 +66,5 @@
 - 상품 : *.product
 - 유저 : *.user
 - 거래 : *.trans
-- 고객지원 : *.customer
+- 고객지원 : *.customerservice
 - 로그인 : *.do
