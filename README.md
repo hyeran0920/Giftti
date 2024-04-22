@@ -82,6 +82,7 @@
 
 ### #WBS
 
+<img width="1131" alt="image" src="https://github.com/hyeran0920/JavaMiniProject/assets/93534308/cc87e32d-e237-4cf0-9be3-f8e501941174">
 
 ---
 ### # 컨트롤러 구현
