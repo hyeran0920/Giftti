@@ -75,7 +75,7 @@
 ---
 
 ### # ERD
-![미니프로젝트 (1)](https://github.com/hyeran0920/JavaMiniProject/assets/156064008/a87a54e8-93a5-4109-a291-8fc2c21ac837)
+<img width="941" alt="미니프로젝트 (1)" src="https://github.com/hyeran0920/JavaMiniProject/assets/156064008/32564d6b-d115-4cea-89b8-9d0fd75d2cce">
 
 ---
 
