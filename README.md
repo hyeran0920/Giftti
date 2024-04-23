@@ -18,11 +18,10 @@
 ---
 
 ### 팀원 소개
-- 서유진 : https://github.com/hyeran0920
-- 유지연 : https://github.com/JiyeonU
-- 이성훈 : https://github.com/conchohi
-- 최현철 : https://github.com/choi2890 
-
+## Team
+|<img src="https://avatars.githubusercontent.com/u/93534308?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/156066188?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/156064008?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/156064523?v=4" width="150" height="150"/>|
+|:-:|:-:|:-:|:-:|
+|[@hyeran0920](https://github.com/hyeran0920)|[@JiyeonU](https://github.com/JiyeonU)|[@conchohi](https://github.com/conchohi)|choi2890<br/>[@choi2890](https://github.com/choi2890)|
 --- 
 
 ### # 프로젝트 목적
