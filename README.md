@@ -18,10 +18,10 @@
 ---
 
 ### 팀원 소개
-- 서유진 
-- 유지연
-- 이성훈
-- 최현철
+- 서유진 : https://github.com/hyeran0920
+- 유지연 : https://github.com/JiyeonU
+- 이성훈 : https://github.com/conchohi
+- 최현철 : https://github.com/choi2890 
 
 --- 
 
