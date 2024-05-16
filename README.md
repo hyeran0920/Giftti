@@ -20,7 +20,7 @@
 ### 팀원 소개
 |<img src="https://avatars.githubusercontent.com/u/93534308?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/156066188?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/156064008?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/156064523?v=4" width="150" height="150"/>|
 |:-:|:-:|:-:|:-:|
-|서유진<br/>[@hyeran0920](https://github.com/hyeran0920)|유지연<br/>[@JiyeonU](https://github.com/JiyeonU)|이성훈</br>[@conchohi](https://github.com/conchohi)|최현철<br/>[@choi2890](https://github.com/choi2890)|
+|서유진<br/>[@hyeran0920](https://github.com/hyeran0920)<br/> 회원관리|유지연<br/>[@JiyeonU](https://github.com/JiyeonU)<br/>FAQ |이성훈</br>[@conchohi](https://github.com/conchohi)<br/>상품관리|최현철<br/>[@choi2890](https://github.com/choi2890)<br/>거래관리|
 --- 
 
 ### # 프로젝트 목적
