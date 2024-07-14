@@ -29,10 +29,7 @@
 	            return false;
 	        }
 	        
-	      /*   if(qcategory.value.length === 0){
-	            alert('질의응답의 카테고리를 입력하세요.')
-	            return false;
-	        }//선택하는 걸로 어떻게 바꾸지 */
+	     
 	        return true;
 		}
 	</script>
