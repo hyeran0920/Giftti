@@ -112,8 +112,7 @@ a {
 		
 				            <h2 class="accordion-header" id="heading${question.questionId}">
 				                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${question.questionId}" aria-expanded="false" aria-controls="collapse${question.questionId}">
-				                 <%--    <strong>[ ${question.qcategory} ]</strong> &nbsp; 카테고리 내용이 나오지 않길래 그냥 주석처리 했습니다..--%>
-				                     ${question.faquestion} 
+				                             ${question.faquestion} 
 				                     
 				                </button>
 				            </h2>
@@ -128,9 +127,7 @@ a {
                                             <button type="submit" class="btn btn-danger btn-sm"
                                                 id="btn_delete" onclick="location.href='FAQDelete.customerservice'">삭제</button>
                                         </div>
-				                    
-				                    
-				                </div>
+				           </div>
 				            </div>
 				        </c:forEach>
 				    </div>
